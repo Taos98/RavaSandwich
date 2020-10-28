@@ -1,0 +1,10 @@
+C:\Users\labes\source\repos\RavaSandwich\RavaSandwich\bin\Debug\RavaSandwich.exe.config
+C:\Users\labes\source\repos\RavaSandwich\RavaSandwich\bin\Debug\RavaSandwich.exe
+C:\Users\labes\source\repos\RavaSandwich\RavaSandwich\bin\Debug\RavaSandwich.pdb
+C:\Users\labes\source\repos\RavaSandwich\RavaSandwich\obj\Debug\RavaSandwich.csprojAssemblyReference.cache
+C:\Users\labes\source\repos\RavaSandwich\RavaSandwich\obj\Debug\RavaSandwich.FormPrincipal.resources
+C:\Users\labes\source\repos\RavaSandwich\RavaSandwich\obj\Debug\RavaSandwich.Properties.Resources.resources
+C:\Users\labes\source\repos\RavaSandwich\RavaSandwich\obj\Debug\RavaSandwich.csproj.GenerateResource.cache
+C:\Users\labes\source\repos\RavaSandwich\RavaSandwich\obj\Debug\RavaSandwich.csproj.CoreCompileInputs.cache
+C:\Users\labes\source\repos\RavaSandwich\RavaSandwich\obj\Debug\RavaSandwich.exe
+C:\Users\labes\source\repos\RavaSandwich\RavaSandwich\obj\Debug\RavaSandwich.pdb
