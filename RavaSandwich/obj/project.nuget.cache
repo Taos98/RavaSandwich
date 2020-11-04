@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "jGczulD7Pmdl+DBmB/zmVVP+wEv4VC4L3mapc5ODpwTTgY3Ahz2CwYhqVIq/QUTx0sSKuYY1l219Y0eml47hSA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lucho\\source\\repos\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lucho\\.nuget\\packages\\npgsql\\4.1.5\\npgsql.4.1.5.nupkg.sha512",
+    "C:\\Users\\Lucho\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}
