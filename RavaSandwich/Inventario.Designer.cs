@@ -34,12 +34,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.consumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tablaInventario = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.tablaInventario)).BeginInit();
             this.SuspendLayout();
@@ -114,36 +108,6 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
-            // tipo
-            // 
-            this.tipo.HeaderText = "Tipo";
-            this.tipo.Name = "tipo";
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            // 
-            // inicio
-            // 
-            this.inicio.HeaderText = "Inicio";
-            this.inicio.Name = "inicio";
-            // 
-            // fin
-            // 
-            this.fin.HeaderText = "Fin";
-            this.fin.Name = "fin";
-            // 
-            // consumo
-            // 
-            this.consumo.HeaderText = "Consumo";
-            this.consumo.Name = "consumo";
-            // 
-            // ingreso
-            // 
-            this.ingreso.HeaderText = "Ingreso";
-            this.ingreso.Name = "ingreso";
-            // 
             // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -155,16 +119,9 @@
             // 
             this.tablaInventario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tablaInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaInventario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tipo,
-            this.nombre,
-            this.inicio,
-            this.fin,
-            this.consumo,
-            this.ingreso});
             this.tablaInventario.Location = new System.Drawing.Point(12, 93);
             this.tablaInventario.Name = "tablaInventario";
-            this.tablaInventario.Size = new System.Drawing.Size(672, 349);
+            this.tablaInventario.Size = new System.Drawing.Size(660, 349);
             this.tablaInventario.TabIndex = 0;
             this.tablaInventario.Text = "dataGridView1";
             this.tablaInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -191,11 +148,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnCerrarSesion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn consumo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ingreso;
     }
 }
