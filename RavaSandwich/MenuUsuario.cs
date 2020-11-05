@@ -17,8 +17,15 @@ namespace RavaSandwich
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            Inventario inv = new Inventario();
+            InventarioU inv = new InventarioU();
             inv.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
     }
 }

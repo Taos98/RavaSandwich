@@ -25,7 +25,7 @@ namespace RavaSandwich
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            Inventario inv = new Inventario();
+            InventarioA inv = new InventarioA();
             inv.Show();
         }
     }

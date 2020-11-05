@@ -9,9 +9,9 @@ using Npgsql;
 
 namespace RavaSandwich
 {
-    public partial class Inventario : Form
+    public partial class InventarioU : Form
     {
-        public Inventario()
+        public InventarioU()
         {
             InitializeComponent();
             //Datos de conexión a BD
@@ -55,7 +55,9 @@ namespace RavaSandwich
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            Login lo = new Login();
+            lo.Show();
         }
     }
 }
