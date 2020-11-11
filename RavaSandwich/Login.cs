@@ -69,5 +69,10 @@ namespace RavaSandwich
                 conn1.Close();// Cierra la consulta
             }
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

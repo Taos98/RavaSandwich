@@ -27,6 +27,7 @@ namespace RavaSandwich
         {
             InventarioA inv = new InventarioA();
             inv.Show();
+            this.Close();
         }
     }
 }

@@ -17,5 +17,8 @@ C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\bin\Debug\netcoreapp3.1\Np
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.MenuAdmin.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.csproj.CoreCompileInputs.cache
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.csproj.CopyComplete
-C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Inventario.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.MenuUsuario.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.InventarioA.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.InventarioU.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.IngresoIngredi.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.ConsumirProd.resources
