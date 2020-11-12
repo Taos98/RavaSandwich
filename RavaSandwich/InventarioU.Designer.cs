@@ -67,6 +67,7 @@
             this.btnIngreso.TabIndex = 3;
             this.btnIngreso.Text = "Ingreso";
             this.btnIngreso.UseVisualStyleBackColor = false;
+            this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
             // btnConsumo
             // 
@@ -81,6 +82,7 @@
             this.btnConsumo.TabIndex = 4;
             this.btnConsumo.Text = "Consumo";
             this.btnConsumo.UseVisualStyleBackColor = false;
+            this.btnConsumo.Click += new System.EventHandler(this.btnConsumo_Click);
             // 
             // btnCerrarSesion
             // 

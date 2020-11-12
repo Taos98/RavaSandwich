@@ -47,8 +47,11 @@ namespace RavaSandwich
 
         private void btnConsumir_Click(object sender, EventArgs e)
         {
-            //Pregunta si la cantidad a consumir es menor a la cantidad disponible
-            if (verificarStock())
+            //Pregunta si no se seleccionó un valor nulo en el comboBox (Lista de productos)
+            if ((comboProductos.SelectedItem != null))
+            {
+                //Pregunta si la cantidad a consumir es menor a la cantidad disponible
+                if (verificarStock())
             {
                 //Datos de conexión a BD
                 NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
@@ -61,7 +64,7 @@ namespace RavaSandwich
                 //No se que hace xd
                 comm.CommandType = CommandType.Text;
                 //Actualiza el producto
-                comm.CommandText = "UPDATE productos SET consumo_turno = consumo_turno+ " + numericCantidad.Value.ToString() + ", stock_inicio_turno=stock_inicio_turno-" + numericCantidad.Value.ToString() + " WHERE nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
+                comm.CommandText = "UPDATE productos SET consumo_turno = consumo_turno+ " + numericCantidad.Value.ToString() + ", stock_fin_turno=stock_fin_turno-" + numericCantidad.Value.ToString() + " WHERE nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
                 //Leer BD
                 NpgsqlDataReader dr = comm.ExecuteReader();
                 MessageBox.Show("Se ha consumido " + numericCantidad.Value.ToString() + " del producto " + comboProductos.SelectedItem.ToString(), "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -72,7 +75,12 @@ namespace RavaSandwich
             }
             else
             {
-                MessageBox.Show("La cantidad a consumir supera a la cantidad que se encuentra disponible ", "Error al consumir producto", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("La cantidad a consumir supera a la cantidad que se encuentra disponible ", "Error al consumir producto", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            }
+            else //En caso de que esté seleccionado un valor nulo
+            {
+                MessageBox.Show("Por favor, seleccione un producto ", "Casillero producto vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
 
         }
@@ -97,7 +105,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT stock_inicio_turno from productos where nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
+            comm.CommandText = "SELECT stock_fin_turno from productos where nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
 
@@ -105,7 +113,6 @@ namespace RavaSandwich
             dr.Read();
             //extrae el valor de la fila y lo asigna a una variable
             stockDB = dr.GetInt16(0);
-            
             //Cerrar comandos
             comm.Dispose();
             //Desconectar BD

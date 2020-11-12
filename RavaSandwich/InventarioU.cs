@@ -77,5 +77,31 @@ namespace RavaSandwich
             //Desconectar BD
             conn.Close();
         }
+
+        private void btnIngreso_Click(object sender, EventArgs e)
+        {
+            IngresoIngredi ing = new IngresoIngredi();
+            if (Application.OpenForms[ing.Name] == null)
+            {
+                ing.Show();
+            }
+            else
+            {
+                Application.OpenForms[ing.Name].Activate();
+            }
+        }
+
+        private void btnConsumo_Click(object sender, EventArgs e)
+        {
+            ConsumirProd con = new ConsumirProd();
+            if(Application.OpenForms[con.Name] == null)
+            {
+                con.Show();
+            }
+            else
+            {
+                Application.OpenForms[con.Name].Activate();
+            }
+        }
     }
 }

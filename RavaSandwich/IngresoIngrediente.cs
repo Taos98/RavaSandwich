@@ -56,25 +56,34 @@ namespace RavaSandwich
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
-            //Abrir BD
-            conn.Open();
-            //Crear objeto de comandos
-            NpgsqlCommand comm = new NpgsqlCommand();
-            //Crear objeto conexión
-            comm.Connection = conn;
-            //No se que hace xd
-            comm.CommandType = CommandType.Text;
-            //Actualiza el producto
-            comm.CommandText = "UPDATE productos SET ingreso_producto = "+numericCantidad.Value.ToString() +", stock_inicio_turno=stock_inicio_turno+"+numericCantidad.Value.ToString()+" WHERE nombre_prod = '"+comboProductos.SelectedItem.ToString()+"'";
-            //Leer BD
-            NpgsqlDataReader dr = comm.ExecuteReader();
-            MessageBox.Show("Se ha agregado "+numericCantidad.Value.ToString()+" al producto "+comboProductos.SelectedItem.ToString(), "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-            //Cerrar comandos
-            comm.Dispose();
-            //Desconectar BD
-            conn.Close();
+            //Pregunta si no se seleccionó un valor nulo en el comboBox (Lista de productos)
+            if((comboProductos.SelectedItem != null))
+            {
+                //Datos de conexión a BD
+                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+                //Abrir BD
+                conn.Open();
+                //Crear objeto de comandos
+                NpgsqlCommand comm = new NpgsqlCommand();
+                //Crear objeto conexión
+                comm.Connection = conn;
+                //No se que hace xd
+                comm.CommandType = CommandType.Text;
+                //Actualiza el producto
+                comm.CommandText = "UPDATE productos SET ingreso_producto = ingreso_producto +" + numericCantidad.Value.ToString() + ", stock_fin_turno=stock_fin_turno+" + numericCantidad.Value.ToString() + " WHERE nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
+                //Leer BD
+                NpgsqlDataReader dr = comm.ExecuteReader();
+                MessageBox.Show("Se ha agregado " + numericCantidad.Value.ToString() + " al producto " + comboProductos.SelectedItem.ToString(), "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                //Cerrar comandos
+                comm.Dispose();
+                //Desconectar BD
+                conn.Close();
+            }
+            else //En caso de que esté seleccionado un valor nulo
+            {
+                MessageBox.Show("Por favor, seleccione un producto " , "Casillero producto vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            }
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
