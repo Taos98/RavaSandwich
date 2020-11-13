@@ -83,6 +83,7 @@
             this.btnAgregarI.TabIndex = 3;
             this.btnAgregarI.Text = "Agregar ingrediente";
             this.btnAgregarI.UseVisualStyleBackColor = false;
+            this.btnAgregarI.Click += new System.EventHandler(this.btnAgregarI_Click);
             // 
             // btnEliminarI
             // 
@@ -94,6 +95,7 @@
             this.btnEliminarI.TabIndex = 4;
             this.btnEliminarI.Text = "Eliminar Ingrediente";
             this.btnEliminarI.UseVisualStyleBackColor = false;
+            this.btnEliminarI.Click += new System.EventHandler(this.btnEliminarI_Click);
             // 
             // btnMenu
             // 

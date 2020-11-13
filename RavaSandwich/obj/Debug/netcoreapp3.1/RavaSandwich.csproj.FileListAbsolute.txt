@@ -22,3 +22,5 @@ C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\Ra
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.InventarioU.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.IngresoIngredi.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.ConsumirProd.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.AgregarProducto.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.EliminarProducto.resources

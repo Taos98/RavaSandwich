@@ -60,7 +60,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT * from vista_inventario";
+            comm.CommandText = "SELECT * from vista_inventario ORDER BY \"Nombre\" ASC";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             if (dr.HasRows)//Si la tabla tiene 1 o más filas...

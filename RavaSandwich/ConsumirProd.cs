@@ -25,7 +25,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT nombre_prod from productos";
+            comm.CommandText = "SELECT nombre_prod from productos ORDER BY nombre_prod ASC";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             while (dr.Read())//Si la tabla tiene 1 o más filas...

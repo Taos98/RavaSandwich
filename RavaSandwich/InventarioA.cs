@@ -78,7 +78,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT * from vista_inventario";
+            comm.CommandText = "SELECT * from vista_inventario ORDER BY \"Nombre\" ASC";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             if (dr.HasRows)//Si la tabla tiene 1 o más filas...
@@ -94,6 +94,32 @@ namespace RavaSandwich
             comm.Dispose();
             //Desconectar BD
             conn.Close();
+        }
+
+        private void btnAgregarI_Click(object sender, EventArgs e)
+        {
+            AgregarProducto ag = new AgregarProducto();
+            if (Application.OpenForms[ag.Name] == null)
+            {
+                ag.Show();
+            }
+            else
+            {
+                Application.OpenForms[ag.Name].Activate();
+            }
+        }
+
+        private void btnEliminarI_Click(object sender, EventArgs e)
+        {
+            EliminarProducto el = new EliminarProducto();
+            if (Application.OpenForms[el.Name] == null)
+            {
+                el.Show();
+            }
+            else
+            {
+                Application.OpenForms[el.Name].Activate();
+            }
         }
     }
 }
