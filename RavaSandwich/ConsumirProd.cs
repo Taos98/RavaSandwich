@@ -120,5 +120,10 @@ namespace RavaSandwich
             stock = Int32.Parse(numericCantidad.Value.ToString());
             return stockDB >= stock;
         }
+
+        private void ConsumirProd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

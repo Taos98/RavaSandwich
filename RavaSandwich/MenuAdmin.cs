@@ -29,5 +29,12 @@ namespace RavaSandwich
             inv.Show();
             this.Close();
         }
+
+        private void btnAgregarPersonal_Click(object sender, EventArgs e)
+        {
+            GestionarPersonal gp = new GestionarPersonal();
+            gp.Show();
+            this.Close();
+        }
     }
 }

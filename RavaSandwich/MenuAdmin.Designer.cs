@@ -33,7 +33,6 @@
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnCaja = new System.Windows.Forms.Button();
             this.btnAgregarPersonal = new System.Windows.Forms.Button();
-            this.btnEliminarPersonal = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -44,7 +43,7 @@
             this.btnInventario.BackColor = System.Drawing.Color.YellowGreen;
             this.btnInventario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnInventario.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnInventario.Location = new System.Drawing.Point(60, 56);
+            this.btnInventario.Location = new System.Drawing.Point(65, 67);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(177, 86);
             this.btnInventario.TabIndex = 0;
@@ -59,7 +58,7 @@
             this.btnVentas.BackColor = System.Drawing.Color.YellowGreen;
             this.btnVentas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnVentas.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnVentas.Location = new System.Drawing.Point(309, 56);
+            this.btnVentas.Location = new System.Drawing.Point(314, 67);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(177, 86);
             this.btnVentas.TabIndex = 1;
@@ -73,7 +72,7 @@
             this.btnCaja.BackColor = System.Drawing.Color.YellowGreen;
             this.btnCaja.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCaja.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCaja.Location = new System.Drawing.Point(555, 57);
+            this.btnCaja.Location = new System.Drawing.Point(560, 68);
             this.btnCaja.Name = "btnCaja";
             this.btnCaja.Size = new System.Drawing.Size(177, 85);
             this.btnCaja.TabIndex = 2;
@@ -87,26 +86,13 @@
             this.btnAgregarPersonal.BackColor = System.Drawing.Color.YellowGreen;
             this.btnAgregarPersonal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAgregarPersonal.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAgregarPersonal.Location = new System.Drawing.Point(60, 222);
+            this.btnAgregarPersonal.Location = new System.Drawing.Point(65, 233);
             this.btnAgregarPersonal.Name = "btnAgregarPersonal";
             this.btnAgregarPersonal.Size = new System.Drawing.Size(177, 86);
             this.btnAgregarPersonal.TabIndex = 3;
-            this.btnAgregarPersonal.Text = "Agregar Personal";
+            this.btnAgregarPersonal.Text = "Gestionar Personal";
             this.btnAgregarPersonal.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminarPersonal
-            // 
-            this.btnEliminarPersonal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminarPersonal.AutoSize = true;
-            this.btnEliminarPersonal.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnEliminarPersonal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEliminarPersonal.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEliminarPersonal.Location = new System.Drawing.Point(309, 223);
-            this.btnEliminarPersonal.Name = "btnEliminarPersonal";
-            this.btnEliminarPersonal.Size = new System.Drawing.Size(177, 85);
-            this.btnEliminarPersonal.TabIndex = 4;
-            this.btnEliminarPersonal.Text = "Eliminar Personal";
-            this.btnEliminarPersonal.UseVisualStyleBackColor = false;
+            this.btnAgregarPersonal.Click += new System.EventHandler(this.btnAgregarPersonal_Click);
             // 
             // btnCerrarSesion
             // 
@@ -115,7 +101,7 @@
             this.btnCerrarSesion.BackColor = System.Drawing.Color.YellowGreen;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(555, 222);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(560, 233);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(176, 85);
             this.btnCerrarSesion.TabIndex = 5;
@@ -128,9 +114,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Blue;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(811, 473);
             this.Controls.Add(this.btnCerrarSesion);
-            this.Controls.Add(this.btnEliminarPersonal);
             this.Controls.Add(this.btnAgregarPersonal);
             this.Controls.Add(this.btnCaja);
             this.Controls.Add(this.btnVentas);
@@ -150,7 +135,6 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnCaja;
         private System.Windows.Forms.Button btnAgregarPersonal;
-        private System.Windows.Forms.Button btnEliminarPersonal;
         private System.Windows.Forms.Button btnCerrarSesion;
     }
 }

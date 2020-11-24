@@ -118,6 +118,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConsumirProd";
             this.Text = "Consumir Producto";
+            this.Load += new System.EventHandler(this.ConsumirProd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
