@@ -61,14 +61,14 @@ namespace RavaSandwich
             comm.Connection = conn;
             //No se que hace xd
             comm.CommandType = CommandType.Text;
-            //Consulta
+            //Consulta de los datos que se van a extraer
             comm.CommandText = "SELECT nombre, rut, telefono, correo, direccion from usuarios where nombre ='"+boxPersonal.SelectedItem.ToString()+"'";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
-            dr.Read();//Si la tabla tiene 1 o más filas...
+            dr.Read();//Se lee 1 fila nomas
             
-               //Rellena la lista desplegable
-           
+            
+           //Rellena los textBox con los datos solicitados
             txtNombre.Text = dr.GetString(0);
             txtRut.Text = dr.GetString(1);
             txtTelefono.Text = dr.GetString(2);
