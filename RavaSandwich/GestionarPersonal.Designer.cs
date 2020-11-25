@@ -169,15 +169,17 @@ namespace RavaSandwich
             this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "Agregar Personal";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(201, 464);
+            this.btnEliminar.Location = new System.Drawing.Point(177, 464);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(116, 30);
+            this.btnEliminar.Size = new System.Drawing.Size(190, 30);
             this.btnEliminar.TabIndex = 13;
-            this.btnEliminar.Text = "Eliminar Personal";
+            this.btnEliminar.Text = "Eliminar Personal Seleccionado";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCerrar
             // 
