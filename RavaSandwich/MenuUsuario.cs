@@ -27,5 +27,12 @@ namespace RavaSandwich
             login.Show();
             this.Close();
         }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            Ventas ve = new Ventas();
+            ve.Show();
+            this.Close();
+        }
     }
 }

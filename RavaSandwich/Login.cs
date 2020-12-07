@@ -35,6 +35,7 @@ namespace RavaSandwich
                 MenuAdmin ma = new MenuAdmin(); //Crea un objeto del menú
                 ma.Show();// invoca la ventana del menú
                 this.Hide();//Oculta la ventana del login
+               
             }
 
             if (blnfound == false)//si no se encuentra datos o no coinciden
@@ -59,6 +60,7 @@ namespace RavaSandwich
                 MenuUsuario mu = new MenuUsuario(); //Crea un objeto del menú
                 mu.Show();// invoca la ventana del menú
                 this.Hide();//Oculta la ventana del login
+                
             }
 
             if ((blnfound1 == false) && (blnfound == false))//si no se encuentra datos o no coinciden
@@ -74,5 +76,29 @@ namespace RavaSandwich
         {
             this.Close();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+        /*
+        public string setNombre(string n)
+        {
+            nombre = n;
+            return nombre;
+        }
+        public string setRol(string r)
+        {
+            rol = r;
+            return rol;
+        }
+        public string getNombre()
+        {
+            return nombre;
+        }
+        public string getRol()
+        {
+            return rol;
+        }*/
     }
 }
