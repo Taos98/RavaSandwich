@@ -14,6 +14,8 @@ namespace RavaSandwich
 {
     public partial class Login : Form
     {
+        public static String nombre = "";
+        public static String rol = "";
         public Login()
         {
             InitializeComponent();
@@ -30,11 +32,13 @@ namespace RavaSandwich
 
             if (dr.Read())//Si hay datos
             {
-                
+                nombre = dr.GetString(1);
+                rol = dr.GetString(3);
                 blnfound = true;//la existencia de datos es verdadera
                 MenuAdmin ma = new MenuAdmin(); //Crea un objeto del menú
                 ma.Show();// invoca la ventana del menú
                 this.Hide();//Oculta la ventana del login
+                
                
             }
 
@@ -55,12 +59,14 @@ namespace RavaSandwich
 
             if (dr1.Read())//Si hay datos
             {
-
+                nombre = dr.GetString(1);
+                rol = dr.GetString(3);
                 blnfound1 = true;//la existencia de datos es verdadera
                 MenuUsuario mu = new MenuUsuario(); //Crea un objeto del menú
                 mu.Show();// invoca la ventana del menú
                 this.Hide();//Oculta la ventana del login
                 
+
             }
 
             if ((blnfound1 == false) && (blnfound == false))//si no se encuentra datos o no coinciden
@@ -81,17 +87,8 @@ namespace RavaSandwich
         {
 
         }
-        /*
-        public string setNombre(string n)
-        {
-            nombre = n;
-            return nombre;
-        }
-        public string setRol(string r)
-        {
-            rol = r;
-            return rol;
-        }
+        
+       //Metodos get para mostrar nombre y rol de la persona que inició sesión para ser mostrado en las otras ventanas, cuando se necesite
         public string getNombre()
         {
             return nombre;
@@ -99,6 +96,6 @@ namespace RavaSandwich
         public string getRol()
         {
             return rol;
-        }*/
+        }
     }
 }

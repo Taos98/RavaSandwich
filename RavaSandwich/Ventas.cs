@@ -11,7 +11,7 @@ namespace RavaSandwich
 {
     public partial class Ventas : Form
     {
-        Login lg = new Login();
+        
         public Ventas()
         {
             InitializeComponent();
@@ -82,10 +82,20 @@ namespace RavaSandwich
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            //Despues separar los menus segun rol
-            MenuAdmin ma = new MenuAdmin();
-            ma.Show();
-            this.Close();
+            //Se crea un objeto login para obtener el rol
+            Login l = new Login();
+            //Si la persona que inició sesión es un usuario, se despliega el menú principal del usuario, en caso de que sea administrador, se desplegará el menú principal del administrador.
+            if (l.getRol() == "usuario")
+            {
+                MenuUsuario mu = new MenuUsuario();
+                mu.Show();
+                this.Close();
+            }else if (l.getRol() == "administrador")
+            {
+                MenuAdmin ma = new MenuAdmin();
+                ma.Show();
+                this.Close();
+            }
 
         }
 
@@ -109,17 +119,7 @@ namespace RavaSandwich
             NpgsqlDataReader dr = comm.ExecuteReader();
             while (dr.Read())//Si la tabla tiene 1 o más filas...
             {
-                //Rellena la lista desplegable
-                /*comboCarne1.Items.Add(dr.GetString(0));
-                comboAgregado1.Items.Add("Chucrut));
-                comboAgregado2.Items.Add(dr.GetString(2));
-                comboAgregado3.Items.Add(dr.GetString(3));
-                comboAgregado4.Items.Add(dr.GetString(4));
-                comboCarne2.Items.Add(dr.GetString(5));
-                comboAgregado5.Items.Add(dr.GetString(6));
-                comboAgregado6.Items.Add(dr.GetString(7));
-                comboAgregado7.Items.Add(dr.GetString(8));
-                comboAgregado8.Items.Add(dr.GetString(9));*/
+                //Llena los combobox con los ingredientes que corresponden a cada promo
                 comboCarne1.Text = dr.GetString(0);
                 comboAgregado1.Text = dr.GetString(1);
                 comboAgregado2.Text = dr.GetString(2);
@@ -131,7 +131,7 @@ namespace RavaSandwich
                 comboAgregado7.Text = dr.GetString(8);
                 comboAgregado8.Text = dr.GetString(9);
                 txtPrecio.Text = "$ "+dr.GetInt32(10);
-
+            //Consulta si los combobox están vacíos para ocultarlos, en caso contrario se muestran.
             if (comboCarne1.Text == "")
             {
                 comboCarne1.Visible = false;

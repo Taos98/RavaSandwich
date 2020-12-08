@@ -34,6 +34,8 @@
             this.btnCaja = new System.Windows.Forms.Button();
             this.btnAgregarPersonal = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.labelBienvenido = new System.Windows.Forms.Label();
+            this.labelNombre = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnInventario
@@ -110,12 +112,36 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
+            // labelBienvenido
+            // 
+            this.labelBienvenido.AutoSize = true;
+            this.labelBienvenido.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.labelBienvenido.ForeColor = System.Drawing.SystemColors.Info;
+            this.labelBienvenido.Location = new System.Drawing.Point(21, 25);
+            this.labelBienvenido.Name = "labelBienvenido";
+            this.labelBienvenido.Size = new System.Drawing.Size(127, 30);
+            this.labelBienvenido.TabIndex = 6;
+            this.labelBienvenido.Text = "Bienvenid@";
+            // 
+            // labelNombre
+            // 
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.labelNombre.ForeColor = System.Drawing.SystemColors.Info;
+            this.labelNombre.Location = new System.Drawing.Point(180, 25);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(21, 30);
+            this.labelNombre.TabIndex = 7;
+            this.labelNombre.Text = "-";
+            // 
             // MenuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Blue;
             this.ClientSize = new System.Drawing.Size(811, 473);
+            this.Controls.Add(this.labelNombre);
+            this.Controls.Add(this.labelBienvenido);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnAgregarPersonal);
             this.Controls.Add(this.btnCaja);
@@ -125,6 +151,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuAdmin";
             this.Text = "Menú del Administrador";
+            this.Load += new System.EventHandler(this.MenuAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +164,7 @@
         private System.Windows.Forms.Button btnCaja;
         private System.Windows.Forms.Button btnAgregarPersonal;
         private System.Windows.Forms.Button btnCerrarSesion;
+        private System.Windows.Forms.Label labelBienvenido;
+        private System.Windows.Forms.Label labelNombre;
     }
 }

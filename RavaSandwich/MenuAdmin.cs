@@ -14,6 +14,8 @@ namespace RavaSandwich
         public MenuAdmin()
         {
             InitializeComponent();
+            Login l = new Login();
+            labelNombre.Text = l.getNombre();
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -42,6 +44,11 @@ namespace RavaSandwich
             Ventas ve = new Ventas();
             ve.Show();
             this.Close();
+        }
+
+        private void MenuAdmin_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
