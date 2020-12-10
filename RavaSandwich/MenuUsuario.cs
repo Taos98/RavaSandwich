@@ -13,6 +13,8 @@ namespace RavaSandwich
         public MenuUsuario()
         {
             InitializeComponent();
+            Login l = new Login();
+            labelNombre.Text = l.getNombre();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)

@@ -36,7 +36,7 @@ namespace RavaSandwich
             this.numericCantBebida = new System.Windows.Forms.NumericUpDown();
             this.btnAgregarPromo = new System.Windows.Forms.Button();
             this.comboPromos = new System.Windows.Forms.ComboBox();
-            this.comboBebidas = new System.Windows.Forms.ComboBox();
+            this.comboBebidas1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboCarne1 = new System.Windows.Forms.ComboBox();
             this.comboCarne2 = new System.Windows.Forms.ComboBox();
@@ -59,16 +59,11 @@ namespace RavaSandwich
             this.labelAgregado4 = new System.Windows.Forms.Label();
             this.labelAgregado8 = new System.Windows.Forms.Label();
             this.comboExtraS1 = new System.Windows.Forms.ComboBox();
-            this.comboExtraS2 = new System.Windows.Forms.ComboBox();
-            this.comboBox15 = new System.Windows.Forms.ComboBox();
-            this.comboBox16 = new System.Windows.Forms.ComboBox();
             this.btnAgregarE1 = new System.Windows.Forms.Button();
-            this.btnAgregarE2 = new System.Windows.Forms.Button();
             this.numericCantVasos = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.checkBoxMayonesa1 = new System.Windows.Forms.CheckBox();
             this.checkBoxKetchup1 = new System.Windows.Forms.CheckBox();
             this.checkBoxMostaza1 = new System.Windows.Forms.CheckBox();
@@ -82,9 +77,28 @@ namespace RavaSandwich
             this.button6 = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.labelPrecio = new System.Windows.Forms.Label();
+            this.textBoxComentarios = new System.Windows.Forms.TextBox();
+            this.labelComentarios = new System.Windows.Forms.Label();
+            this.textBoxExtras = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnAgregarE2 = new System.Windows.Forms.Button();
+            this.comboExtraS2 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnAgregarBebida = new System.Windows.Forms.Button();
+            this.labelcantB2 = new System.Windows.Forms.Label();
+            this.labelSelecB2 = new System.Windows.Forms.Label();
+            this.comboBebidas2 = new System.Windows.Forms.ComboBox();
+            this.numericCantBebidas2 = new System.Windows.Forms.NumericUpDown();
+            this.labelCantB3 = new System.Windows.Forms.Label();
+            this.labelSelectB3 = new System.Windows.Forms.Label();
+            this.comboBebidas3 = new System.Windows.Forms.ComboBox();
+            this.numericCantBebidas3 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantPromo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantBebida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantVasos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericCantBebidas2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericCantBebidas3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMenu
@@ -115,13 +129,15 @@ namespace RavaSandwich
             this.numericCantPromo.Name = "numericCantPromo";
             this.numericCantPromo.Size = new System.Drawing.Size(34, 23);
             this.numericCantPromo.TabIndex = 2;
+            this.numericCantPromo.ValueChanged += new System.EventHandler(this.numericCantPromo_ValueChanged);
             // 
             // numericCantBebida
             // 
-            this.numericCantBebida.Location = new System.Drawing.Point(31, 281);
+            this.numericCantBebida.Location = new System.Drawing.Point(65, 256);
             this.numericCantBebida.Name = "numericCantBebida";
             this.numericCantBebida.Size = new System.Drawing.Size(33, 23);
             this.numericCantBebida.TabIndex = 3;
+            this.numericCantBebida.ValueChanged += new System.EventHandler(this.numericCantBebida_ValueChanged);
             // 
             // btnAgregarPromo
             // 
@@ -132,6 +148,7 @@ namespace RavaSandwich
             this.btnAgregarPromo.TabIndex = 4;
             this.btnAgregarPromo.Text = "+";
             this.btnAgregarPromo.UseVisualStyleBackColor = false;
+            this.btnAgregarPromo.Click += new System.EventHandler(this.btnAgregarPromo_Click);
             // 
             // comboPromos
             // 
@@ -142,13 +159,14 @@ namespace RavaSandwich
             this.comboPromos.TabIndex = 5;
             this.comboPromos.SelectedIndexChanged += new System.EventHandler(this.comboPromos_SelectedIndexChanged);
             // 
-            // comboBebidas
+            // comboBebidas1
             // 
-            this.comboBebidas.FormattingEnabled = true;
-            this.comboBebidas.Location = new System.Drawing.Point(87, 280);
-            this.comboBebidas.Name = "comboBebidas";
-            this.comboBebidas.Size = new System.Drawing.Size(137, 23);
-            this.comboBebidas.TabIndex = 6;
+            this.comboBebidas1.FormattingEnabled = true;
+            this.comboBebidas1.Location = new System.Drawing.Point(113, 256);
+            this.comboBebidas1.Name = "comboBebidas1";
+            this.comboBebidas1.Size = new System.Drawing.Size(137, 23);
+            this.comboBebidas1.TabIndex = 6;
+            this.comboBebidas1.SelectedIndexChanged += new System.EventHandler(this.comboBebidas_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -356,68 +374,36 @@ namespace RavaSandwich
             // comboExtraS1
             // 
             this.comboExtraS1.FormattingEnabled = true;
-            this.comboExtraS1.Location = new System.Drawing.Point(416, 254);
+            this.comboExtraS1.Location = new System.Drawing.Point(394, 260);
             this.comboExtraS1.Name = "comboExtraS1";
-            this.comboExtraS1.Size = new System.Drawing.Size(118, 23);
+            this.comboExtraS1.Size = new System.Drawing.Size(99, 23);
             this.comboExtraS1.TabIndex = 28;
-            // 
-            // comboExtraS2
-            // 
-            this.comboExtraS2.FormattingEnabled = true;
-            this.comboExtraS2.Location = new System.Drawing.Point(596, 252);
-            this.comboExtraS2.Name = "comboExtraS2";
-            this.comboExtraS2.Size = new System.Drawing.Size(126, 23);
-            this.comboExtraS2.TabIndex = 29;
-            // 
-            // comboBox15
-            // 
-            this.comboBox15.FormattingEnabled = true;
-            this.comboBox15.Location = new System.Drawing.Point(416, 302);
-            this.comboBox15.Name = "comboBox15";
-            this.comboBox15.Size = new System.Drawing.Size(118, 23);
-            this.comboBox15.TabIndex = 30;
-            // 
-            // comboBox16
-            // 
-            this.comboBox16.FormattingEnabled = true;
-            this.comboBox16.Location = new System.Drawing.Point(597, 302);
-            this.comboBox16.Name = "comboBox16";
-            this.comboBox16.Size = new System.Drawing.Size(125, 23);
-            this.comboBox16.TabIndex = 31;
             // 
             // btnAgregarE1
             // 
             this.btnAgregarE1.BackColor = System.Drawing.Color.Lime;
-            this.btnAgregarE1.Location = new System.Drawing.Point(373, 254);
+            this.btnAgregarE1.Location = new System.Drawing.Point(361, 259);
             this.btnAgregarE1.Name = "btnAgregarE1";
             this.btnAgregarE1.Size = new System.Drawing.Size(27, 24);
             this.btnAgregarE1.TabIndex = 32;
             this.btnAgregarE1.Text = "+";
             this.btnAgregarE1.UseVisualStyleBackColor = false;
-            // 
-            // btnAgregarE2
-            // 
-            this.btnAgregarE2.BackColor = System.Drawing.Color.Lime;
-            this.btnAgregarE2.Location = new System.Drawing.Point(552, 254);
-            this.btnAgregarE2.Name = "btnAgregarE2";
-            this.btnAgregarE2.Size = new System.Drawing.Size(28, 23);
-            this.btnAgregarE2.TabIndex = 33;
-            this.btnAgregarE2.Text = "+";
-            this.btnAgregarE2.UseVisualStyleBackColor = false;
+            this.btnAgregarE1.Click += new System.EventHandler(this.btnAgregarE1_Click);
             // 
             // numericCantVasos
             // 
-            this.numericCantVasos.Location = new System.Drawing.Point(272, 281);
+            this.numericCantVasos.Location = new System.Drawing.Point(272, 257);
             this.numericCantVasos.Name = "numericCantVasos";
             this.numericCantVasos.Size = new System.Drawing.Size(31, 23);
             this.numericCantVasos.TabIndex = 34;
+            this.numericCantVasos.ValueChanged += new System.EventHandler(this.numericCantVasos_ValueChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(230, 283);
+            this.label12.Location = new System.Drawing.Point(272, 238);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(37, 15);
             this.label12.TabIndex = 35;
@@ -428,7 +414,7 @@ namespace RavaSandwich
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label13.Location = new System.Drawing.Point(89, 262);
+            this.label13.Location = new System.Drawing.Point(115, 238);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(103, 15);
             this.label13.TabIndex = 36;
@@ -439,28 +425,17 @@ namespace RavaSandwich
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label14.Location = new System.Drawing.Point(373, 234);
+            this.label14.Location = new System.Drawing.Point(394, 238);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 15);
+            this.label14.Size = new System.Drawing.Size(96, 15);
             this.label14.TabIndex = 37;
-            this.label14.Text = "Extra S1";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label15.Location = new System.Drawing.Point(552, 234);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 15);
-            this.label15.TabIndex = 38;
-            this.label15.Text = "Extra S2";
+            this.label14.Text = "Extra Sandwich 1";
             // 
             // checkBoxMayonesa1
             // 
             this.checkBoxMayonesa1.AutoSize = true;
             this.checkBoxMayonesa1.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBoxMayonesa1.Location = new System.Drawing.Point(412, 466);
+            this.checkBoxMayonesa1.Location = new System.Drawing.Point(39, 532);
             this.checkBoxMayonesa1.Name = "checkBoxMayonesa1";
             this.checkBoxMayonesa1.Size = new System.Drawing.Size(80, 19);
             this.checkBoxMayonesa1.TabIndex = 39;
@@ -471,7 +446,7 @@ namespace RavaSandwich
             // 
             this.checkBoxKetchup1.AutoSize = true;
             this.checkBoxKetchup1.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBoxKetchup1.Location = new System.Drawing.Point(412, 491);
+            this.checkBoxKetchup1.Location = new System.Drawing.Point(39, 557);
             this.checkBoxKetchup1.Name = "checkBoxKetchup1";
             this.checkBoxKetchup1.Size = new System.Drawing.Size(70, 19);
             this.checkBoxKetchup1.TabIndex = 40;
@@ -482,7 +457,7 @@ namespace RavaSandwich
             // 
             this.checkBoxMostaza1.AutoSize = true;
             this.checkBoxMostaza1.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBoxMostaza1.Location = new System.Drawing.Point(412, 516);
+            this.checkBoxMostaza1.Location = new System.Drawing.Point(39, 582);
             this.checkBoxMostaza1.Name = "checkBoxMostaza1";
             this.checkBoxMostaza1.Size = new System.Drawing.Size(70, 19);
             this.checkBoxMostaza1.TabIndex = 41;
@@ -493,7 +468,7 @@ namespace RavaSandwich
             // 
             this.checkBoxAji1.AutoSize = true;
             this.checkBoxAji1.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBoxAji1.Location = new System.Drawing.Point(412, 541);
+            this.checkBoxAji1.Location = new System.Drawing.Point(39, 607);
             this.checkBoxAji1.Name = "checkBoxAji1";
             this.checkBoxAji1.Size = new System.Drawing.Size(40, 19);
             this.checkBoxAji1.TabIndex = 42;
@@ -504,7 +479,7 @@ namespace RavaSandwich
             // 
             this.checkBoxAji2.AutoSize = true;
             this.checkBoxAji2.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBoxAji2.Location = new System.Drawing.Point(539, 541);
+            this.checkBoxAji2.Location = new System.Drawing.Point(166, 607);
             this.checkBoxAji2.Name = "checkBoxAji2";
             this.checkBoxAji2.Size = new System.Drawing.Size(40, 19);
             this.checkBoxAji2.TabIndex = 46;
@@ -515,7 +490,7 @@ namespace RavaSandwich
             // 
             this.checkBoxMostaza2.AutoSize = true;
             this.checkBoxMostaza2.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBoxMostaza2.Location = new System.Drawing.Point(539, 516);
+            this.checkBoxMostaza2.Location = new System.Drawing.Point(166, 582);
             this.checkBoxMostaza2.Name = "checkBoxMostaza2";
             this.checkBoxMostaza2.Size = new System.Drawing.Size(70, 19);
             this.checkBoxMostaza2.TabIndex = 45;
@@ -526,7 +501,7 @@ namespace RavaSandwich
             // 
             this.checkBoxKetchup2.AutoSize = true;
             this.checkBoxKetchup2.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBoxKetchup2.Location = new System.Drawing.Point(539, 491);
+            this.checkBoxKetchup2.Location = new System.Drawing.Point(166, 557);
             this.checkBoxKetchup2.Name = "checkBoxKetchup2";
             this.checkBoxKetchup2.Size = new System.Drawing.Size(70, 19);
             this.checkBoxKetchup2.TabIndex = 44;
@@ -537,7 +512,7 @@ namespace RavaSandwich
             // 
             this.checkBoxMayonesa2.AutoSize = true;
             this.checkBoxMayonesa2.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBoxMayonesa2.Location = new System.Drawing.Point(539, 466);
+            this.checkBoxMayonesa2.Location = new System.Drawing.Point(166, 532);
             this.checkBoxMayonesa2.Name = "checkBoxMayonesa2";
             this.checkBoxMayonesa2.Size = new System.Drawing.Size(80, 19);
             this.checkBoxMayonesa2.TabIndex = 43;
@@ -549,7 +524,7 @@ namespace RavaSandwich
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label16.Location = new System.Drawing.Point(418, 434);
+            this.label16.Location = new System.Drawing.Point(41, 514);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(49, 15);
             this.label16.TabIndex = 47;
@@ -560,7 +535,7 @@ namespace RavaSandwich
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label17.Location = new System.Drawing.Point(539, 434);
+            this.label17.Location = new System.Drawing.Point(166, 514);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(51, 15);
             this.label17.TabIndex = 48;
@@ -571,7 +546,7 @@ namespace RavaSandwich
             this.button6.BackColor = System.Drawing.Color.DarkOrange;
             this.button6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button6.ForeColor = System.Drawing.SystemColors.Window;
-            this.button6.Location = new System.Drawing.Point(738, 406);
+            this.button6.Location = new System.Drawing.Point(738, 446);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(257, 178);
             this.button6.TabIndex = 49;
@@ -581,9 +556,10 @@ namespace RavaSandwich
             // txtPrecio
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPrecio.Location = new System.Drawing.Point(767, 280);
+            this.txtPrecio.Location = new System.Drawing.Point(738, 355);
             this.txtPrecio.Multiline = true;
             this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(206, 85);
             this.txtPrecio.TabIndex = 50;
             // 
@@ -592,11 +568,176 @@ namespace RavaSandwich
             this.labelPrecio.AutoSize = true;
             this.labelPrecio.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelPrecio.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelPrecio.Location = new System.Drawing.Point(767, 247);
+            this.labelPrecio.Location = new System.Drawing.Point(738, 321);
             this.labelPrecio.Name = "labelPrecio";
             this.labelPrecio.Size = new System.Drawing.Size(140, 30);
             this.labelPrecio.TabIndex = 51;
             this.labelPrecio.Text = "Total a pagar";
+            // 
+            // textBoxComentarios
+            // 
+            this.textBoxComentarios.Location = new System.Drawing.Point(39, 411);
+            this.textBoxComentarios.Multiline = true;
+            this.textBoxComentarios.Name = "textBoxComentarios";
+            this.textBoxComentarios.Size = new System.Drawing.Size(238, 100);
+            this.textBoxComentarios.TabIndex = 52;
+            // 
+            // labelComentarios
+            // 
+            this.labelComentarios.AutoSize = true;
+            this.labelComentarios.ForeColor = System.Drawing.SystemColors.Info;
+            this.labelComentarios.Location = new System.Drawing.Point(45, 393);
+            this.labelComentarios.Name = "labelComentarios";
+            this.labelComentarios.Size = new System.Drawing.Size(78, 15);
+            this.labelComentarios.TabIndex = 53;
+            this.labelComentarios.Text = "Comentarios:";
+            // 
+            // textBoxExtras
+            // 
+            this.textBoxExtras.Location = new System.Drawing.Point(394, 330);
+            this.textBoxExtras.Multiline = true;
+            this.textBoxExtras.Name = "textBoxExtras";
+            this.textBoxExtras.ReadOnly = true;
+            this.textBoxExtras.Size = new System.Drawing.Size(253, 174);
+            this.textBoxExtras.TabIndex = 54;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(399, 302);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 15);
+            this.label2.TabIndex = 55;
+            this.label2.Text = "Extras solicitados:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(548, 238);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 15);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "Extra Sandwich 2";
+            // 
+            // btnAgregarE2
+            // 
+            this.btnAgregarE2.BackColor = System.Drawing.Color.Lime;
+            this.btnAgregarE2.Location = new System.Drawing.Point(516, 259);
+            this.btnAgregarE2.Name = "btnAgregarE2";
+            this.btnAgregarE2.Size = new System.Drawing.Size(27, 24);
+            this.btnAgregarE2.TabIndex = 57;
+            this.btnAgregarE2.Text = "+";
+            this.btnAgregarE2.UseVisualStyleBackColor = false;
+            this.btnAgregarE2.Click += new System.EventHandler(this.btnAgregarE2_Click);
+            // 
+            // comboExtraS2
+            // 
+            this.comboExtraS2.FormattingEnabled = true;
+            this.comboExtraS2.Location = new System.Drawing.Point(548, 259);
+            this.comboExtraS2.Name = "comboExtraS2";
+            this.comboExtraS2.Size = new System.Drawing.Size(112, 23);
+            this.comboExtraS2.TabIndex = 56;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.Window;
+            this.label4.Location = new System.Drawing.Point(65, 238);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 15);
+            this.label4.TabIndex = 59;
+            this.label4.Text = "Cant.";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // btnAgregarBebida
+            // 
+            this.btnAgregarBebida.BackColor = System.Drawing.Color.Lime;
+            this.btnAgregarBebida.Location = new System.Drawing.Point(25, 256);
+            this.btnAgregarBebida.Name = "btnAgregarBebida";
+            this.btnAgregarBebida.Size = new System.Drawing.Size(27, 24);
+            this.btnAgregarBebida.TabIndex = 60;
+            this.btnAgregarBebida.Text = "+";
+            this.btnAgregarBebida.UseVisualStyleBackColor = false;
+            this.btnAgregarBebida.Click += new System.EventHandler(this.btnAgregarBebida_Click);
+            // 
+            // labelcantB2
+            // 
+            this.labelcantB2.AutoSize = true;
+            this.labelcantB2.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelcantB2.Location = new System.Drawing.Point(65, 284);
+            this.labelcantB2.Name = "labelcantB2";
+            this.labelcantB2.Size = new System.Drawing.Size(35, 15);
+            this.labelcantB2.TabIndex = 64;
+            this.labelcantB2.Text = "Cant.";
+            // 
+            // labelSelecB2
+            // 
+            this.labelSelecB2.AutoSize = true;
+            this.labelSelecB2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelSelecB2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelSelecB2.Location = new System.Drawing.Point(115, 284);
+            this.labelSelecB2.Name = "labelSelecB2";
+            this.labelSelecB2.Size = new System.Drawing.Size(103, 15);
+            this.labelSelecB2.TabIndex = 63;
+            this.labelSelecB2.Text = "Seleccione Bebida";
+            // 
+            // comboBebidas2
+            // 
+            this.comboBebidas2.FormattingEnabled = true;
+            this.comboBebidas2.Location = new System.Drawing.Point(113, 302);
+            this.comboBebidas2.Name = "comboBebidas2";
+            this.comboBebidas2.Size = new System.Drawing.Size(137, 23);
+            this.comboBebidas2.TabIndex = 62;
+            this.comboBebidas2.SelectedIndexChanged += new System.EventHandler(this.comboBebidas2_SelectedIndexChanged);
+            // 
+            // numericCantBebidas2
+            // 
+            this.numericCantBebidas2.Location = new System.Drawing.Point(65, 302);
+            this.numericCantBebidas2.Name = "numericCantBebidas2";
+            this.numericCantBebidas2.Size = new System.Drawing.Size(33, 23);
+            this.numericCantBebidas2.TabIndex = 61;
+            this.numericCantBebidas2.ValueChanged += new System.EventHandler(this.numericCantBebidas2_ValueChanged);
+            // 
+            // labelCantB3
+            // 
+            this.labelCantB3.AutoSize = true;
+            this.labelCantB3.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelCantB3.Location = new System.Drawing.Point(65, 337);
+            this.labelCantB3.Name = "labelCantB3";
+            this.labelCantB3.Size = new System.Drawing.Size(35, 15);
+            this.labelCantB3.TabIndex = 68;
+            this.labelCantB3.Text = "Cant.";
+            // 
+            // labelSelectB3
+            // 
+            this.labelSelectB3.AutoSize = true;
+            this.labelSelectB3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelSelectB3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelSelectB3.Location = new System.Drawing.Point(115, 337);
+            this.labelSelectB3.Name = "labelSelectB3";
+            this.labelSelectB3.Size = new System.Drawing.Size(103, 15);
+            this.labelSelectB3.TabIndex = 67;
+            this.labelSelectB3.Text = "Seleccione Bebida";
+            // 
+            // comboBebidas3
+            // 
+            this.comboBebidas3.FormattingEnabled = true;
+            this.comboBebidas3.Location = new System.Drawing.Point(113, 355);
+            this.comboBebidas3.Name = "comboBebidas3";
+            this.comboBebidas3.Size = new System.Drawing.Size(137, 23);
+            this.comboBebidas3.TabIndex = 66;
+            this.comboBebidas3.SelectedIndexChanged += new System.EventHandler(this.comboBebidas3_SelectedIndexChanged);
+            // 
+            // numericCantBebidas3
+            // 
+            this.numericCantBebidas3.Location = new System.Drawing.Point(65, 355);
+            this.numericCantBebidas3.Name = "numericCantBebidas3";
+            this.numericCantBebidas3.Size = new System.Drawing.Size(33, 23);
+            this.numericCantBebidas3.TabIndex = 65;
+            this.numericCantBebidas3.ValueChanged += new System.EventHandler(this.numericCantBebidas3_ValueChanged);
             // 
             // Ventas
             // 
@@ -604,6 +745,23 @@ namespace RavaSandwich
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1007, 636);
+            this.Controls.Add(this.labelCantB3);
+            this.Controls.Add(this.labelSelectB3);
+            this.Controls.Add(this.comboBebidas3);
+            this.Controls.Add(this.numericCantBebidas3);
+            this.Controls.Add(this.labelcantB2);
+            this.Controls.Add(this.labelSelecB2);
+            this.Controls.Add(this.comboBebidas2);
+            this.Controls.Add(this.numericCantBebidas2);
+            this.Controls.Add(this.btnAgregarBebida);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnAgregarE2);
+            this.Controls.Add(this.comboExtraS2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxExtras);
+            this.Controls.Add(this.labelComentarios);
+            this.Controls.Add(this.textBoxComentarios);
             this.Controls.Add(this.labelPrecio);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.button6);
@@ -617,16 +775,11 @@ namespace RavaSandwich
             this.Controls.Add(this.checkBoxMostaza1);
             this.Controls.Add(this.checkBoxKetchup1);
             this.Controls.Add(this.checkBoxMayonesa1);
-            this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.numericCantVasos);
-            this.Controls.Add(this.btnAgregarE2);
             this.Controls.Add(this.btnAgregarE1);
-            this.Controls.Add(this.comboBox16);
-            this.Controls.Add(this.comboBox15);
-            this.Controls.Add(this.comboExtraS2);
             this.Controls.Add(this.comboExtraS1);
             this.Controls.Add(this.labelAgregado8);
             this.Controls.Add(this.labelAgregado4);
@@ -649,7 +802,7 @@ namespace RavaSandwich
             this.Controls.Add(this.comboCarne2);
             this.Controls.Add(this.comboCarne1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBebidas);
+            this.Controls.Add(this.comboBebidas1);
             this.Controls.Add(this.comboPromos);
             this.Controls.Add(this.btnAgregarPromo);
             this.Controls.Add(this.numericCantBebida);
@@ -663,6 +816,8 @@ namespace RavaSandwich
             ((System.ComponentModel.ISupportInitialize)(this.numericCantPromo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantBebida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantVasos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericCantBebidas2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericCantBebidas3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -676,7 +831,7 @@ namespace RavaSandwich
         private System.Windows.Forms.NumericUpDown numericCantBebida;
         private System.Windows.Forms.Button btnAgregarPromo;
         private System.Windows.Forms.ComboBox comboPromos;
-        private System.Windows.Forms.ComboBox comboBebidas;
+        private System.Windows.Forms.ComboBox comboBebidas1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboCarne1;
         private System.Windows.Forms.ComboBox comboCarne2;
@@ -699,16 +854,11 @@ namespace RavaSandwich
         private System.Windows.Forms.Label labelAgregado4;
         private System.Windows.Forms.Label labelAgregado8;
         private System.Windows.Forms.ComboBox comboExtraS1;
-        private System.Windows.Forms.ComboBox comboExtraS2;
-        private System.Windows.Forms.ComboBox comboBox15;
-        private System.Windows.Forms.ComboBox comboBox16;
         private System.Windows.Forms.Button btnAgregarE1;
-        private System.Windows.Forms.Button btnAgregarE2;
         private System.Windows.Forms.NumericUpDown numericCantVasos;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox checkBoxMayonesa1;
         private System.Windows.Forms.CheckBox checkBoxKetchup1;
         private System.Windows.Forms.CheckBox checkBoxMostaza1;
@@ -722,5 +872,22 @@ namespace RavaSandwich
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label labelPrecio;
+        private System.Windows.Forms.TextBox textBoxComentarios;
+        private System.Windows.Forms.Label labelComentarios;
+        private System.Windows.Forms.TextBox textBoxExtras;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnAgregarE2;
+        private System.Windows.Forms.ComboBox comboExtraS2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnAgregarBebida;
+        private System.Windows.Forms.Label labelcantB2;
+        private System.Windows.Forms.Label labelSelecB2;
+        private System.Windows.Forms.ComboBox comboBebidas2;
+        private System.Windows.Forms.NumericUpDown numericCantBebidas2;
+        private System.Windows.Forms.Label labelCantB3;
+        private System.Windows.Forms.Label labelSelectB3;
+        private System.Windows.Forms.ComboBox comboBebidas3;
+        private System.Windows.Forms.NumericUpDown numericCantBebidas3;
     }
 }

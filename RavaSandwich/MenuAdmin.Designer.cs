@@ -119,16 +119,16 @@
             this.labelBienvenido.ForeColor = System.Drawing.SystemColors.Info;
             this.labelBienvenido.Location = new System.Drawing.Point(21, 25);
             this.labelBienvenido.Name = "labelBienvenido";
-            this.labelBienvenido.Size = new System.Drawing.Size(127, 30);
+            this.labelBienvenido.Size = new System.Drawing.Size(65, 30);
             this.labelBienvenido.TabIndex = 6;
-            this.labelBienvenido.Text = "Bienvenid@";
+            this.labelBienvenido.Text = "Hola!";
             // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.labelNombre.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelNombre.Location = new System.Drawing.Point(180, 25);
+            this.labelNombre.Location = new System.Drawing.Point(92, 25);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(21, 30);
             this.labelNombre.TabIndex = 7;

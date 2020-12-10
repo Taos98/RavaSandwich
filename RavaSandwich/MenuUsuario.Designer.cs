@@ -33,6 +33,8 @@
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnCaja = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.labelNombre = new System.Windows.Forms.Label();
+            this.labelBienvenido = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnInventario
@@ -86,12 +88,36 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // labelNombre
+            // 
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.labelNombre.ForeColor = System.Drawing.SystemColors.Info;
+            this.labelNombre.Location = new System.Drawing.Point(92, 20);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(21, 30);
+            this.labelNombre.TabIndex = 9;
+            this.labelNombre.Text = "-";
+            // 
+            // labelBienvenido
+            // 
+            this.labelBienvenido.AutoSize = true;
+            this.labelBienvenido.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.labelBienvenido.ForeColor = System.Drawing.SystemColors.Info;
+            this.labelBienvenido.Location = new System.Drawing.Point(21, 20);
+            this.labelBienvenido.Name = "labelBienvenido";
+            this.labelBienvenido.Size = new System.Drawing.Size(65, 30);
+            this.labelBienvenido.TabIndex = 8;
+            this.labelBienvenido.Text = "Hola!";
+            // 
             // MenuUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Blue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelNombre);
+            this.Controls.Add(this.labelBienvenido);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCaja);
             this.Controls.Add(this.btnVentas);
@@ -100,6 +126,7 @@
             this.Name = "MenuUsuario";
             this.Text = "Menú del Usuari@";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -109,5 +136,7 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnCaja;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.Label labelBienvenido;
     }
 }
