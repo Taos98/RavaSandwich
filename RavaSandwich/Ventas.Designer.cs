@@ -441,6 +441,7 @@ namespace RavaSandwich
             this.checkBoxMayonesa1.TabIndex = 39;
             this.checkBoxMayonesa1.Text = "Mayonesa";
             this.checkBoxMayonesa1.UseVisualStyleBackColor = true;
+            this.checkBoxMayonesa1.CheckedChanged += new System.EventHandler(this.checkBoxMayonesa1_CheckedChanged);
             // 
             // checkBoxKetchup1
             // 
@@ -452,6 +453,7 @@ namespace RavaSandwich
             this.checkBoxKetchup1.TabIndex = 40;
             this.checkBoxKetchup1.Text = "Ketchup";
             this.checkBoxKetchup1.UseVisualStyleBackColor = true;
+            this.checkBoxKetchup1.CheckedChanged += new System.EventHandler(this.checkBoxKetchup1_CheckedChanged);
             // 
             // checkBoxMostaza1
             // 
@@ -463,6 +465,7 @@ namespace RavaSandwich
             this.checkBoxMostaza1.TabIndex = 41;
             this.checkBoxMostaza1.Text = "Mostaza";
             this.checkBoxMostaza1.UseVisualStyleBackColor = true;
+            this.checkBoxMostaza1.CheckedChanged += new System.EventHandler(this.checkBoxMostaza1_CheckedChanged);
             // 
             // checkBoxAji1
             // 
@@ -474,6 +477,7 @@ namespace RavaSandwich
             this.checkBoxAji1.TabIndex = 42;
             this.checkBoxAji1.Text = "Aji";
             this.checkBoxAji1.UseVisualStyleBackColor = true;
+            this.checkBoxAji1.CheckedChanged += new System.EventHandler(this.checkBoxAji1_CheckedChanged);
             // 
             // checkBoxAji2
             // 
@@ -485,6 +489,7 @@ namespace RavaSandwich
             this.checkBoxAji2.TabIndex = 46;
             this.checkBoxAji2.Text = "Aji";
             this.checkBoxAji2.UseVisualStyleBackColor = true;
+            this.checkBoxAji2.CheckedChanged += new System.EventHandler(this.checkBoxAji2_CheckedChanged);
             // 
             // checkBoxMostaza2
             // 
@@ -496,6 +501,7 @@ namespace RavaSandwich
             this.checkBoxMostaza2.TabIndex = 45;
             this.checkBoxMostaza2.Text = "Mostaza";
             this.checkBoxMostaza2.UseVisualStyleBackColor = true;
+            this.checkBoxMostaza2.CheckedChanged += new System.EventHandler(this.checkBoxMostaza2_CheckedChanged);
             // 
             // checkBoxKetchup2
             // 
@@ -507,6 +513,7 @@ namespace RavaSandwich
             this.checkBoxKetchup2.TabIndex = 44;
             this.checkBoxKetchup2.Text = "Ketchup";
             this.checkBoxKetchup2.UseVisualStyleBackColor = true;
+            this.checkBoxKetchup2.CheckedChanged += new System.EventHandler(this.checkBoxKetchup2_CheckedChanged);
             // 
             // checkBoxMayonesa2
             // 
@@ -518,6 +525,7 @@ namespace RavaSandwich
             this.checkBoxMayonesa2.TabIndex = 43;
             this.checkBoxMayonesa2.Text = "Mayonesa";
             this.checkBoxMayonesa2.UseVisualStyleBackColor = true;
+            this.checkBoxMayonesa2.CheckedChanged += new System.EventHandler(this.checkBoxMayonesa2_CheckedChanged);
             // 
             // label16
             // 

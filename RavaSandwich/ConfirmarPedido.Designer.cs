@@ -32,6 +32,7 @@ namespace RavaSandwich
             this.labelTotalAPAgar = new System.Windows.Forms.Label();
             this.textBoxTotalAPagar = new System.Windows.Forms.TextBox();
             this.labelNombreC = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelTotalAPAgar
@@ -60,11 +61,19 @@ namespace RavaSandwich
             this.labelNombreC.TabIndex = 2;
             this.labelNombreC.Text = "Nombre Cliente:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(377, 35);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(239, 23);
+            this.textBox1.TabIndex = 3;
+            // 
             // ConfirmarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(772, 498);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labelNombreC);
             this.Controls.Add(this.textBoxTotalAPagar);
             this.Controls.Add(this.labelTotalAPAgar);
@@ -80,5 +89,6 @@ namespace RavaSandwich
         private System.Windows.Forms.Label labelTotalAPAgar;
         private System.Windows.Forms.TextBox textBoxTotalAPagar;
         private System.Windows.Forms.Label labelNombreC;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
