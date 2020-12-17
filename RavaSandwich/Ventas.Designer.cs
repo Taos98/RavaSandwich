@@ -74,7 +74,7 @@ namespace RavaSandwich
             this.checkBoxMayonesa2 = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.labelPrecio = new System.Windows.Forms.Label();
             this.textBoxComentarios = new System.Windows.Forms.TextBox();
@@ -549,17 +549,18 @@ namespace RavaSandwich
             this.label17.TabIndex = 48;
             this.label17.Text = "Salsa S2";
             // 
-            // button6
+            // btnConfirmar
             // 
-            this.button6.BackColor = System.Drawing.Color.DarkOrange;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button6.ForeColor = System.Drawing.SystemColors.Window;
-            this.button6.Location = new System.Drawing.Point(738, 446);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(257, 178);
-            this.button6.TabIndex = 49;
-            this.button6.Text = "Confirmar Pedido";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnConfirmar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnConfirmar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnConfirmar.Location = new System.Drawing.Point(738, 446);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(257, 178);
+            this.btnConfirmar.TabIndex = 49;
+            this.btnConfirmar.Text = "Confirmar Pedido";
+            this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // txtPrecio
             // 
@@ -772,7 +773,7 @@ namespace RavaSandwich
             this.Controls.Add(this.textBoxComentarios);
             this.Controls.Add(this.labelPrecio);
             this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.checkBoxAji2);
@@ -877,7 +878,7 @@ namespace RavaSandwich
         private System.Windows.Forms.CheckBox checkBoxMayonesa2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label labelPrecio;
         private System.Windows.Forms.TextBox textBoxComentarios;

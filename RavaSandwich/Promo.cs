@@ -121,7 +121,46 @@ namespace RavaSandwich
         
         public String toString()
         {
-            return "Cantidad promos: " + cantPromos + " || Promo: " + promo + "\nIngredientes: " + ingredientes + "\nBebidas: " + bebidas + " || Vasos: " + vasos + "\nExtras: " + extras + "\nComentarios: " + comentario + "\nSalsas Agregadas: " + salsas + "\n\nTOTAL A PAGAR: " + total;
+            return "Cantidad promos: " + cantPromos + "  Promo: " + promo + "\nIngredientes: " + ingredientes + "\nBebidas: " + bebidas + "\nVasos: " + vasos + "\nExtras: " + extras + "\nComentarios: " + comentario + "\nSalsas Agregadas: " + salsas + "\n\nTOTAL: " + total;
+        }
+        public String impresion()
+        {
+            String agregados = "";
+            int contCarnes = 0;
+            int contAgreg = 0;
+            String[] ingred = ingredientes.Split(", ");
+            for(int i=0; i<ingred.Length-1; i++)
+            {
+                if(ingred[i]=="Ave" || ingred[i]=="Churrasco" || ingred[i] == "Mechada" || ingred[i] == "Lomito" || ingred[i] == "Lomo")
+                {
+                    contCarnes++;
+                    agregados = agregados + "Carne " + contCarnes + ": " + ingred[i] + "\n";
+                }
+                else
+                {
+                    contAgreg++;
+                    agregados = agregados + "Agregado" + contAgreg + ": " + ingred[i] + "\n";
+                }
+                
+            }
+            String sals1 = "";
+            String sals2 = "";
+            String[] sa = salsas.Split(", ");
+            for (int j=0; j<sa.Length-1; j++)
+            {
+                if (sa[j].Contains("S1"))
+                {
+                    String []s = sa[j].Split("S1");
+                    sals1 = sals1 + s[0] +", " ;
+                }
+                if (sa[j].Contains("S2"))
+                {
+                    String []s = sa[j].Split("S2");
+                    sals2 = sals2 + s[0] + ", ";
+                }
+            }
+
+            return promo + "\r\n" + agregados +extras+"\r\nSalsas S1: "+sals1+"\r\nSalsas S2: "+sals2;
         }
 
     }

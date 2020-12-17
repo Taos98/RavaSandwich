@@ -515,10 +515,222 @@ namespace RavaSandwich
 
         private void btnAgregarPromo_Click(object sender, EventArgs e)
         {
-            String[] t= txtPrecio.Text.Split("$ ");
+            //Corregir si no hay promo seleccionada
+            if (comboPromos.SelectedItem != null)
+            {
+                String[] t = txtPrecio.Text.Split("$ ");
+                int subTotal = int.Parse(t[t.Length - 1]);
+                String ingred = "";//Contiene los ingredientes
+                                   //Empieza a concatenar los igredientes para evitar los null
+                if (comboCarne1.SelectedItem != null)
+                {
+                    ingred = ingred + comboCarne1.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado1.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado1.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado2.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado2.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado3.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado3.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado4.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado4.SelectedItem.ToString() + ", ";
+                }
+                if (comboCarne2.SelectedItem != null)
+                {
+                    ingred = ingred + comboCarne2.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado5.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado5.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado6.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado6.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado7.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado7.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado8.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado8.SelectedItem.ToString() + ", ";
+                }
+                String beb = "";//Contiene las bebidas
+                                //Empieza a concatenar las bebidas, evitando los null
+                if (comboBebidas1.SelectedItem != null)
+                {
+                    beb = beb + numericCantBebida.Value.ToString() + " " + comboBebidas1.SelectedItem.ToString() + " \n";
+                }
+                if (comboBebidas2.SelectedItem != null)
+                {
+                    beb = beb + numericCantBebidas2.Value.ToString() + " " + comboBebidas2.SelectedItem.ToString() + " \n";
+                }
+                if (comboBebidas3.SelectedItem != null)
+                {
+                    beb = beb + numericCantBebidas3.Value.ToString() + " " + comboBebidas3.SelectedItem.ToString() + " \n";
+                }
+                promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: " + extras1 + " \nExtras S2: " + extras2, textBoxComentarios.Text, salsas, subTotal));
+                foreach (Promo aPromo in promos)
+                {
+                    MessageBox.Show(aPromo.toString(), "Revision", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);//Para comprobar si se guardaron los datos
+                }
+                //Después de agregar una promo, se deben vaciar los casilleros
+                precioB1 = 0;
+                precioB2 = 0;
+                precioB3 = 0;
+                precioP = 0;
+                precioV = 0;
+                cantB = 1;
+                extras1 = "";
+                extras2 = "";
+                cantExtras1 = 0;
+                cantExtras2 = 0;
+                totalExtra1 = 0;
+                totalextra2 = 0;
+                salsas = "";
+                comboAgregado1.Text = "";
+                comboAgregado2.Text = "";
+                comboAgregado3.Text = "";
+                comboAgregado4.Text = "";
+                comboAgregado5.Text = "";
+                comboAgregado6.Text = "";
+                comboAgregado7.Text = "";
+                comboAgregado8.Text = "";
+                comboCarne1.Text = "";
+                comboCarne2.Text = "";
+                comboExtraS1.Text = "";
+                comboExtraS2.Text = "";
+                comboBebidas1.Text = "";
+                comboBebidas2.Text = "";
+                numericCantBebida.Value = 0;
+                numericCantBebidas2.Value = 0;
+                numericCantBebidas3.Value = 0;
+                numericCantPromo.Value = 0;
+                numericCantVasos.Value = 0;
+                textBoxComentarios.Text = "";
+                textBoxExtras.Text = "";
+                comboPromos.Text = "";
+                checkBoxMayonesa1.Checked = false;
+                checkBoxKetchup1.Checked = false;
+                checkBoxMostaza1.Checked = false;
+                checkBoxAji1.Checked = false;
+                checkBoxMayonesa2.Checked = false;
+                checkBoxKetchup2.Checked = false;
+                checkBoxMostaza2.Checked = false;
+                checkBoxAji2.Checked = false;
+            }
+            
+
+
+        }
+
+        private void numericCantPromo_ValueChanged(object sender, EventArgs e)
+        {
+            int precioConB = totalExtra1 + totalextra2 + (precioP * int.Parse(numericCantPromo.Value.ToString())) + (precioB1 * int.Parse(numericCantBebida.Value.ToString())) + (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) + (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) + precioV;
+            //Muestra el total con bebida incluida en el textbox
+            txtPrecio.Text = "$ " + precioConB;
+        }
+
+        private void checkBoxMayonesa1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxMayonesa1.Checked)
+            {
+                salsas = salsas + " Mayonesa S1, ";
+            }
+        }
+
+        private void checkBoxKetchup1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxKetchup1.Checked)
+            {
+                salsas = salsas + " Ketchup S1, ";
+            }
+        }
+
+        private void checkBoxMostaza1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxMostaza1.Checked)
+            {
+                salsas = salsas + " Mostaza S1, ";
+            }
+        }
+
+        private void checkBoxAji1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAji1.Checked)
+            {
+                salsas = salsas + " Aji S1, ";
+            }
+        }
+
+        private void checkBoxMayonesa2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxMayonesa2.Checked)
+            {
+                salsas = salsas + " Mayonesa S2, ";
+            }
+        }
+
+        private void checkBoxKetchup2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxKetchup2.Checked)
+            {
+                salsas = salsas + " Ketchup S2, ";
+            }
+        }
+
+        private void checkBoxMostaza2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxMostaza2.Checked)
+            {
+                salsas = salsas + " Mostaza S2, ";
+            }
+        }
+
+        private void checkBoxAji2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAji2.Checked)
+            {
+                salsas = salsas + " Aji S2, ";
+            }
+        }
+        //Acá va todo el/los pedido(s) del cliente para enviar a otra clase 
+        public String getPedidoCliente()
+        {
+            String pedidoFinal = "";
+            int i = 0;//Cuenta las promos
+            foreach (Promo aPromo in promos)
+            {
+                i++;//Para contar la cantidad de pedidos
+                pedidoFinal = pedidoFinal+ "\nPedido " + i + ": \n" + aPromo.toString()+"\n"; //Concatena el contenido de los pedidos y los separa segun la cantidad de promos distintos que ha pedido
+            }
+            return pedidoFinal;
+        }
+        //Acá va todo el total a pagar para enviar a otra clase 
+        public int getTotal()
+        {
+            int totalAPagar = 0;
+            foreach (Promo aPromo in promos)
+            {
+                totalAPagar = totalAPagar +aPromo.getTotal(); //Suma el total de los pedidos
+            }
+            return totalAPagar;
+
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            String[] t = txtPrecio.Text.Split("$ ");
             int subTotal = int.Parse(t[t.Length - 1]);
-            String ingred =  "";//Contiene los ingredientes
-            //Empieza a concatenar los igredientes para evitar los null
+            String ingred = "";//Contiene los ingredientes
+                               //Empieza a concatenar los igredientes para evitar los null
             if (comboCarne1.SelectedItem != null)
             {
                 ingred = ingred + comboCarne1.SelectedItem.ToString() + ", ";
@@ -560,7 +772,7 @@ namespace RavaSandwich
                 ingred = ingred + comboAgregado8.SelectedItem.ToString() + ", ";
             }
             String beb = "";//Contiene las bebidas
-            //Empieza a concatenar las bebidas, evitando los null
+                            //Empieza a concatenar las bebidas, evitando los null
             if (comboBebidas1.SelectedItem != null)
             {
                 beb = beb + numericCantBebida.Value.ToString() + " " + comboBebidas1.SelectedItem.ToString() + " \n";
@@ -573,11 +785,8 @@ namespace RavaSandwich
             {
                 beb = beb + numericCantBebidas3.Value.ToString() + " " + comboBebidas3.SelectedItem.ToString() + " \n";
             }
-            promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: "+extras1+" \nExtras S2: "+extras2, textBoxComentarios.Text, salsas, subTotal));
-            foreach (Promo aPromo in promos)
-            {
-                MessageBox.Show(aPromo.toString(), "Revision", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);//Para comprobar si se guardaron los datos
-            }
+            promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: " + extras1 + " \nExtras S2: " + extras2, textBoxComentarios.Text, salsas, subTotal));
+            
             //Después de agregar una promo, se deben vaciar los casilleros
             precioB1 = 0;
             precioB2 = 0;
@@ -622,102 +831,12 @@ namespace RavaSandwich
             checkBoxKetchup2.Checked = false;
             checkBoxMostaza2.Checked = false;
             checkBoxAji2.Checked = false;
-
-
-        }
-
-        private void numericCantPromo_ValueChanged(object sender, EventArgs e)
-        {
-            int precioConB = totalExtra1 + totalextra2 + (precioP * int.Parse(numericCantPromo.Value.ToString())) + (precioB1 * int.Parse(numericCantBebida.Value.ToString())) + (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) + (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) + precioV;
-            //Muestra el total con bebida incluida en el textbox
-            txtPrecio.Text = "$ " + precioConB;
-        }
-
-        private void checkBoxMayonesa1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxMayonesa1.Checked)
-            {
-                salsas = salsas + " Mayonesa S1 ";
-            }
-        }
-
-        private void checkBoxKetchup1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxKetchup1.Checked)
-            {
-                salsas = salsas + " Ketchup S1 ";
-            }
-        }
-
-        private void checkBoxMostaza1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxMostaza1.Checked)
-            {
-                salsas = salsas + " Mostaza S1 ";
-            }
-        }
-
-        private void checkBoxAji1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxAji1.Checked)
-            {
-                salsas = salsas + " Aji S1 ";
-            }
-        }
-
-        private void checkBoxMayonesa2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxMayonesa2.Checked)
-            {
-                salsas = salsas + " Mayonesa S2 ";
-            }
-        }
-
-        private void checkBoxKetchup2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxKetchup2.Checked)
-            {
-                salsas = salsas + " Ketchup S2 ";
-            }
-        }
-
-        private void checkBoxMostaza2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxMostaza2.Checked)
-            {
-                salsas = salsas + " Mostaza S2 ";
-            }
-        }
-
-        private void checkBoxAji2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxAji2.Checked)
-            {
-                salsas = salsas + " Aji S2 ";
-            }
-        }
-        //Acá va todo el/los pedido(s) del cliente para enviar a otra clase --PROVISORIO--
-        public String getPedidoCliente()
-        {
-            String pedidoFinal = "";
-            int i = 0;//Cuenta las promos
+            ConfirmarPedido cp = new ConfirmarPedido();
+            cp.Show();
             foreach (Promo aPromo in promos)
             {
-                i++;//Para contar la cantidad de pedidos
-                pedidoFinal = "Pedido " + i + ": \n" + aPromo.toString()+"\n"; //Concatena el contenido de los pedidos y los separa segun la cantidad de promos distintos que ha pedido
+                MessageBox.Show(aPromo.impresion(), "Comprobante", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);//Para comprobar si se guardaron los datos
             }
-            return pedidoFinal;
-        }
-        //Acá va todo el total a pagar para enviar a otra clase --PROVISORIO--
-        public int getTotal()
-        {
-            int totalAPagar = 0;
-            foreach (Promo aPromo in promos)
-            {
-                totalAPagar = totalAPagar +aPromo.getTotal(); //Suma el total de los pedidos
-            }
-            return totalAPagar;
-
         }
     }
 }
