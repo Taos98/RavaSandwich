@@ -160,7 +160,7 @@ namespace RavaSandwich
                 }
             }
 
-            return promo + "\r\n" + agregados +extras+"\r\nSalsas S1: "+sals1+"\r\nSalsas S2: "+sals2;
+            return promo + "\r\n" + agregados +extras+"\r\nSalsas S1: "+sals1+"\r\nSalsas S2: "+sals2+"\nComentarios: "+comentario;
         }
 
     }

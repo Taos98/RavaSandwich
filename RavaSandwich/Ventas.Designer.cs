@@ -122,6 +122,7 @@ namespace RavaSandwich
             this.btnHistorial.TabIndex = 1;
             this.btnHistorial.Text = "Historial pedidos del día";
             this.btnHistorial.UseVisualStyleBackColor = false;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
             // 
             // numericCantPromo
             // 

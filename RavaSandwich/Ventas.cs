@@ -28,6 +28,7 @@ namespace RavaSandwich
         public Ventas()
         {
             InitializeComponent();
+            txtPrecio.Text = "$ 0";
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
             //Abrir BD
@@ -576,7 +577,16 @@ namespace RavaSandwich
                 {
                     beb = beb + numericCantBebidas3.Value.ToString() + " " + comboBebidas3.SelectedItem.ToString() + " \n";
                 }
-                promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: " + extras1 + " \nExtras S2: " + extras2, textBoxComentarios.Text, salsas, subTotal));
+                if (comboPromos.SelectedItem == null)
+                {
+                    comboPromos.Items.Add("Ninguna");
+                    comboPromos.SelectedItem = "Ninguna";
+                }
+                if (subTotal != 0)
+                {
+                    promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: " + extras1 + " \nExtras S2: " + extras2, textBoxComentarios.Text, salsas, subTotal));
+                }
+
                 foreach (Promo aPromo in promos)
                 {
                     MessageBox.Show(aPromo.toString(), "Revision", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);//Para comprobar si se guardaron los datos
@@ -727,67 +737,138 @@ namespace RavaSandwich
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            String[] t = txtPrecio.Text.Split("$ ");
-            int subTotal = int.Parse(t[t.Length - 1]);
-            String ingred = "";//Contiene los ingredientes
-                               //Empieza a concatenar los igredientes para evitar los null
-            if (comboCarne1.SelectedItem != null)
-            {
-                ingred = ingred + comboCarne1.SelectedItem.ToString() + ", ";
-            }
-            if (comboAgregado1.SelectedItem != null)
-            {
-                ingred = ingred + comboAgregado1.SelectedItem.ToString() + ", ";
-            }
-            if (comboAgregado2.SelectedItem != null)
-            {
-                ingred = ingred + comboAgregado2.SelectedItem.ToString() + ", ";
-            }
-            if (comboAgregado3.SelectedItem != null)
-            {
-                ingred = ingred + comboAgregado3.SelectedItem.ToString() + ", ";
-            }
-            if (comboAgregado4.SelectedItem != null)
-            {
-                ingred = ingred + comboAgregado4.SelectedItem.ToString() + ", ";
-            }
-            if (comboCarne2.SelectedItem != null)
-            {
-                ingred = ingred + comboCarne2.SelectedItem.ToString() + ", ";
-            }
-            if (comboAgregado5.SelectedItem != null)
-            {
-                ingred = ingred + comboAgregado5.SelectedItem.ToString() + ", ";
-            }
-            if (comboAgregado6.SelectedItem != null)
-            {
-                ingred = ingred + comboAgregado6.SelectedItem.ToString() + ", ";
-            }
-            if (comboAgregado7.SelectedItem != null)
-            {
-                ingred = ingred + comboAgregado7.SelectedItem.ToString() + ", ";
-            }
-            if (comboAgregado8.SelectedItem != null)
-            {
-                ingred = ingred + comboAgregado8.SelectedItem.ToString() + ", ";
-            }
-            String beb = "";//Contiene las bebidas
-                            //Empieza a concatenar las bebidas, evitando los null
-            if (comboBebidas1.SelectedItem != null)
-            {
-                beb = beb + numericCantBebida.Value.ToString() + " " + comboBebidas1.SelectedItem.ToString() + " \n";
-            }
-            if (comboBebidas2.SelectedItem != null)
-            {
-                beb = beb + numericCantBebidas2.Value.ToString() + " " + comboBebidas2.SelectedItem.ToString() + " \n";
-            }
-            if (comboBebidas3.SelectedItem != null)
-            {
-                beb = beb + numericCantBebidas3.Value.ToString() + " " + comboBebidas3.SelectedItem.ToString() + " \n";
-            }
-            promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: " + extras1 + " \nExtras S2: " + extras2, textBoxComentarios.Text, salsas, subTotal));
             
-            //Después de agregar una promo, se deben vaciar los casilleros
+            
+                String[] t = txtPrecio.Text.Split("$ ");
+                int subTotal = int.Parse(t[t.Length - 1]);
+                String ingred = "";//Contiene los ingredientes
+                                   //Empieza a concatenar los igredientes para evitar los null
+                if (comboCarne1.SelectedItem != null)
+                {
+                    ingred = ingred + comboCarne1.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado1.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado1.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado2.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado2.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado3.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado3.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado4.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado4.SelectedItem.ToString() + ", ";
+                }
+                if (comboCarne2.SelectedItem != null)
+                {
+                    ingred = ingred + comboCarne2.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado5.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado5.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado6.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado6.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado7.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado7.SelectedItem.ToString() + ", ";
+                }
+                if (comboAgregado8.SelectedItem != null)
+                {
+                    ingred = ingred + comboAgregado8.SelectedItem.ToString() + ", ";
+                }
+                String beb = "";//Contiene las bebidas
+                                //Empieza a concatenar las bebidas, evitando los null
+                if (comboBebidas1.SelectedItem != null)
+                {
+                    beb = beb + numericCantBebida.Value.ToString() + " " + comboBebidas1.SelectedItem.ToString() + " \n";
+                }
+                if (comboBebidas2.SelectedItem != null)
+                {
+                    beb = beb + numericCantBebidas2.Value.ToString() + " " + comboBebidas2.SelectedItem.ToString() + " \n";
+                }
+                if (comboBebidas3.SelectedItem != null)
+                {
+                    beb = beb + numericCantBebidas3.Value.ToString() + " " + comboBebidas3.SelectedItem.ToString() + " \n";
+                }
+                if (comboPromos.SelectedItem == null)
+                {
+                    comboPromos.Items.Add("Ninguna");
+                comboPromos.SelectedItem = "Ninguna";
+                }
+                if (subTotal != 0)
+                {
+                    promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: " + extras1 + " \nExtras S2: " + extras2, textBoxComentarios.Text, salsas, subTotal));
+                }
+
+
+                //Después de agregar una promo, se deben vaciar los casilleros
+                precioB1 = 0;
+                precioB2 = 0;
+                precioB3 = 0;
+                precioP = 0;
+                precioV = 0;
+                cantB = 1;
+                extras1 = "";
+                extras2 = "";
+                cantExtras1 = 0;
+                cantExtras2 = 0;
+                totalExtra1 = 0;
+                totalextra2 = 0;
+                salsas = "";
+                comboAgregado1.Text = "";
+                comboAgregado2.Text = "";
+                comboAgregado3.Text = "";
+                comboAgregado4.Text = "";
+                comboAgregado5.Text = "";
+                comboAgregado6.Text = "";
+                comboAgregado7.Text = "";
+                comboAgregado8.Text = "";
+                comboCarne1.Text = "";
+                comboCarne2.Text = "";
+                comboExtraS1.Text = "";
+                comboExtraS2.Text = "";
+                comboBebidas1.Text = "";
+                comboBebidas2.Text = "";
+                numericCantBebida.Value = 0;
+                numericCantBebidas2.Value = 0;
+                numericCantBebidas3.Value = 0;
+                numericCantPromo.Value = 0;
+                numericCantVasos.Value = 0;
+                textBoxComentarios.Text = "";
+                textBoxExtras.Text = "";
+                comboPromos.Text = "";
+                checkBoxMayonesa1.Checked = false;
+                checkBoxKetchup1.Checked = false;
+                checkBoxMostaza1.Checked = false;
+                checkBoxAji1.Checked = false;
+                checkBoxMayonesa2.Checked = false;
+                checkBoxKetchup2.Checked = false;
+                checkBoxMostaza2.Checked = false;
+                checkBoxAji2.Checked = false;
+                ConfirmarPedido cp = new ConfirmarPedido();
+                cp.Show();
+                foreach (Promo aPromo in promos)
+                {
+                    MessageBox.Show(aPromo.impresion(), "Comprobante", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);//Para comprobar si se guardaron los datos
+                }
+            this.Close();
+            }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            HistorialVentas hv = new HistorialVentas();
+            hv.Show();
+        }
+        public void vaciarLista()
+        {
+            promos.Clear();
             precioB1 = 0;
             precioB2 = 0;
             precioB3 = 0;
@@ -831,12 +912,15 @@ namespace RavaSandwich
             checkBoxKetchup2.Checked = false;
             checkBoxMostaza2.Checked = false;
             checkBoxAji2.Checked = false;
-            ConfirmarPedido cp = new ConfirmarPedido();
-            cp.Show();
+        }
+        public String getImpresionC()
+        {
+            String imp = "";
             foreach (Promo aPromo in promos)
             {
-                MessageBox.Show(aPromo.impresion(), "Comprobante", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);//Para comprobar si se guardaron los datos
+                imp += aPromo.impresion()+"\n***********************\n";
             }
+            return imp;
         }
     }
 }

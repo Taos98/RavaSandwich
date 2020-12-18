@@ -32,7 +32,7 @@ namespace RavaSandwich
             this.labelTotalAPAgar = new System.Windows.Forms.Label();
             this.textBoxTotalAPagar = new System.Windows.Forms.TextBox();
             this.labelNombreC = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNombreCliente = new System.Windows.Forms.TextBox();
             this.labelCajero = new System.Windows.Forms.Label();
             this.labelNombreCajero = new System.Windows.Forms.Label();
             this.labelPedido = new System.Windows.Forms.Label();
@@ -48,6 +48,8 @@ namespace RavaSandwich
             this.textBoxDescuento = new System.Windows.Forms.TextBox();
             this.labelIndicarDescto = new System.Windows.Forms.Label();
             this.listBoxPedido = new System.Windows.Forms.ListBox();
+            this.buttonAtras = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // labelTotalAPAgar
@@ -78,12 +80,12 @@ namespace RavaSandwich
             this.labelNombreC.TabIndex = 2;
             this.labelNombreC.Text = "Nombre Cliente:";
             // 
-            // textBox1
+            // textBoxNombreCliente
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 142);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 23);
-            this.textBox1.TabIndex = 3;
+            this.textBoxNombreCliente.Location = new System.Drawing.Point(125, 142);
+            this.textBoxNombreCliente.Name = "textBoxNombreCliente";
+            this.textBoxNombreCliente.Size = new System.Drawing.Size(143, 23);
+            this.textBoxNombreCliente.TabIndex = 3;
             // 
             // labelCajero
             // 
@@ -123,6 +125,7 @@ namespace RavaSandwich
             this.btnPagar.TabIndex = 8;
             this.btnPagar.Text = "Finalizar Pedido";
             this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // labelMetod
             // 
@@ -142,6 +145,7 @@ namespace RavaSandwich
             this.checkBoxEfectivo.TabIndex = 10;
             this.checkBoxEfectivo.Text = "Efectivo";
             this.checkBoxEfectivo.UseVisualStyleBackColor = true;
+            this.checkBoxEfectivo.CheckedChanged += new System.EventHandler(this.checkBoxEfectivo_CheckedChanged);
             // 
             // checkBoxTansbank
             // 
@@ -152,6 +156,7 @@ namespace RavaSandwich
             this.checkBoxTansbank.TabIndex = 11;
             this.checkBoxTansbank.Text = "TransBank";
             this.checkBoxTansbank.UseVisualStyleBackColor = true;
+            this.checkBoxTansbank.CheckedChanged += new System.EventHandler(this.checkBoxTansbank_CheckedChanged);
             // 
             // checkBoxConsumoLocal
             // 
@@ -162,6 +167,7 @@ namespace RavaSandwich
             this.checkBoxConsumoLocal.TabIndex = 12;
             this.checkBoxConsumoLocal.Text = "Consumo Local";
             this.checkBoxConsumoLocal.UseVisualStyleBackColor = true;
+            this.checkBoxConsumoLocal.CheckedChanged += new System.EventHandler(this.checkBoxConsumoLocal_CheckedChanged);
             // 
             // checkBoxPedidosYa
             // 
@@ -183,6 +189,7 @@ namespace RavaSandwich
             this.checkBoxPYEfectivo.TabIndex = 14;
             this.checkBoxPYEfectivo.Text = "Efectivo";
             this.checkBoxPYEfectivo.UseVisualStyleBackColor = true;
+            this.checkBoxPYEfectivo.CheckedChanged += new System.EventHandler(this.checkBoxPYEfectivo_CheckedChanged);
             // 
             // checkBoxPYDescuentos
             // 
@@ -204,6 +211,7 @@ namespace RavaSandwich
             this.checkBoxPYOnline.TabIndex = 16;
             this.checkBoxPYOnline.Text = "Online";
             this.checkBoxPYOnline.UseVisualStyleBackColor = true;
+            this.checkBoxPYOnline.CheckedChanged += new System.EventHandler(this.checkBoxPYOnline_CheckedChanged);
             // 
             // textBoxDescuento
             // 
@@ -230,11 +238,22 @@ namespace RavaSandwich
             this.listBoxPedido.Size = new System.Drawing.Size(346, 199);
             this.listBoxPedido.TabIndex = 20;
             // 
+            // buttonAtras
+            // 
+            this.buttonAtras.Location = new System.Drawing.Point(41, 423);
+            this.buttonAtras.Name = "buttonAtras";
+            this.buttonAtras.Size = new System.Drawing.Size(138, 45);
+            this.buttonAtras.TabIndex = 21;
+            this.buttonAtras.Text = "Atras";
+            this.buttonAtras.UseVisualStyleBackColor = true;
+            this.buttonAtras.Click += new System.EventHandler(this.buttonAtras_Click);
+            // 
             // ConfirmarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(772, 498);
+            this.Controls.Add(this.buttonAtras);
             this.Controls.Add(this.listBoxPedido);
             this.Controls.Add(this.labelIndicarDescto);
             this.Controls.Add(this.textBoxDescuento);
@@ -250,7 +269,7 @@ namespace RavaSandwich
             this.Controls.Add(this.labelPedido);
             this.Controls.Add(this.labelNombreCajero);
             this.Controls.Add(this.labelCajero);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNombreCliente);
             this.Controls.Add(this.labelNombreC);
             this.Controls.Add(this.textBoxTotalAPagar);
             this.Controls.Add(this.labelTotalAPAgar);
@@ -266,7 +285,7 @@ namespace RavaSandwich
         private System.Windows.Forms.Label labelTotalAPAgar;
         private System.Windows.Forms.TextBox textBoxTotalAPagar;
         private System.Windows.Forms.Label labelNombreC;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNombreCliente;
         private System.Windows.Forms.Label labelCajero;
         private System.Windows.Forms.Label labelNombreCajero;
         private System.Windows.Forms.Label labelPedido;
@@ -282,5 +301,7 @@ namespace RavaSandwich
         private System.Windows.Forms.TextBox textBoxDescuento;
         private System.Windows.Forms.Label labelIndicarDescto;
         private System.Windows.Forms.ListBox listBoxPedido;
+        private System.Windows.Forms.Button buttonAtras;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
