@@ -50,5 +50,12 @@ namespace RavaSandwich
         {
             
         }
+
+        private void btnCaja_Click(object sender, EventArgs e)
+        {
+            Caja ca = new Caja();
+            ca.Show();
+            this.Close();
+        }
     }
 }

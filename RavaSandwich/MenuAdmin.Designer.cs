@@ -81,6 +81,7 @@
             this.btnCaja.TabIndex = 2;
             this.btnCaja.Text = "Caja";
             this.btnCaja.UseVisualStyleBackColor = false;
+            this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
             // 
             // btnAgregarPersonal
             // 

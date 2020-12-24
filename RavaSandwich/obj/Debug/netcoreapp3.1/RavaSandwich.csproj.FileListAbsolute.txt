@@ -29,3 +29,4 @@ C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\Ra
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Ventas.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.ConfirmarPedido.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.HistorialVentas.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Caja.resources

@@ -7,6 +7,18 @@
     <Compile Update="AgregarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CajaBilletes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CajaGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CajaSueldos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ConfirmarPedido.cs">
       <SubType>Form</SubType>
     </Compile>
