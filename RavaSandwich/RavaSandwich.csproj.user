@@ -19,6 +19,9 @@
     <Compile Update="CajaSueldos.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CerrarTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ConfirmarPedido.cs">
       <SubType>Form</SubType>
     </Compile>

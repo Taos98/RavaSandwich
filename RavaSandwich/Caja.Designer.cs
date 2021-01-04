@@ -38,11 +38,10 @@ namespace RavaSandwich
             this.txtVtasPedidosYa = new System.Windows.Forms.TextBox();
             this.txtDescuentos = new System.Windows.Forms.TextBox();
             this.txtSobre = new System.Windows.Forms.TextBox();
-            this.btnBillete = new System.Windows.Forms.Button();
+            this.btnDinero = new System.Windows.Forms.Button();
             this.btnSueldos = new System.Windows.Forms.Button();
             this.btnGastos = new System.Windows.Forms.Button();
             this.btnCerrarTurno = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,16 +49,20 @@ namespace RavaSandwich
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.listVentas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnMenu
             // 
+            this.btnMenu.BackColor = System.Drawing.Color.Green;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMenu.Location = new System.Drawing.Point(577, 50);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(140, 47);
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "Menú principal";
-            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // txtVtasEfec
@@ -111,52 +114,57 @@ namespace RavaSandwich
             this.txtSobre.Size = new System.Drawing.Size(142, 23);
             this.txtSobre.TabIndex = 7;
             // 
-            // btnBillete
+            // btnDinero
             // 
-            this.btnBillete.Location = new System.Drawing.Point(54, 301);
-            this.btnBillete.Name = "btnBillete";
-            this.btnBillete.Size = new System.Drawing.Size(87, 40);
-            this.btnBillete.TabIndex = 8;
-            this.btnBillete.Text = "Billetes";
-            this.btnBillete.UseVisualStyleBackColor = true;
-            this.btnBillete.Click += new System.EventHandler(this.btnBillete_Click);
+            this.btnDinero.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnDinero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDinero.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDinero.Location = new System.Drawing.Point(54, 301);
+            this.btnDinero.Name = "btnDinero";
+            this.btnDinero.Size = new System.Drawing.Size(87, 40);
+            this.btnDinero.TabIndex = 8;
+            this.btnDinero.Text = "Dinero";
+            this.btnDinero.UseVisualStyleBackColor = false;
+            this.btnDinero.Click += new System.EventHandler(this.btnBillete_Click);
             // 
             // btnSueldos
             // 
+            this.btnSueldos.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnSueldos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSueldos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSueldos.Location = new System.Drawing.Point(172, 302);
             this.btnSueldos.Name = "btnSueldos";
             this.btnSueldos.Size = new System.Drawing.Size(94, 38);
             this.btnSueldos.TabIndex = 9;
             this.btnSueldos.Text = "Sueldos";
-            this.btnSueldos.UseVisualStyleBackColor = true;
+            this.btnSueldos.UseVisualStyleBackColor = false;
             this.btnSueldos.Click += new System.EventHandler(this.btnSueldos_Click);
             // 
             // btnGastos
             // 
+            this.btnGastos.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnGastos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGastos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGastos.Location = new System.Drawing.Point(290, 304);
             this.btnGastos.Name = "btnGastos";
             this.btnGastos.Size = new System.Drawing.Size(99, 36);
             this.btnGastos.TabIndex = 10;
             this.btnGastos.Text = "Gastos";
-            this.btnGastos.UseVisualStyleBackColor = true;
+            this.btnGastos.UseVisualStyleBackColor = false;
             this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
             // 
             // btnCerrarTurno
             // 
+            this.btnCerrarTurno.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCerrarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrarTurno.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrarTurno.Location = new System.Drawing.Point(574, 284);
             this.btnCerrarTurno.Name = "btnCerrarTurno";
             this.btnCerrarTurno.Size = new System.Drawing.Size(143, 75);
             this.btnCerrarTurno.TabIndex = 11;
             this.btnCerrarTurno.Text = "Cerrar Turno";
-            this.btnCerrarTurno.UseVisualStyleBackColor = true;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(424, 121);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(293, 130);
-            this.textBox8.TabIndex = 12;
+            this.btnCerrarTurno.UseVisualStyleBackColor = false;
+            this.btnCerrarTurno.Click += new System.EventHandler(this.btnCerrarTurno_Click);
             // 
             // label1
             // 
@@ -221,12 +229,22 @@ namespace RavaSandwich
             this.label7.TabIndex = 19;
             this.label7.Text = "Sobre";
             // 
+            // listVentas
+            // 
+            this.listVentas.FormattingEnabled = true;
+            this.listVentas.ItemHeight = 15;
+            this.listVentas.Location = new System.Drawing.Point(480, 108);
+            this.listVentas.Name = "listVentas";
+            this.listVentas.Size = new System.Drawing.Size(254, 154);
+            this.listVentas.TabIndex = 20;
+            // 
             // Caja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(746, 437);
+            this.Controls.Add(this.listVentas);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -234,11 +252,10 @@ namespace RavaSandwich
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.btnCerrarTurno);
             this.Controls.Add(this.btnGastos);
             this.Controls.Add(this.btnSueldos);
-            this.Controls.Add(this.btnBillete);
+            this.Controls.Add(this.btnDinero);
             this.Controls.Add(this.txtSobre);
             this.Controls.Add(this.txtDescuentos);
             this.Controls.Add(this.txtVtasPedidosYa);
@@ -265,11 +282,10 @@ namespace RavaSandwich
         private System.Windows.Forms.TextBox txtVtasPedidosYa;
         private System.Windows.Forms.TextBox txtDescuentos;
         private System.Windows.Forms.TextBox txtSobre;
-        private System.Windows.Forms.Button btnBillete;
+        private System.Windows.Forms.Button btnDinero;
         private System.Windows.Forms.Button btnSueldos;
         private System.Windows.Forms.Button btnGastos;
         private System.Windows.Forms.Button btnCerrarTurno;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -277,5 +293,6 @@ namespace RavaSandwich
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox listVentas;
     }
 }

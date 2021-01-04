@@ -41,6 +41,8 @@
             // btnIngresar
             // 
             this.btnIngresar.BackColor = System.Drawing.Color.Green;
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIngresar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIngresar.Location = new System.Drawing.Point(42, 355);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(119, 43);
@@ -61,15 +63,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
             this.label1.Location = new System.Drawing.Point(42, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 15);
+            this.label1.Size = new System.Drawing.Size(194, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Qué producto desea actualizar?";
             // 
             // numericCantidad
             // 
+            this.numericCantidad.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.numericCantidad.Location = new System.Drawing.Point(233, 205);
             this.numericCantidad.Maximum = new decimal(new int[] {
             500,
@@ -77,16 +81,17 @@
             0,
             0});
             this.numericCantidad.Name = "numericCantidad";
-            this.numericCantidad.Size = new System.Drawing.Size(53, 23);
+            this.numericCantidad.Size = new System.Drawing.Size(53, 25);
             this.numericCantidad.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.Window;
             this.label2.Location = new System.Drawing.Point(91, 213);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 15);
+            this.label2.Size = new System.Drawing.Size(123, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Cantidad a ingresar";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -94,6 +99,8 @@
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.Crimson;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrar.Location = new System.Drawing.Point(188, 356);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(114, 42);

@@ -104,10 +104,12 @@ namespace RavaSandwich
             // btnMenu
             // 
             this.btnMenu.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMenu.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnMenu.Location = new System.Drawing.Point(777, 27);
+            this.btnMenu.Location = new System.Drawing.Point(764, 28);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(166, 43);
+            this.btnMenu.Size = new System.Drawing.Size(179, 42);
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "Volver al menú principal";
             this.btnMenu.UseVisualStyleBackColor = false;
@@ -116,6 +118,8 @@ namespace RavaSandwich
             // btnHistorial
             // 
             this.btnHistorial.BackColor = System.Drawing.Color.Gold;
+            this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHistorial.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnHistorial.Location = new System.Drawing.Point(516, 28);
             this.btnHistorial.Name = "btnHistorial";
             this.btnHistorial.Size = new System.Drawing.Size(206, 42);
@@ -143,6 +147,9 @@ namespace RavaSandwich
             // btnAgregarPromo
             // 
             this.btnAgregarPromo.BackColor = System.Drawing.Color.Lime;
+            this.btnAgregarPromo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarPromo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAgregarPromo.ForeColor = System.Drawing.SystemColors.Info;
             this.btnAgregarPromo.Location = new System.Drawing.Point(25, 77);
             this.btnAgregarPromo.Name = "btnAgregarPromo";
             this.btnAgregarPromo.Size = new System.Drawing.Size(35, 32);
@@ -383,9 +390,12 @@ namespace RavaSandwich
             // btnAgregarE1
             // 
             this.btnAgregarE1.BackColor = System.Drawing.Color.Lime;
-            this.btnAgregarE1.Location = new System.Drawing.Point(361, 259);
+            this.btnAgregarE1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarE1.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAgregarE1.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnAgregarE1.Location = new System.Drawing.Point(362, 259);
             this.btnAgregarE1.Name = "btnAgregarE1";
-            this.btnAgregarE1.Size = new System.Drawing.Size(27, 24);
+            this.btnAgregarE1.Size = new System.Drawing.Size(26, 24);
             this.btnAgregarE1.TabIndex = 32;
             this.btnAgregarE1.Text = "+";
             this.btnAgregarE1.UseVisualStyleBackColor = false;
@@ -553,6 +563,7 @@ namespace RavaSandwich
             // btnConfirmar
             // 
             this.btnConfirmar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnConfirmar.Location = new System.Drawing.Point(738, 446);
@@ -635,6 +646,9 @@ namespace RavaSandwich
             // btnAgregarE2
             // 
             this.btnAgregarE2.BackColor = System.Drawing.Color.Lime;
+            this.btnAgregarE2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarE2.Font = new System.Drawing.Font("Segoe UI Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAgregarE2.ForeColor = System.Drawing.SystemColors.Info;
             this.btnAgregarE2.Location = new System.Drawing.Point(516, 259);
             this.btnAgregarE2.Name = "btnAgregarE2";
             this.btnAgregarE2.Size = new System.Drawing.Size(27, 24);
@@ -665,6 +679,9 @@ namespace RavaSandwich
             // btnAgregarBebida
             // 
             this.btnAgregarBebida.BackColor = System.Drawing.Color.Lime;
+            this.btnAgregarBebida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarBebida.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnAgregarBebida.ForeColor = System.Drawing.SystemColors.Info;
             this.btnAgregarBebida.Location = new System.Drawing.Point(25, 256);
             this.btnAgregarBebida.Name = "btnAgregarBebida";
             this.btnAgregarBebida.Size = new System.Drawing.Size(27, 24);

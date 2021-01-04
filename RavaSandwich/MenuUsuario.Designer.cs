@@ -40,7 +40,8 @@
             // btnInventario
             // 
             this.btnInventario.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnInventario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnInventario.ForeColor = System.Drawing.SystemColors.Window;
             this.btnInventario.Location = new System.Drawing.Point(21, 124);
             this.btnInventario.Name = "btnInventario";
@@ -53,7 +54,8 @@
             // btnVentas
             // 
             this.btnVentas.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnVentas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnVentas.ForeColor = System.Drawing.SystemColors.Window;
             this.btnVentas.Location = new System.Drawing.Point(283, 124);
             this.btnVentas.Name = "btnVentas";
@@ -66,7 +68,8 @@
             // btnCaja
             // 
             this.btnCaja.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnCaja.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCaja.ForeColor = System.Drawing.SystemColors.Window;
             this.btnCaja.Location = new System.Drawing.Point(549, 124);
             this.btnCaja.Name = "btnCaja";
@@ -78,12 +81,14 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.YellowGreen;
+            this.button1.BackColor = System.Drawing.Color.Crimson;
             this.button1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(606, 401);
+            this.button1.Location = new System.Drawing.Point(578, 361);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 37);
+            this.button1.Size = new System.Drawing.Size(196, 52);
             this.button1.TabIndex = 3;
             this.button1.Text = "Cerrar Sesión";
             this.button1.UseVisualStyleBackColor = false;

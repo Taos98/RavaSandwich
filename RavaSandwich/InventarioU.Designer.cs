@@ -43,7 +43,7 @@
             this.btnMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMenu.BackColor = System.Drawing.Color.YellowGreen;
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMenu.ForeColor = System.Drawing.SystemColors.Window;
             this.btnMenu.Location = new System.Drawing.Point(609, 12);
@@ -58,7 +58,7 @@
             // 
             this.btnIngreso.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnIngreso.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIngreso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIngreso.ForeColor = System.Drawing.SystemColors.Window;
             this.btnIngreso.Location = new System.Drawing.Point(723, 104);
@@ -73,7 +73,7 @@
             // 
             this.btnConsumo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnConsumo.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnConsumo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsumo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConsumo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConsumo.ForeColor = System.Drawing.SystemColors.Window;
             this.btnConsumo.Location = new System.Drawing.Point(723, 227);
@@ -87,6 +87,7 @@
             // btnCerrarSesion
             // 
             this.btnCerrarSesion.BackColor = System.Drawing.Color.Crimson;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.Window;
             this.btnCerrarSesion.Location = new System.Drawing.Point(723, 361);
@@ -111,6 +112,7 @@
             // btnActualizar
             // 
             this.btnActualizar.BackColor = System.Drawing.Color.Green;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnActualizar.Location = new System.Drawing.Point(408, 12);
             this.btnActualizar.Name = "btnActualizar";

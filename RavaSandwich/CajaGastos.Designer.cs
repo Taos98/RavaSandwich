@@ -50,12 +50,13 @@ namespace RavaSandwich
             // 
             // btnAgregarGasto
             // 
+            this.btnAgregarGasto.BackColor = System.Drawing.Color.Green;
             this.btnAgregarGasto.Location = new System.Drawing.Point(29, 53);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(23, 24);
             this.btnAgregarGasto.TabIndex = 0;
             this.btnAgregarGasto.Text = "+";
-            this.btnAgregarGasto.UseVisualStyleBackColor = true;
+            this.btnAgregarGasto.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -181,6 +182,7 @@ namespace RavaSandwich
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(338, 498);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtMonto6);
@@ -199,6 +201,7 @@ namespace RavaSandwich
             this.Controls.Add(this.txtDescripcion1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregarGasto);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CajaGastos";
             this.Text = "CajaGastos";
             this.ResumeLayout(false);

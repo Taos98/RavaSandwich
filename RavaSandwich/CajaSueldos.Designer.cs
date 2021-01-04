@@ -29,16 +29,16 @@ namespace RavaSandwich
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtHoraIngresoC = new System.Windows.Forms.TextBox();
+            this.txtHoraSalidaC = new System.Windows.Forms.TextBox();
+            this.txtTotalHorasC = new System.Windows.Forms.TextBox();
+            this.txtValorHoraC = new System.Windows.Forms.TextBox();
+            this.txtTotalC = new System.Windows.Forms.TextBox();
+            this.txtHoraIngresoP = new System.Windows.Forms.TextBox();
+            this.txtHoraSalidaP = new System.Windows.Forms.TextBox();
+            this.txtTotalHorasP = new System.Windows.Forms.TextBox();
+            this.txtValorHoraP = new System.Windows.Forms.TextBox();
+            this.txtTotalP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,75 +54,75 @@ namespace RavaSandwich
             this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtHoraIngresoC
             // 
-            this.textBox1.Location = new System.Drawing.Point(22, 116);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(77, 23);
-            this.textBox1.TabIndex = 19;
+            this.txtHoraIngresoC.Location = new System.Drawing.Point(22, 116);
+            this.txtHoraIngresoC.Name = "txtHoraIngresoC";
+            this.txtHoraIngresoC.Size = new System.Drawing.Size(77, 23);
+            this.txtHoraIngresoC.TabIndex = 19;
             // 
-            // textBox2
+            // txtHoraSalidaC
             // 
-            this.textBox2.Location = new System.Drawing.Point(118, 116);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(77, 23);
-            this.textBox2.TabIndex = 20;
+            this.txtHoraSalidaC.Location = new System.Drawing.Point(118, 116);
+            this.txtHoraSalidaC.Name = "txtHoraSalidaC";
+            this.txtHoraSalidaC.Size = new System.Drawing.Size(77, 23);
+            this.txtHoraSalidaC.TabIndex = 20;
             // 
-            // textBox3
+            // txtTotalHorasC
             // 
-            this.textBox3.Location = new System.Drawing.Point(216, 116);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(77, 23);
-            this.textBox3.TabIndex = 21;
+            this.txtTotalHorasC.Location = new System.Drawing.Point(216, 116);
+            this.txtTotalHorasC.Name = "txtTotalHorasC";
+            this.txtTotalHorasC.Size = new System.Drawing.Size(77, 23);
+            this.txtTotalHorasC.TabIndex = 21;
             // 
-            // textBox4
+            // txtValorHoraC
             // 
-            this.textBox4.Location = new System.Drawing.Point(318, 116);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(77, 23);
-            this.textBox4.TabIndex = 22;
+            this.txtValorHoraC.Location = new System.Drawing.Point(318, 116);
+            this.txtValorHoraC.Name = "txtValorHoraC";
+            this.txtValorHoraC.Size = new System.Drawing.Size(77, 23);
+            this.txtValorHoraC.TabIndex = 22;
             // 
-            // textBox5
+            // txtTotalC
             // 
-            this.textBox5.Location = new System.Drawing.Point(420, 116);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(77, 23);
-            this.textBox5.TabIndex = 23;
+            this.txtTotalC.Location = new System.Drawing.Point(420, 116);
+            this.txtTotalC.Name = "txtTotalC";
+            this.txtTotalC.Size = new System.Drawing.Size(77, 23);
+            this.txtTotalC.TabIndex = 23;
             // 
-            // textBox6
+            // txtHoraIngresoP
             // 
-            this.textBox6.Location = new System.Drawing.Point(22, 210);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(77, 23);
-            this.textBox6.TabIndex = 24;
+            this.txtHoraIngresoP.Location = new System.Drawing.Point(22, 210);
+            this.txtHoraIngresoP.Name = "txtHoraIngresoP";
+            this.txtHoraIngresoP.Size = new System.Drawing.Size(77, 23);
+            this.txtHoraIngresoP.TabIndex = 24;
             // 
-            // textBox7
+            // txtHoraSalidaP
             // 
-            this.textBox7.Location = new System.Drawing.Point(118, 210);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(77, 23);
-            this.textBox7.TabIndex = 25;
+            this.txtHoraSalidaP.Location = new System.Drawing.Point(118, 210);
+            this.txtHoraSalidaP.Name = "txtHoraSalidaP";
+            this.txtHoraSalidaP.Size = new System.Drawing.Size(77, 23);
+            this.txtHoraSalidaP.TabIndex = 25;
             // 
-            // textBox8
+            // txtTotalHorasP
             // 
-            this.textBox8.Location = new System.Drawing.Point(216, 210);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(77, 23);
-            this.textBox8.TabIndex = 26;
+            this.txtTotalHorasP.Location = new System.Drawing.Point(216, 210);
+            this.txtTotalHorasP.Name = "txtTotalHorasP";
+            this.txtTotalHorasP.Size = new System.Drawing.Size(77, 23);
+            this.txtTotalHorasP.TabIndex = 26;
             // 
-            // textBox9
+            // txtValorHoraP
             // 
-            this.textBox9.Location = new System.Drawing.Point(318, 210);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(77, 23);
-            this.textBox9.TabIndex = 27;
+            this.txtValorHoraP.Location = new System.Drawing.Point(318, 210);
+            this.txtValorHoraP.Name = "txtValorHoraP";
+            this.txtValorHoraP.Size = new System.Drawing.Size(77, 23);
+            this.txtValorHoraP.TabIndex = 27;
             // 
-            // textBox10
+            // txtTotalP
             // 
-            this.textBox10.Location = new System.Drawing.Point(420, 210);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(77, 23);
-            this.textBox10.TabIndex = 28;
+            this.txtTotalP.Location = new System.Drawing.Point(420, 210);
+            this.txtTotalP.Name = "txtTotalP";
+            this.txtTotalP.Size = new System.Drawing.Size(77, 23);
+            this.txtTotalP.TabIndex = 28;
             // 
             // label1
             // 
@@ -245,7 +245,7 @@ namespace RavaSandwich
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(517, 438);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.labelPlanchero);
@@ -260,16 +260,17 @@ namespace RavaSandwich
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTotalP);
+            this.Controls.Add(this.txtValorHoraP);
+            this.Controls.Add(this.txtTotalHorasP);
+            this.Controls.Add(this.txtHoraSalidaP);
+            this.Controls.Add(this.txtHoraIngresoP);
+            this.Controls.Add(this.txtTotalC);
+            this.Controls.Add(this.txtValorHoraC);
+            this.Controls.Add(this.txtTotalHorasC);
+            this.Controls.Add(this.txtHoraSalidaC);
+            this.Controls.Add(this.txtHoraIngresoC);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CajaSueldos";
             this.Text = "CajaSueldos";
             this.ResumeLayout(false);
@@ -279,16 +280,16 @@ namespace RavaSandwich
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtHoraIngresoC;
+        private System.Windows.Forms.TextBox txtHoraSalidaC;
+        private System.Windows.Forms.TextBox txtTotalHorasC;
+        private System.Windows.Forms.TextBox txtValorHoraC;
+        private System.Windows.Forms.TextBox txtTotalC;
+        private System.Windows.Forms.TextBox txtHoraIngresoP;
+        private System.Windows.Forms.TextBox txtHoraSalidaP;
+        private System.Windows.Forms.TextBox txtTotalHorasP;
+        private System.Windows.Forms.TextBox txtValorHoraP;
+        private System.Windows.Forms.TextBox txtTotalP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -302,5 +303,6 @@ namespace RavaSandwich
         private System.Windows.Forms.Label labelCajero;
         private System.Windows.Forms.Label labelPlanchero;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.TextBox txt;
     }
 }

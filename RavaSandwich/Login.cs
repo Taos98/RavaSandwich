@@ -16,6 +16,7 @@ namespace RavaSandwich
     {
         public static String nombre = "";
         public static String rol = "";
+        public static String rut = "";
         public Login()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace RavaSandwich
             if (dr.Read())//Si hay datos
             {
                 nombre = dr.GetString(1);
+                rut = dr.GetString(0);
                 rol = dr.GetString(3);
                 blnfound = true;//la existencia de datos es verdadera
                 MenuAdmin ma = new MenuAdmin(); //Crea un objeto del menú
@@ -60,6 +62,7 @@ namespace RavaSandwich
             if (dr1.Read())//Si hay datos
             {
                 nombre = dr.GetString(1);
+                rut = dr.GetString(0);
                 rol = dr.GetString(3);
                 blnfound1 = true;//la existencia de datos es verdadera
                 MenuUsuario mu = new MenuUsuario(); //Crea un objeto del menú
@@ -88,10 +91,15 @@ namespace RavaSandwich
 
         }
         
-       //Metodos get para mostrar nombre y rol de la persona que inició sesión para ser mostrado en las otras ventanas, cuando se necesite
+        
+       //Metodos get para mostrar nombre, rut y rol de la persona que inició sesión para ser mostrado en las otras ventanas, cuando se necesite
         public string getNombre()
         {
             return nombre;
+        }
+        public string getRut()
+        {
+            return rut;
         }
         public string getRol()
         {
