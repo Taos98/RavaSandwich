@@ -31,6 +31,7 @@ namespace RavaSandwich
         {
             this.tablaVentas = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnVerTodo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,12 +57,25 @@ namespace RavaSandwich
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnVerTodo
+            // 
+            this.btnVerTodo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnVerTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVerTodo.Location = new System.Drawing.Point(21, 387);
+            this.btnVerTodo.Name = "btnVerTodo";
+            this.btnVerTodo.Size = new System.Drawing.Size(137, 48);
+            this.btnVerTodo.TabIndex = 2;
+            this.btnVerTodo.Text = "Ver todas las ventas";
+            this.btnVerTodo.UseVisualStyleBackColor = false;
+            this.btnVerTodo.Click += new System.EventHandler(this.btnVerTodo_Click);
+            // 
             // HistorialVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVerTodo);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.tablaVentas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -77,5 +91,6 @@ namespace RavaSandwich
         private System.Windows.Forms.DataGridView tablaVentas;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dataGridViewVentas;
+        private System.Windows.Forms.Button btnVerTodo;
     }
 }

@@ -41,7 +41,12 @@ namespace RavaSandwich
                 checkBoxPYEfectivo.Visible = true;
                 checkBoxPYDescuentos.Visible = true;
                 checkBoxPYOnline.Visible = true;
-                ;
+                checkBoxTansbank.Checked = false;
+                checkBoxConsumoLocal.Checked = false;
+                checkBoxEfectivo.Checked = false;
+                checkBoxPYDescuentos.Checked = false;
+                checkBoxPYEfectivo.Checked = false;
+                checkBoxPYOnline.Checked = false;
             }
             else
             {
@@ -59,6 +64,7 @@ namespace RavaSandwich
             {
                 textBoxDescuento.Visible = true;
                 labelIndicarDescto.Visible = true;
+                
             }
             else
             {
@@ -78,31 +84,117 @@ namespace RavaSandwich
             cliente = "Cliente: " + textBoxNombreCliente.Text;//Aqui guarda el nombre del cliente, si se pone más abajo no lo guarda xd
             //Fecha y hora actual:
             String fechaHora = DateTime.Now.ToString("G");
-            //Pregunta si no hay datos nulos en los datos solicitados (Lista de productos)
-            if (textBoxNombreCliente.Text!="")
+            //Pregunta si no hay datos nulos en los datos solicitados (Lista de productos) o si no hay algun metodo de pago seleccionado
+            if (textBoxNombreCliente.Text!="" && (checkBoxEfectivo.Checked == true || checkBoxConsumoLocal.Checked == true || checkBoxPedidosYa.Checked == true || checkBoxTansbank.Checked == true))
             {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Envía la venta a la BD --Provisorio
-                comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_a_pagar, metodo_pago, fecha_venta) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + ve.getTotal() + ",'" + metodosPago + "', '"+fechaHora +"')";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                MessageBox.Show("Se ha registrado la venta de manera Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-                ve.Show();
-                this.Close();
-                
+                if (checkBoxPedidosYa.Checked == true)
+                {
+                    if(checkBoxPYDescuentos.Checked == true)
+                    {
+                        if (textBoxDescuento.Text == "")
+                        {
+                            MessageBox.Show("Por favor, ingrese el descuento ", "Datos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        }
+                        else
+                        {
+                            //Datos de conexión a BD
+                            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+                            //Abrir BD
+                            conn.Open();
+                            //Crear objeto de comandos
+                            NpgsqlCommand comm = new NpgsqlCommand();
+                            //Crear objeto conexión
+                            comm.Connection = conn;
+                            //No se que hace xd
+                            comm.CommandType = CommandType.Text;
+                            //Envía la venta a la BD --Provisorio
+                            comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_a_pagar, metodo_pago, fecha_venta) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "')";
+                            //Leer BD
+                            NpgsqlDataReader dr = comm.ExecuteReader();
+                            MessageBox.Show("Se ha registrado la venta de manera Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                            //Cerrar comandos
+                            comm.Dispose();
+                            //Desconectar BD
+                            conn.Close();
+                            ve.Show();
+                            this.Close();
+
+                            //Crear impresion
+                            printDocument1 = new PrintDocument();
+                            PrinterSettings ps = new PrinterSettings();
+                            printDocument1.PrinterSettings = ps;
+                            printDocument1.PrintPage += Imprimir;
+                            printDocument1.Print();
+                            ve.vaciarLista();
+                        }
+
+                    }
+                    else
+                    {
+                        //Datos de conexión a BD
+                        NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+                        //Abrir BD
+                        conn.Open();
+                        //Crear objeto de comandos
+                        NpgsqlCommand comm = new NpgsqlCommand();
+                        //Crear objeto conexión
+                        comm.Connection = conn;
+                        //No se que hace xd
+                        comm.CommandType = CommandType.Text;
+                        //Envía la venta a la BD --Provisorio
+                        comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_a_pagar, metodo_pago, fecha_venta) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "')";
+                        //Leer BD
+                        NpgsqlDataReader dr = comm.ExecuteReader();
+                        MessageBox.Show("Se ha registrado la venta de manera Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        //Cerrar comandos
+                        comm.Dispose();
+                        //Desconectar BD
+                        conn.Close();
+                        ve.Show();
+                        this.Close();
+
+                        //Crear impresion
+                        printDocument1 = new PrintDocument();
+                        PrinterSettings ps = new PrinterSettings();
+                        printDocument1.PrinterSettings = ps;
+                        printDocument1.PrintPage += Imprimir;
+                        printDocument1.Print();
+                        ve.vaciarLista();
+                    }
+                }
+                else
+                {
+                    //Datos de conexión a BD
+                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+                    //Abrir BD
+                    conn.Open();
+                    //Crear objeto de comandos
+                    NpgsqlCommand comm = new NpgsqlCommand();
+                    //Crear objeto conexión
+                    comm.Connection = conn;
+                    //No se que hace xd
+                    comm.CommandType = CommandType.Text;
+                    //Envía la venta a la BD --Provisorio
+                    comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_a_pagar, metodo_pago, fecha_venta) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "')";
+                    //Leer BD
+                    NpgsqlDataReader dr = comm.ExecuteReader();
+                    MessageBox.Show("Se ha registrado la venta de manera Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    //Cerrar comandos
+                    comm.Dispose();
+                    //Desconectar BD
+                    conn.Close();
+                    ve.Show();
+                    this.Close();
+
+                    //Crear impresion
+                    printDocument1 = new PrintDocument();
+                    PrinterSettings ps = new PrinterSettings();
+                    printDocument1.PrinterSettings = ps;
+                    printDocument1.PrintPage += Imprimir;
+                    printDocument1.Print();
+                    ve.vaciarLista();
+                }
+
                 
 
             }
@@ -110,13 +202,7 @@ namespace RavaSandwich
             {
                 MessageBox.Show("Por favor, llene los campos solicitados ", "Datos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
-            //Crear impresion
-            printDocument1 = new PrintDocument();
-            PrinterSettings ps = new PrinterSettings();
-            printDocument1.PrinterSettings = ps;
-            printDocument1.PrintPage += Imprimir;
-            printDocument1.Print();
-            ve.vaciarLista();
+            
         }
 
         private void buttonAtras_Click(object sender, EventArgs e)
@@ -133,6 +219,9 @@ namespace RavaSandwich
             if (checkBoxEfectivo.Checked == true)
             {
                 metodosPago = "Efectivo";
+                checkBoxTansbank.Checked = false;
+                checkBoxConsumoLocal.Checked = false;
+                checkBoxPedidosYa.Checked = false;
             }
             
         }
@@ -142,6 +231,9 @@ namespace RavaSandwich
             if (checkBoxTansbank.Checked == true)
             {
                 metodosPago = "Transbank";
+                checkBoxEfectivo.Checked = false;
+                checkBoxConsumoLocal.Checked = false;
+                checkBoxPedidosYa.Checked = false;
             }
         }
 
@@ -150,6 +242,9 @@ namespace RavaSandwich
             if (checkBoxConsumoLocal.Checked == true)
             {
                 metodosPago = "Consumo Local";
+                checkBoxTansbank.Checked = false;
+                checkBoxEfectivo.Checked = false;
+                checkBoxPedidosYa.Checked = false;
             }
         }
 
@@ -159,6 +254,8 @@ namespace RavaSandwich
             if (checkBoxPYEfectivo.Checked == true)
             {
                 metodosPago = "Pedidos Ya, efectivo";
+                checkBoxPYOnline.Checked = false;
+                
             }
         }
 
@@ -167,6 +264,8 @@ namespace RavaSandwich
             if (checkBoxPYOnline.Checked == true)
             {
                 metodosPago = "Pedidos Ya, online";
+                checkBoxPYDescuentos.Checked = false;
+                checkBoxPYEfectivo.Checked = false;
             }
         }
         private void Imprimir(object sender, PrintPageEventArgs e)
@@ -180,6 +279,25 @@ namespace RavaSandwich
 
             //Formato rectangulo =  (posicion x(horizontal) , posicion y(vertical), ancho, alto)
             e.Graphics.DrawString(ticket, fuente, Brushes.Black, new RectangleF(0, salto += 20, ancho, 99999999));
+        }
+        //funcion que calcula el total con o sin descuento
+        private int totalVenta()
+        {
+            Ventas v = new Ventas();
+            int total = v.getTotal();
+            if(checkBoxPYDescuentos.Checked == true)
+            {
+                if (textBoxDescuento.Text=="")
+                {
+                    total = total - int.Parse(textBoxDescuento.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese el descuento ", "Datos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                }
+                
+            }
+            return total;
         }
     }
 }

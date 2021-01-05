@@ -11,6 +11,11 @@ namespace RavaSandwich
 {
     public partial class Caja : Form
     {
+        int totalEfectivo = 0;
+        int totalTransbank = 0;
+        int totalCreditos = 0;
+        int totalPedidosYa = 0;
+        int totaldescuentos = 0;
         public Caja()
         {
             InitializeComponent();
@@ -37,11 +42,34 @@ namespace RavaSandwich
                 {
                     listVentas.Items.Add("-" + dr.GetString(0) + "  " + dr.GetInt16(1));
                 }
+                //Clasifica las cuentas para calcular el total de cada una
+                if (dr.GetString(0) == "Efectivo")
+                {
+                    totalEfectivo = totalEfectivo + dr.GetInt16(1);
+                }
+                if (dr.GetString(0) == "Transbank")
+                {
+                    totalTransbank = totalTransbank + dr.GetInt16(1);
+                }
+                if (dr.GetString(0) == "Consumo Local")
+                {
+                    totalCreditos = totalCreditos + dr.GetInt16(1);
+                }
+                if (dr.GetString(0).Contains("Pedidos Ya"))
+                {
+                    totalPedidosYa = totalPedidosYa + dr.GetInt16(1);
+                }
             }
             //Cerrar comandos
             comm.Dispose();
             //Desconectar BD
             conn.Close();
+
+            //Muestra los totales calculados en los textbox que corresponden
+            txtVtasEfec.Text = totalEfectivo + "";
+            txtVtasTransbank.Text = totalTransbank + "";
+            txtVtasCredito.Text = totalCreditos + "";
+            txtVtasPedidosYa.Text = totalCreditos + "";
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
