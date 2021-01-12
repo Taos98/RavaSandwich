@@ -922,5 +922,11 @@ namespace RavaSandwich
             }
             return imp;
         }
+
+        private void btnEliminarVenta_Click(object sender, EventArgs e)
+        {
+            Eliminar_venta ev = new Eliminar_venta();
+            ev.Show();
+        }
     }
 }

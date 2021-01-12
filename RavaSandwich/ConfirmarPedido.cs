@@ -31,7 +31,7 @@ namespace RavaSandwich
             {
                 listBoxPedido.Items.Add(pedido[i]);
             }
-
+            textBoxDescuento.Text = "0";
         }
 
         private void checkBoxPedidosYa_CheckedChanged(object sender, EventArgs e)
@@ -108,7 +108,7 @@ namespace RavaSandwich
                             //No se que hace xd
                             comm.CommandType = CommandType.Text;
                             //Envía la venta a la BD --Provisorio
-                            comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_a_pagar, metodo_pago, fecha_venta) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "')";
+                            comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_a_pagar, metodo_pago, fecha_venta, subtotal, descuentos) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "', " + ve.getTotal() + "," + textBoxDescuento.Text + ")";
                             //Leer BD
                             NpgsqlDataReader dr = comm.ExecuteReader();
                             MessageBox.Show("Se ha registrado la venta de manera Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -142,7 +142,7 @@ namespace RavaSandwich
                         //No se que hace xd
                         comm.CommandType = CommandType.Text;
                         //Envía la venta a la BD --Provisorio
-                        comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_a_pagar, metodo_pago, fecha_venta) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "')";
+                        comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_a_pagar, metodo_pago, fecha_venta, subtotal, descuentos) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "', " + ve.getTotal() + "," + textBoxDescuento.Text + ")";
                         //Leer BD
                         NpgsqlDataReader dr = comm.ExecuteReader();
                         MessageBox.Show("Se ha registrado la venta de manera Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -175,7 +175,7 @@ namespace RavaSandwich
                     //No se que hace xd
                     comm.CommandType = CommandType.Text;
                     //Envía la venta a la BD --Provisorio
-                    comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_a_pagar, metodo_pago, fecha_venta) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "')";
+                    comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_a_pagar, metodo_pago, fecha_venta, subtotal, descuentos) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "', "+ve.getTotal()+","+textBoxDescuento.Text+")";
                     //Leer BD
                     NpgsqlDataReader dr = comm.ExecuteReader();
                     MessageBox.Show("Se ha registrado la venta de manera Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -287,7 +287,7 @@ namespace RavaSandwich
             int total = v.getTotal();
             if(checkBoxPYDescuentos.Checked == true)
             {
-                if (textBoxDescuento.Text=="")
+                if (textBoxDescuento.Text!="")//Si hay algo en descuento, se hace en descuento
                 {
                     total = total - int.Parse(textBoxDescuento.Text);
                 }

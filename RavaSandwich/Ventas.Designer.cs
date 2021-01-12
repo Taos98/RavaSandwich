@@ -94,6 +94,7 @@ namespace RavaSandwich
             this.labelSelectB3 = new System.Windows.Forms.Label();
             this.comboBebidas3 = new System.Windows.Forms.ComboBox();
             this.numericCantBebidas3 = new System.Windows.Forms.NumericUpDown();
+            this.btnEliminarVenta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantPromo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantBebida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantVasos)).BeginInit();
@@ -766,12 +767,26 @@ namespace RavaSandwich
             this.numericCantBebidas3.TabIndex = 65;
             this.numericCantBebidas3.ValueChanged += new System.EventHandler(this.numericCantBebidas3_ValueChanged);
             // 
+            // btnEliminarVenta
+            // 
+            this.btnEliminarVenta.BackColor = System.Drawing.Color.Crimson;
+            this.btnEliminarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminarVenta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEliminarVenta.Location = new System.Drawing.Point(280, 28);
+            this.btnEliminarVenta.Name = "btnEliminarVenta";
+            this.btnEliminarVenta.Size = new System.Drawing.Size(209, 41);
+            this.btnEliminarVenta.TabIndex = 69;
+            this.btnEliminarVenta.Text = "Eliminar Venta";
+            this.btnEliminarVenta.UseVisualStyleBackColor = false;
+            this.btnEliminarVenta.Click += new System.EventHandler(this.btnEliminarVenta_Click);
+            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1007, 636);
+            this.Controls.Add(this.btnEliminarVenta);
             this.Controls.Add(this.labelCantB3);
             this.Controls.Add(this.labelSelectB3);
             this.Controls.Add(this.comboBebidas3);
@@ -916,5 +931,6 @@ namespace RavaSandwich
         private System.Windows.Forms.Label labelSelectB3;
         private System.Windows.Forms.ComboBox comboBebidas3;
         private System.Windows.Forms.NumericUpDown numericCantBebidas3;
+        private System.Windows.Forms.Button btnEliminarVenta;
     }
 }

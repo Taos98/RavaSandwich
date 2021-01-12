@@ -1,7 +1,7 @@
 ﻿
 namespace RavaSandwich
 {
-    partial class CerrarTurno
+    partial class CerrarCaja
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace RavaSandwich
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CerrarTurno));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CerrarCaja));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();

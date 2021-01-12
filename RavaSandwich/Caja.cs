@@ -16,6 +16,10 @@ namespace RavaSandwich
         int totalCreditos = 0;
         int totalPedidosYa = 0;
         int totaldescuentos = 0;
+        int totalSobre = 0;
+        int totalPYOnline = 0;
+        int subTotalPedidosYa = 0;
+        int tv = 0;
         public Caja()
         {
             InitializeComponent();
@@ -33,7 +37,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT metodo_pago, total_a_pagar, fecha_venta from ventas";
+            comm.CommandText = "SELECT metodo_pago, subtotal, fecha_venta, descuentos, pedido from ventas";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             while (dr.Read())//Si la tabla tiene 1 o más filas...
@@ -41,24 +45,75 @@ namespace RavaSandwich
                 if (dr.GetString(2).Contains(fecha))
                 {
                     listVentas.Items.Add("-" + dr.GetString(0) + "  " + dr.GetInt16(1));
+                    //Clasifica las cuentas para calcular el total de cada una
+                    if (dr.GetString(0) == "Efectivo")
+                    {
+                        totalEfectivo = totalEfectivo + dr.GetInt16(1);
+                    }
+                    if (dr.GetString(0) == "Transbank")
+                    {
+                        totalTransbank = totalTransbank + dr.GetInt16(1);
+                    }
+                    if (dr.GetString(0) == "Consumo Local")
+                    {
+                        totalCreditos = totalCreditos + dr.GetInt16(1);
+                    }
+                    if (dr.GetString(0).Contains("Pedidos Ya"))
+                    {
+                        totalPedidosYa = totalPedidosYa + dr.GetInt16(1);
+
+                        if(dr.GetString(4).Contains("Sandwich"))
+                        {
+                            totalSobre = totalSobre + 1510;
+                            subTotalPedidosYa = subTotalPedidosYa + 1510 + dr.GetInt32(1);
+                        }
+                        if (dr.GetString(4).Contains("Manso"))
+                        {
+                            if (dr.GetString(4).Contains("MS"))
+                            {
+                                totalSobre = totalSobre + 1610;
+                                subTotalPedidosYa = subTotalPedidosYa + 1610 + dr.GetInt32(1);
+
+
+                            }
+                            if (dr.GetString(4).Contains("MT1") || dr.GetString(4).Contains("MT2") || dr.GetString(4).Contains("MT3"))
+                            {
+                                totalSobre = totalSobre + 1710;
+                                subTotalPedidosYa = subTotalPedidosYa + 1710 + dr.GetInt32(1);
+                            }
+                            if (dr.GetString(4).Contains("MT5"))
+                            {
+                                totalSobre = totalSobre + 1810;
+                                subTotalPedidosYa = subTotalPedidosYa + 1710 + dr.GetInt32(1);
+                            }
+                            if (dr.GetString(4).Contains("EG") || dr.GetString(4).Contains("MV") || dr.GetString(4).Contains("MC") || dr.GetString(4).Contains("MN"))
+                            {
+                                totalSobre = totalSobre + 1710;
+                                subTotalPedidosYa = subTotalPedidosYa + 1710 + dr.GetInt32(1);
+                            }
+                            else
+                            {
+                                totalSobre = totalSobre + 1510;
+                                subTotalPedidosYa = subTotalPedidosYa + 1510 + dr.GetInt32(1);
+                            }
+
+
+
+                        }
+                        if(dr.GetString(0).Equals("Pedidos Ya, efectivo") || (dr.GetString(0).Equals("Pedidos Ya, con descuento")))
+                        {
+                            totaldescuentos = totaldescuentos + dr.GetInt32(3);
+                        }
+                        if (dr.GetString(0).Equals("Pedidos Ya, online"))
+                        {
+                            totalPYOnline = totalPYOnline + dr.GetInt32(1);
+                        }
+                    }
+                    
+                   
+                    
                 }
-                //Clasifica las cuentas para calcular el total de cada una
-                if (dr.GetString(0) == "Efectivo")
-                {
-                    totalEfectivo = totalEfectivo + dr.GetInt16(1);
-                }
-                if (dr.GetString(0) == "Transbank")
-                {
-                    totalTransbank = totalTransbank + dr.GetInt16(1);
-                }
-                if (dr.GetString(0) == "Consumo Local")
-                {
-                    totalCreditos = totalCreditos + dr.GetInt16(1);
-                }
-                if (dr.GetString(0).Contains("Pedidos Ya"))
-                {
-                    totalPedidosYa = totalPedidosYa + dr.GetInt16(1);
-                }
+                
             }
             //Cerrar comandos
             comm.Dispose();
@@ -69,7 +124,11 @@ namespace RavaSandwich
             txtVtasEfec.Text = totalEfectivo + "";
             txtVtasTransbank.Text = totalTransbank + "";
             txtVtasCredito.Text = totalCreditos + "";
-            txtVtasPedidosYa.Text = totalCreditos + "";
+            txtVtasPedidosYa.Text = subTotalPedidosYa + "";
+            tv = totalCreditos + totalEfectivo + totalTransbank+totalPedidosYa;
+            listVentas.Items.Add("\nTotal Ventas: \n" + tv);
+            txtSobre.Text = totalSobre + "";
+            txtDescuentos.Text = (totaldescuentos + totalPYOnline)+ "";
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -115,9 +174,29 @@ namespace RavaSandwich
 
         private void btnCerrarTurno_Click(object sender, EventArgs e)
         {
-            CerrarTurno ct = new CerrarTurno();
+            CerrarCaja ct = new CerrarCaja();
             ct.Show();
             this.Close();
+        }
+        public int getDineroEnCaja()
+        {
+            // sub total de dinero en caja para luego hacer el cuadre
+            int subtotalDC = tv - int.Parse(txtVtasTransbank.Text) - int.Parse(txtVtasCredito.Text) - int.Parse(txtGastosSueldos.Text);
+            subtotalDC = subtotalDC - int.Parse(txtDescuentos.Text);
+
+            return subtotalDC;
+        }
+
+        public int getDineroFisico()
+        {
+            //metodo para tener el dinero fisico
+            CajaBilletes b = new CajaBilletes();
+            int subtotalDF = b.getTotal() - int.Parse(txtSobre.Text);
+            return subtotalDF;
+        }
+        public int getTotalVenta()
+        {
+            return tv;
         }
     }
 }

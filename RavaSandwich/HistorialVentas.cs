@@ -56,9 +56,7 @@ namespace RavaSandwich
 
         private void btnVerTodo_Click(object sender, EventArgs e)
         {
-            //vacia la tabla para evitar la mezcla de datos
-            tablaVentas.Rows.Clear();
-            tablaVentas.Columns.Clear();
+            
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
             //Abrir BD
@@ -86,6 +84,11 @@ namespace RavaSandwich
             comm.Dispose();
             //Desconectar BD
             conn.Close();
+        }
+
+        private void btnVentasHoy_Click(object sender, EventArgs e)
+        {
+            llenarTabla();
         }
     }
 }

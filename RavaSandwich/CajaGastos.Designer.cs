@@ -177,6 +177,7 @@ namespace RavaSandwich
             this.btnGuardar.TabIndex = 16;
             this.btnGuardar.Text = "Guardar y Volver";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // CajaGastos
             // 

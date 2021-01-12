@@ -11,6 +11,7 @@ namespace RavaSandwich
 {
     public partial class ConsumirProd : Form
     {
+        String fecha = DateTime.Now.ToString("d");
         public ConsumirProd()
         {
             InitializeComponent();
@@ -47,6 +48,7 @@ namespace RavaSandwich
 
         private void btnConsumir_Click(object sender, EventArgs e)
         {
+            Login l = new Login();
             //Pregunta si no se seleccionó un valor nulo en el comboBox (Lista de productos)
             if ((comboProductos.SelectedItem != null))
             {
@@ -64,7 +66,7 @@ namespace RavaSandwich
                 //No se que hace xd
                 comm.CommandType = CommandType.Text;
                 //Actualiza el producto
-                comm.CommandText = "UPDATE productos SET consumo_turno = consumo_turno+ " + numericCantidad.Value.ToString() + ", stock_fin_turno=stock_fin_turno-" + numericCantidad.Value.ToString() + " WHERE nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
+                comm.CommandText = "UPDATE productos SET consumo_turno = consumo_turno+ " + numericCantidad.Value.ToString() + ", stock_fin_turno=stock_fin_turno-" + numericCantidad.Value.ToString() + ",rut = '" + l.getRut() + "', fecha = '" + fecha + "'  WHERE nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
                 //Leer BD
                 NpgsqlDataReader dr = comm.ExecuteReader();
                 MessageBox.Show("Se ha consumido " + numericCantidad.Value.ToString() + " del producto " + comboProductos.SelectedItem.ToString(), "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);

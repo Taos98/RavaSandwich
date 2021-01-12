@@ -32,6 +32,7 @@ namespace RavaSandwich
             this.tablaVentas = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnVerTodo = new System.Windows.Forms.Button();
+            this.btnVentasHoy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,12 +70,25 @@ namespace RavaSandwich
             this.btnVerTodo.UseVisualStyleBackColor = false;
             this.btnVerTodo.Click += new System.EventHandler(this.btnVerTodo_Click);
             // 
+            // btnVentasHoy
+            // 
+            this.btnVentasHoy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnVentasHoy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVentasHoy.Location = new System.Drawing.Point(207, 387);
+            this.btnVentasHoy.Name = "btnVentasHoy";
+            this.btnVentasHoy.Size = new System.Drawing.Size(137, 48);
+            this.btnVentasHoy.TabIndex = 3;
+            this.btnVentasHoy.Text = "Ver ventas de hoy";
+            this.btnVentasHoy.UseVisualStyleBackColor = false;
+            this.btnVentasHoy.Click += new System.EventHandler(this.btnVentasHoy_Click);
+            // 
             // HistorialVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVentasHoy);
             this.Controls.Add(this.btnVerTodo);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.tablaVentas);
@@ -92,5 +106,6 @@ namespace RavaSandwich
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dataGridViewVentas;
         private System.Windows.Forms.Button btnVerTodo;
+        private System.Windows.Forms.Button btnVentasHoy;
     }
 }

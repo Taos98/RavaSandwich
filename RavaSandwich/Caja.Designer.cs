@@ -162,7 +162,7 @@ namespace RavaSandwich
             this.btnCerrarTurno.Name = "btnCerrarTurno";
             this.btnCerrarTurno.Size = new System.Drawing.Size(143, 75);
             this.btnCerrarTurno.TabIndex = 11;
-            this.btnCerrarTurno.Text = "Cerrar Turno";
+            this.btnCerrarTurno.Text = "Cerrar Caja";
             this.btnCerrarTurno.UseVisualStyleBackColor = false;
             this.btnCerrarTurno.Click += new System.EventHandler(this.btnCerrarTurno_Click);
             // 

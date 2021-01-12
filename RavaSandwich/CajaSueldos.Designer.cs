@@ -52,6 +52,10 @@ namespace RavaSandwich
             this.labelCajero = new System.Windows.Forms.Label();
             this.labelPlanchero = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.cBoxRutCajero = new System.Windows.Forms.ComboBox();
+            this.labelNombreCajero = new System.Windows.Forms.Label();
+            this.labelNombrePlanchero = new System.Windows.Forms.Label();
+            this.cBoxRutPlanchero = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtHoraIngresoC
@@ -91,35 +95,35 @@ namespace RavaSandwich
             // 
             // txtHoraIngresoP
             // 
-            this.txtHoraIngresoP.Location = new System.Drawing.Point(22, 210);
+            this.txtHoraIngresoP.Location = new System.Drawing.Point(21, 258);
             this.txtHoraIngresoP.Name = "txtHoraIngresoP";
             this.txtHoraIngresoP.Size = new System.Drawing.Size(77, 23);
             this.txtHoraIngresoP.TabIndex = 24;
             // 
             // txtHoraSalidaP
             // 
-            this.txtHoraSalidaP.Location = new System.Drawing.Point(118, 210);
+            this.txtHoraSalidaP.Location = new System.Drawing.Point(117, 258);
             this.txtHoraSalidaP.Name = "txtHoraSalidaP";
             this.txtHoraSalidaP.Size = new System.Drawing.Size(77, 23);
             this.txtHoraSalidaP.TabIndex = 25;
             // 
             // txtTotalHorasP
             // 
-            this.txtTotalHorasP.Location = new System.Drawing.Point(216, 210);
+            this.txtTotalHorasP.Location = new System.Drawing.Point(215, 258);
             this.txtTotalHorasP.Name = "txtTotalHorasP";
             this.txtTotalHorasP.Size = new System.Drawing.Size(77, 23);
             this.txtTotalHorasP.TabIndex = 26;
             // 
             // txtValorHoraP
             // 
-            this.txtValorHoraP.Location = new System.Drawing.Point(318, 210);
+            this.txtValorHoraP.Location = new System.Drawing.Point(317, 258);
             this.txtValorHoraP.Name = "txtValorHoraP";
             this.txtValorHoraP.Size = new System.Drawing.Size(77, 23);
             this.txtValorHoraP.TabIndex = 27;
             // 
             // txtTotalP
             // 
-            this.txtTotalP.Location = new System.Drawing.Point(420, 210);
+            this.txtTotalP.Location = new System.Drawing.Point(419, 258);
             this.txtTotalP.Name = "txtTotalP";
             this.txtTotalP.Size = new System.Drawing.Size(77, 23);
             this.txtTotalP.TabIndex = 28;
@@ -172,7 +176,7 @@ namespace RavaSandwich
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(419, 192);
+            this.label6.Location = new System.Drawing.Point(418, 240);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 15);
             this.label6.TabIndex = 38;
@@ -181,7 +185,7 @@ namespace RavaSandwich
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(317, 192);
+            this.label7.Location = new System.Drawing.Point(316, 240);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 15);
             this.label7.TabIndex = 37;
@@ -190,7 +194,7 @@ namespace RavaSandwich
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(215, 192);
+            this.label8.Location = new System.Drawing.Point(214, 240);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 15);
             this.label8.TabIndex = 36;
@@ -199,7 +203,7 @@ namespace RavaSandwich
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(117, 192);
+            this.label9.Location = new System.Drawing.Point(116, 240);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 15);
             this.label9.TabIndex = 35;
@@ -208,7 +212,7 @@ namespace RavaSandwich
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(21, 192);
+            this.label10.Location = new System.Drawing.Point(20, 240);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 15);
             this.label10.TabIndex = 34;
@@ -217,7 +221,7 @@ namespace RavaSandwich
             // labelCajero
             // 
             this.labelCajero.AutoSize = true;
-            this.labelCajero.Location = new System.Drawing.Point(21, 56);
+            this.labelCajero.Location = new System.Drawing.Point(22, 26);
             this.labelCajero.Name = "labelCajero";
             this.labelCajero.Size = new System.Drawing.Size(43, 15);
             this.labelCajero.TabIndex = 39;
@@ -234,12 +238,49 @@ namespace RavaSandwich
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(177, 323);
+            this.btnGuardar.Location = new System.Drawing.Point(176, 333);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(141, 38);
             this.btnGuardar.TabIndex = 41;
             this.btnGuardar.Text = "Guardar y Volver";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // cBoxRutCajero
+            // 
+            this.cBoxRutCajero.FormattingEnabled = true;
+            this.cBoxRutCajero.Location = new System.Drawing.Point(21, 54);
+            this.cBoxRutCajero.Name = "cBoxRutCajero";
+            this.cBoxRutCajero.Size = new System.Drawing.Size(117, 23);
+            this.cBoxRutCajero.TabIndex = 42;
+            this.cBoxRutCajero.SelectedIndexChanged += new System.EventHandler(this.cBoxRutCajero_SelectedIndexChanged);
+            // 
+            // labelNombreCajero
+            // 
+            this.labelNombreCajero.AutoSize = true;
+            this.labelNombreCajero.Location = new System.Drawing.Point(165, 57);
+            this.labelNombreCajero.Name = "labelNombreCajero";
+            this.labelNombreCajero.Size = new System.Drawing.Size(88, 15);
+            this.labelNombreCajero.TabIndex = 43;
+            this.labelNombreCajero.Text = "Nombre Cajero";
+            // 
+            // labelNombrePlanchero
+            // 
+            this.labelNombrePlanchero.AutoSize = true;
+            this.labelNombrePlanchero.Location = new System.Drawing.Point(165, 205);
+            this.labelNombrePlanchero.Name = "labelNombrePlanchero";
+            this.labelNombrePlanchero.Size = new System.Drawing.Size(107, 15);
+            this.labelNombrePlanchero.TabIndex = 45;
+            this.labelNombrePlanchero.Text = "Nombre Planchero";
+            // 
+            // cBoxRutPlanchero
+            // 
+            this.cBoxRutPlanchero.FormattingEnabled = true;
+            this.cBoxRutPlanchero.Location = new System.Drawing.Point(20, 202);
+            this.cBoxRutPlanchero.Name = "cBoxRutPlanchero";
+            this.cBoxRutPlanchero.Size = new System.Drawing.Size(117, 23);
+            this.cBoxRutPlanchero.TabIndex = 44;
+            this.cBoxRutPlanchero.SelectedIndexChanged += new System.EventHandler(this.cBoxRutPlanchero_SelectedIndexChanged);
             // 
             // CajaSueldos
             // 
@@ -247,6 +288,10 @@ namespace RavaSandwich
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(517, 438);
+            this.Controls.Add(this.labelNombrePlanchero);
+            this.Controls.Add(this.cBoxRutPlanchero);
+            this.Controls.Add(this.labelNombreCajero);
+            this.Controls.Add(this.cBoxRutCajero);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.labelPlanchero);
             this.Controls.Add(this.labelCajero);
@@ -304,5 +349,9 @@ namespace RavaSandwich
         private System.Windows.Forms.Label labelPlanchero;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.ComboBox cBoxRutCajero;
+        private System.Windows.Forms.Label labelNombreCajero;
+        private System.Windows.Forms.Label labelNombrePlanchero;
+        private System.Windows.Forms.ComboBox cBoxRutPlanchero;
     }
 }

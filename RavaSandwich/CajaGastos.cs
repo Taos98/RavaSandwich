@@ -14,5 +14,18 @@ namespace RavaSandwich
         {
             InitializeComponent();
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+        public int getTotalGastos()
+        {
+            return 0;
+        }
+        public String getDescripcionGastos()
+        {
+            return "";
+        }
     }
 }
