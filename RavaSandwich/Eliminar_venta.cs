@@ -70,6 +70,7 @@ namespace RavaSandwich
                     comm.Dispose();
                     //Desconectar BD
                     conn.Close();
+                    this.Close();
                 }
                 else
                 {

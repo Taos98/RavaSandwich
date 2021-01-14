@@ -57,11 +57,14 @@ namespace RavaSandwich
             this.btnMenu.BackColor = System.Drawing.Color.Green;
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMenu.Location = new System.Drawing.Point(577, 50);
+            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
+            this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenu.Location = new System.Drawing.Point(568, 50);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(140, 47);
+            this.btnMenu.Size = new System.Drawing.Size(149, 47);
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "Menú principal";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
@@ -119,11 +122,14 @@ namespace RavaSandwich
             this.btnDinero.BackColor = System.Drawing.Color.GreenYellow;
             this.btnDinero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDinero.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDinero.Location = new System.Drawing.Point(54, 301);
+            this.btnDinero.Image = ((System.Drawing.Image)(resources.GetObject("btnDinero.Image")));
+            this.btnDinero.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDinero.Location = new System.Drawing.Point(32, 301);
             this.btnDinero.Name = "btnDinero";
-            this.btnDinero.Size = new System.Drawing.Size(87, 40);
+            this.btnDinero.Size = new System.Drawing.Size(109, 46);
             this.btnDinero.TabIndex = 8;
             this.btnDinero.Text = "Dinero";
+            this.btnDinero.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDinero.UseVisualStyleBackColor = false;
             this.btnDinero.Click += new System.EventHandler(this.btnBillete_Click);
             // 
@@ -132,11 +138,14 @@ namespace RavaSandwich
             this.btnSueldos.BackColor = System.Drawing.Color.GreenYellow;
             this.btnSueldos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSueldos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSueldos.Location = new System.Drawing.Point(172, 302);
+            this.btnSueldos.Image = ((System.Drawing.Image)(resources.GetObject("btnSueldos.Image")));
+            this.btnSueldos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSueldos.Location = new System.Drawing.Point(160, 302);
             this.btnSueldos.Name = "btnSueldos";
-            this.btnSueldos.Size = new System.Drawing.Size(94, 38);
+            this.btnSueldos.Size = new System.Drawing.Size(106, 45);
             this.btnSueldos.TabIndex = 9;
             this.btnSueldos.Text = "Sueldos";
+            this.btnSueldos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSueldos.UseVisualStyleBackColor = false;
             this.btnSueldos.Click += new System.EventHandler(this.btnSueldos_Click);
             // 
@@ -145,11 +154,14 @@ namespace RavaSandwich
             this.btnGastos.BackColor = System.Drawing.Color.GreenYellow;
             this.btnGastos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGastos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGastos.Image = ((System.Drawing.Image)(resources.GetObject("btnGastos.Image")));
+            this.btnGastos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGastos.Location = new System.Drawing.Point(290, 304);
             this.btnGastos.Name = "btnGastos";
-            this.btnGastos.Size = new System.Drawing.Size(99, 36);
+            this.btnGastos.Size = new System.Drawing.Size(109, 43);
             this.btnGastos.TabIndex = 10;
             this.btnGastos.Text = "Gastos";
+            this.btnGastos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGastos.UseVisualStyleBackColor = false;
             this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
             // 
@@ -157,12 +169,15 @@ namespace RavaSandwich
             // 
             this.btnCerrarTurno.BackColor = System.Drawing.Color.DarkOrange;
             this.btnCerrarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCerrarTurno.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrarTurno.Location = new System.Drawing.Point(574, 284);
+            this.btnCerrarTurno.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrarTurno.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarTurno.Image")));
+            this.btnCerrarTurno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarTurno.Location = new System.Drawing.Point(553, 284);
             this.btnCerrarTurno.Name = "btnCerrarTurno";
-            this.btnCerrarTurno.Size = new System.Drawing.Size(143, 75);
+            this.btnCerrarTurno.Size = new System.Drawing.Size(164, 75);
             this.btnCerrarTurno.TabIndex = 11;
             this.btnCerrarTurno.Text = "Cerrar Caja";
+            this.btnCerrarTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrarTurno.UseVisualStyleBackColor = false;
             this.btnCerrarTurno.Click += new System.EventHandler(this.btnCerrarTurno_Click);
             // 

@@ -29,6 +29,7 @@ namespace RavaSandwich
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CajaSueldos));
             this.txtHoraIngresoC = new System.Windows.Forms.TextBox();
             this.txtHoraSalidaC = new System.Windows.Forms.TextBox();
             this.txtTotalHorasC = new System.Windows.Forms.TextBox();
@@ -223,27 +224,32 @@ namespace RavaSandwich
             this.labelCajero.AutoSize = true;
             this.labelCajero.Location = new System.Drawing.Point(22, 26);
             this.labelCajero.Name = "labelCajero";
-            this.labelCajero.Size = new System.Drawing.Size(43, 15);
+            this.labelCajero.Size = new System.Drawing.Size(44, 15);
             this.labelCajero.TabIndex = 39;
-            this.labelCajero.Text = "Cajere:";
+            this.labelCajero.Text = "Cajero:";
             // 
             // labelPlanchero
             // 
             this.labelPlanchero.AutoSize = true;
-            this.labelPlanchero.Location = new System.Drawing.Point(21, 161);
+            this.labelPlanchero.Location = new System.Drawing.Point(20, 174);
             this.labelPlanchero.Name = "labelPlanchero";
-            this.labelPlanchero.Size = new System.Drawing.Size(62, 15);
+            this.labelPlanchero.Size = new System.Drawing.Size(63, 15);
             this.labelPlanchero.TabIndex = 40;
-            this.labelPlanchero.Text = "Planchere:";
+            this.labelPlanchero.Text = "Planchero:";
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.Color.Lime;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(176, 333);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(141, 38);
             this.btnGuardar.TabIndex = 41;
             this.btnGuardar.Text = "Guardar y Volver";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cBoxRutCajero
@@ -348,7 +354,6 @@ namespace RavaSandwich
         private System.Windows.Forms.Label labelCajero;
         private System.Windows.Forms.Label labelPlanchero;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox txt;
         private System.Windows.Forms.ComboBox cBoxRutCajero;
         private System.Windows.Forms.Label labelNombreCajero;
         private System.Windows.Forms.Label labelNombrePlanchero;

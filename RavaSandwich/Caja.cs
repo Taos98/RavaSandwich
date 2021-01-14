@@ -19,10 +19,11 @@ namespace RavaSandwich
         int totalSobre = 0;
         int totalPYOnline = 0;
         int subTotalPedidosYa = 0;
-        int tv = 0;
+        static int tv = 0;
         public Caja()
         {
             InitializeComponent();
+
             //Fecha actual:
             String fecha = DateTime.Now.ToString("d");
 
@@ -97,8 +98,6 @@ namespace RavaSandwich
                                 subTotalPedidosYa = subTotalPedidosYa + 1510 + dr.GetInt32(1);
                             }
 
-
-
                         }
                         if(dr.GetString(0).Equals("Pedidos Ya, efectivo") || (dr.GetString(0).Equals("Pedidos Ya, con descuento")))
                         {
@@ -125,10 +124,14 @@ namespace RavaSandwich
             txtVtasTransbank.Text = totalTransbank + "";
             txtVtasCredito.Text = totalCreditos + "";
             txtVtasPedidosYa.Text = subTotalPedidosYa + "";
-            tv = totalCreditos + totalEfectivo + totalTransbank+totalPedidosYa;
+            tv = totalCreditos + totalEfectivo + totalTransbank+totalPedidosYa; //total vtas = efectivo + transbank + pedidosya
             listVentas.Items.Add("\nTotal Ventas: \n" + tv);
             txtSobre.Text = totalSobre + "";
             txtDescuentos.Text = (totaldescuentos + totalPYOnline)+ "";
+
+            CajaGastos g = new CajaGastos();
+            CajaSueldos s = new CajaSueldos();
+            txtGastosSueldos.Text = (g.getTotalGastos() + s.getSueldoCajero() + s.getSueldoPlanchero()) + "";
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -169,6 +172,7 @@ namespace RavaSandwich
         {
             CajaGastos cg = new CajaGastos();
             cg.Show();
+            this.Close();
            
         }
 
@@ -181,8 +185,7 @@ namespace RavaSandwich
         public int getDineroEnCaja()
         {
             // sub total de dinero en caja para luego hacer el cuadre
-            int subtotalDC = tv - int.Parse(txtVtasTransbank.Text) - int.Parse(txtVtasCredito.Text) - int.Parse(txtGastosSueldos.Text);
-            subtotalDC = subtotalDC - int.Parse(txtDescuentos.Text);
+            int subtotalDC = tv - int.Parse(txtVtasTransbank.Text) - int.Parse(txtVtasCredito.Text) - int.Parse(txtGastosSueldos.Text) - int.Parse(txtDescuentos.Text);
 
             return subtotalDC;
         }

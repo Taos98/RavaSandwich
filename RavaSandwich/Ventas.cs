@@ -328,14 +328,34 @@ namespace RavaSandwich
                     precioB1 = dr.GetInt16(1);
                 }
             }
-            //Suma el precio de la bebida con la promo seleccionada
-            int precioConB = totalExtra1 + totalextra2 + (precioP * int.Parse(numericCantPromo.Value.ToString())) + (precioB1 * int.Parse(numericCantBebida.Value.ToString())) + (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) + (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) + precioV;
+            int precioConB = 0;
+            if (comboBebidas1.SelectedItem.ToString().Contains("Bebida Lata"))
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantBebida.Value.ToString())) +
+                totalExtra1 + totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
+            else
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantPromo.Value.ToString())) +
+                (precioB1 * int.Parse(numericCantBebida.Value.ToString())) +
+                (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) +
+                (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) +
+                totalExtra1 +
+                totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
             //Muestra el total con bebida incluida en el textbox
             txtPrecio.Text = "$ " + precioConB;
             //Cerrar comandos
             comm.Dispose();
             //Desconectar BD
             conn.Close();
+
         }
 
         private void numericCantVasos_ValueChanged(object sender, EventArgs e)
@@ -377,8 +397,27 @@ namespace RavaSandwich
                     precioB2 = dr.GetInt16(1);
                 }
             }
-            //Suma el precio de la bebida con la promo seleccionada
-            int precioConB = totalExtra1 + totalextra2 + (precioP * int.Parse(numericCantPromo.Value.ToString())) + (precioB1 * int.Parse(numericCantBebida.Value.ToString())) + (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) + (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) + precioV;
+            int precioConB = 0;
+            if (comboBebidas1.SelectedItem.ToString().Contains("Bebida Lata"))
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantBebida.Value.ToString())) +
+                totalExtra1 + totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
+            else
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantPromo.Value.ToString())) +
+                (precioB1 * int.Parse(numericCantBebida.Value.ToString())) +
+                (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) +
+                (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) +
+                totalExtra1 +
+                totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
             //Muestra el total con bebida incluida en el textbox
             txtPrecio.Text = "$ " + precioConB;
             //Cerrar comandos
@@ -412,8 +451,27 @@ namespace RavaSandwich
                     precioB3 = dr.GetInt16(1);
                 }
             }
-            //Suma el precio de la bebida con la promo seleccionada
-            int precioConB = totalExtra1 + totalextra2 + (precioP * int.Parse(numericCantPromo.Value.ToString())) + (precioB1 * int.Parse(numericCantBebida.Value.ToString())) + (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) + (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) + precioV;
+            int precioConB = 0;
+            if (comboBebidas1.SelectedItem.ToString().Contains("Bebida Lata"))
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantBebida.Value.ToString())) +
+                totalExtra1 + totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
+            else
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantPromo.Value.ToString())) +
+                (precioB1 * int.Parse(numericCantBebida.Value.ToString())) +
+                (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) +
+                (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) +
+                totalExtra1 +
+                totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
             //Muestra el total con bebida incluida en el textbox
             txtPrecio.Text = "$ " + precioConB;
             //Cerrar comandos
@@ -425,21 +483,81 @@ namespace RavaSandwich
         private void numericCantBebida_ValueChanged(object sender, EventArgs e)
         {
 
-            int precioConB = totalExtra1 + totalextra2 + (precioP * int.Parse(numericCantPromo.Value.ToString())) + (precioB1 * int.Parse(numericCantBebida.Value.ToString())) + (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) + (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) + precioV;
+            int precioConB = 0;
+            if (comboBebidas1.SelectedItem.ToString().Contains("Bebida Lata"))
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantBebida.Value.ToString())) +
+                totalExtra1 + totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
+            else
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantPromo.Value.ToString())) +
+                (precioB1 * int.Parse(numericCantBebida.Value.ToString())) +
+                (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) +
+                (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) +
+                totalExtra1 +
+                totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
             //Muestra el total con bebida incluida en el textbox
             txtPrecio.Text = "$ " + precioConB;
         }
 
         private void numericCantBebidas2_ValueChanged(object sender, EventArgs e)
         {
-            int precioConB = totalExtra1 + totalextra2 + (precioP * int.Parse(numericCantPromo.Value.ToString())) + (precioB1 * int.Parse(numericCantBebida.Value.ToString())) + (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) + (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) + precioV;
+            int precioConB = 0;
+            if (comboBebidas1.SelectedItem.ToString().Contains("Bebida Lata"))
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantBebida.Value.ToString())) +
+                totalExtra1 + totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
+            else
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantPromo.Value.ToString())) +
+                (precioB1 * int.Parse(numericCantBebida.Value.ToString())) +
+                (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) +
+                (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) +
+                totalExtra1 +
+                totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
             //Muestra el total con bebida incluida en el textbox
             txtPrecio.Text = "$ " + precioConB;
         }
 
         private void numericCantBebidas3_ValueChanged(object sender, EventArgs e)
         {
-            int precioConB = totalExtra1 + totalextra2 + (precioP * int.Parse(numericCantPromo.Value.ToString())) + (precioB1 * int.Parse(numericCantBebida.Value.ToString())) + (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) + (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) + precioV;
+            int precioConB = 0;
+            if (comboBebidas1.SelectedItem.ToString().Contains("Bebida Lata"))
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantBebida.Value.ToString())) +
+                totalExtra1 + totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
+            else
+            {
+                precioConB =
+                precioV +
+                (precioP * int.Parse(numericCantPromo.Value.ToString())) +
+                (precioB1 * int.Parse(numericCantBebida.Value.ToString())) +
+                (precioB2 * int.Parse(numericCantBebidas2.Value.ToString())) +
+                (precioB3 * int.Parse(numericCantBebidas3.Value.ToString())) +
+                totalExtra1 +
+                totalextra2;
+                txtPrecio.Text = "$ " + precioConB;
+            }
             //Muestra el total con bebida incluida en el textbox
             txtPrecio.Text = "$ " + precioConB;
         }
@@ -926,7 +1044,17 @@ namespace RavaSandwich
         private void btnEliminarVenta_Click(object sender, EventArgs e)
         {
             Eliminar_venta ev = new Eliminar_venta();
-            ev.Show();
+            //Para evitar que se abran múltiples formularios del mismo tipo
+            if (Application.OpenForms[ev.Name] == null)
+            {
+                ev.Show();
+            }
+            else
+            {
+                Application.OpenForms[ev.Name].Activate();
+            }
+            
+            
         }
     }
 }

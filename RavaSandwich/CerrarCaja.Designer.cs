@@ -38,6 +38,7 @@ namespace RavaSandwich
             this.txtCuadre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -115,12 +116,23 @@ namespace RavaSandwich
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // CerrarTurno
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(163, 380);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(101, 38);
+            this.btnVolver.TabIndex = 8;
+            this.btnVolver.Text = "Volver a Caja";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // CerrarCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(430, 463);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCuadre);
@@ -130,7 +142,7 @@ namespace RavaSandwich
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CerrarTurno";
+            this.Name = "CerrarCaja";
             this.Text = "CerrarTurno";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -147,5 +159,6 @@ namespace RavaSandwich
         private System.Windows.Forms.TextBox txtCuadre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

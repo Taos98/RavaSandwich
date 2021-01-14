@@ -33,4 +33,8 @@ C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\Ra
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CajaBilletes.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CajaGastos.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CajaSueldos.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CerrarCaja.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Eliminar_venta.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Gestionar_Turno.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CerrarTurno.resources
+C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.IniciarTurno.resources

@@ -12,28 +12,32 @@ namespace RavaSandwich
     public partial class CajaSueldos : Form
     {
         String fecha = DateTime.Now.ToString("d");
-        int sueldoCajere;
-        int sueldoPlanchere;
+        public static int sueldoCajere = 0;
+        public static int sueldoPlanchere = 0;
         public CajaSueldos()
         {
             InitializeComponent();
 
-            //conexion para extraer el rut del usuario
-            NpgsqlConnection conn1 = new NpgsqlConnection("Server=localhost;Port=5432;User Id=postgres;Password=TomiMati2005;Database=Rava");//Datos de conexion a la BD
-            conn1.Open();// Abre la BD
-            //Realiza la consulta si los datos ingresados por el textbox son iguales a las que están en la BD
-            NpgsqlCommand cmd1 = new NpgsqlCommand("SELECT (nombre, rut) FROM usuarios");
-            NpgsqlDataReader dr1 = cmd1.ExecuteReader();
+            //Datos de conexión a BD
+            NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            //Abrir BD
+            conn1.Open();
+            //Crear objeto de comandos
+            NpgsqlCommand comm1 = new NpgsqlCommand();
+            //Crear objeto conexión
+            comm1.Connection = conn1;
+            comm1.CommandType = CommandType.Text;
+            //Consulta 
+            comm1.CommandText="SELECT nombre, rut FROM usuarios";
+            NpgsqlDataReader dr1 = comm1.ExecuteReader();
             while (dr1.Read())
             {
                 cBoxRutCajero.Items.Add(dr1.GetString(1));
-                labelNombreCajero.Text = dr1.GetString(0);
-
                 cBoxRutPlanchero.Items.Add(dr1.GetString(1));
-                labelNombrePlanchero.Text = dr1.GetString(0);
+        
             }
             //Cerrar comandos
-            cmd1.Dispose();
+            comm1.Dispose();
             //Desconectar BD
             conn1.Close();
         }
@@ -46,43 +50,60 @@ namespace RavaSandwich
         private void cBoxRutCajero_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            //conexion para rellenar los datos en sueldo
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;User Id=postgres;Password=TomiMati2005;Database=Rava");//Datos de conexion a la BD
-            conn.Open();// Abre la BD
+            //Datos de conexión a BD
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            //Abrir BD
+            conn.Open();
+            //Crear objeto de comandos
+            NpgsqlCommand comm = new NpgsqlCommand();
+            //Crear objeto conexión
+            comm.Connection = conn;
+            //No se que hace xd
+            comm.CommandType = CommandType.Text;
+            //Consulta
             //Realiza la consulta si los datos ingresados por el textbox son iguales a las que están en la BD
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT (hora_ingreso, hora_salida, puesto, rut, fecha) FROM turno WHERE rut ='" + cBoxRutPlanchero.SelectedItem.ToString() + "', puesto = 'cajero'");
-            NpgsqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows)
+            comm.CommandText = "SELECT hora_ingreso, hora_salida, puesto, rut, fecha FROM turno WHERE rut ='" + cBoxRutCajero.SelectedItem.ToString() + "' and puesto = 'Caja'";
+            NpgsqlDataReader dr = comm.ExecuteReader();
+            if (dr.Read())
             {
-                if (dr.GetString(4) == fecha)
+                if (dr.GetString(4) ==fecha)
                 {
                     txtHoraIngresoC.Text = dr.GetString(0);
                     txtHoraSalidaC.Text = dr.GetString(1);
                 }
             }
             //Cerrar comandos
-            cmd.Dispose();
+            comm.Dispose();
             //Desconectar BD
             conn.Close();
 
-
-            DateTime horaInicioCaja = DateTime.Parse(txtHoraIngresoC.Text);
-            DateTime horaFinalCaja = DateTime.Parse(txtHoraSalidaC.Text);
-            float difHorasCaja = (horaInicioCaja.Minute - horaFinalCaja.Minute) / 60;
+            String fechaH1 = fecha + ' ' + txtHoraIngresoC.Text;
+            String fechaH2 = fecha + ' ' + txtHoraSalidaC.Text;
+            DateTime horaInicioCaja = DateTime.Parse(fechaH1);
+            DateTime horaFinalCaja = DateTime.Parse(fechaH2);
+            TimeSpan span = horaFinalCaja.Subtract(horaInicioCaja);
+            int difHorasCaja = span.Minutes;
             txtTotalHorasC.Text = difHorasCaja + "";
-            sueldoCajere = (int)(float.Parse(txtTotalHorasC.Text) * float.Parse(txtValorHoraC.Text));
+            sueldoCajere = ((difHorasCaja * int.Parse(txtValorHoraC.Text)));
             txtTotalC.Text = sueldoCajere + "";
         }
 
         private void cBoxRutPlanchero_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //conexion para rellenar los datos en sueldo
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;User Id=postgres;Password=TomiMati2005;Database=Rava");//Datos de conexion a la BD
-            conn.Open();// Abre la BD
-            //Realiza la consulta si los datos ingresados por el textbox son iguales a las que están en la BD
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT (hora_ingreso, hora_salida, puesto, rut, fecha) FROM turno WHERE rut ='" + cBoxRutPlanchero.SelectedItem.ToString() + "', puesto = 'planchero'");
-            NpgsqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows)
+            //Datos de conexión a BD
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            //Abrir BD
+            conn.Open();
+            //Crear objeto de comandos
+            NpgsqlCommand comm = new NpgsqlCommand();
+            //Crear objeto conexión
+            comm.Connection = conn;
+            //No se que hace xd
+            comm.CommandType = CommandType.Text;
+            //Consulta
+            comm.CommandText=("SELECT hora_ingreso, hora_salida, puesto, rut, fecha FROM turno WHERE rut ='" + cBoxRutPlanchero.SelectedItem.ToString() + "'AND puesto = 'Plancha'");
+            NpgsqlDataReader dr = comm.ExecuteReader();
+            if (dr.Read())
             {
                 if (dr.GetString(4) == fecha)
                 {
@@ -91,15 +112,27 @@ namespace RavaSandwich
                 }
             }
             //Cerrar comandos
-            cmd.Dispose();
+            comm.Dispose();
             //Desconectar BD
             conn.Close();
-            DateTime horaInicioPlancha = DateTime.Parse(txtHoraIngresoP.Text);
-            DateTime horaFinalPlancha = DateTime.Parse(txtHoraSalidaP.Text);
-            float difHorasPlancha = (horaInicioPlancha.Minute - horaFinalPlancha.Minute) / 60;
+
+            String fechaH1 = fecha + ' ' + txtHoraIngresoP.Text;
+            String fechaH2 = fecha + ' ' + txtHoraSalidaP.Text;
+            DateTime horaInicioPlancha = DateTime.Parse(fechaH1);
+            DateTime horaFinalPlancha = DateTime.Parse(fechaH2);
+            TimeSpan span = horaFinalPlancha.Subtract(horaInicioPlancha);
+            int difHorasPlancha = span.Minutes;
             txtTotalHorasP.Text = difHorasPlancha + "";
-            sueldoPlanchere = (int)(float.Parse(txtTotalHorasP.Text) * float.Parse(txtValorHoraP.Text));
+            sueldoPlanchere = (difHorasPlancha * int.Parse(txtValorHoraP.Text));
             txtTotalP.Text = sueldoPlanchere + "";
+        }
+        public int getSueldoCajero()
+        {
+            return sueldoCajere;
+        }
+        public int getSueldoPlanchero()
+        {
+            return sueldoPlanchere;
         }
     }
 }

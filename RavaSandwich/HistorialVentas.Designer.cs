@@ -103,8 +103,7 @@ namespace RavaSandwich
         #endregion
 
         private System.Windows.Forms.DataGridView tablaVentas;
-        private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.DataGridView dataGridViewVentas;
+        private System.Windows.Forms.Button btnCerrar;   
         private System.Windows.Forms.Button btnVerTodo;
         private System.Windows.Forms.Button btnVentasHoy;
     }

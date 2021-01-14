@@ -29,6 +29,7 @@ namespace RavaSandwich
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CajaGastos));
             this.btnAgregarGasto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescripcion1 = new System.Windows.Forms.TextBox();
@@ -57,6 +58,7 @@ namespace RavaSandwich
             this.btnAgregarGasto.TabIndex = 0;
             this.btnAgregarGasto.Text = "+";
             this.btnAgregarGasto.UseVisualStyleBackColor = false;
+            this.btnAgregarGasto.Click += new System.EventHandler(this.btnAgregarGasto_Click);
             // 
             // label1
             // 
@@ -171,12 +173,17 @@ namespace RavaSandwich
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.Color.Lime;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(107, 347);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(127, 34);
+            this.btnGuardar.Size = new System.Drawing.Size(142, 43);
             this.btnGuardar.TabIndex = 16;
             this.btnGuardar.Text = "Guardar y Volver";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // CajaGastos

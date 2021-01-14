@@ -108,11 +108,14 @@ namespace RavaSandwich
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMenu.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnMenu.Location = new System.Drawing.Point(764, 28);
+            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
+            this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenu.Location = new System.Drawing.Point(727, 28);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(179, 42);
+            this.btnMenu.Size = new System.Drawing.Size(216, 42);
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "Volver al menú principal";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
@@ -121,11 +124,14 @@ namespace RavaSandwich
             this.btnHistorial.BackColor = System.Drawing.Color.Gold;
             this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHistorial.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnHistorial.Location = new System.Drawing.Point(516, 28);
+            this.btnHistorial.Image = ((System.Drawing.Image)(resources.GetObject("btnHistorial.Image")));
+            this.btnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorial.Location = new System.Drawing.Point(485, 28);
             this.btnHistorial.Name = "btnHistorial";
-            this.btnHistorial.Size = new System.Drawing.Size(206, 42);
+            this.btnHistorial.Size = new System.Drawing.Size(224, 42);
             this.btnHistorial.TabIndex = 1;
             this.btnHistorial.Text = "Historial pedidos del día";
+            this.btnHistorial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHistorial.UseVisualStyleBackColor = false;
             this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
             // 
@@ -567,11 +573,14 @@ namespace RavaSandwich
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnConfirmar.Location = new System.Drawing.Point(738, 446);
+            this.btnConfirmar.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmar.Image")));
+            this.btnConfirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirmar.Location = new System.Drawing.Point(686, 487);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(257, 178);
+            this.btnConfirmar.Size = new System.Drawing.Size(289, 123);
             this.btnConfirmar.TabIndex = 49;
             this.btnConfirmar.Text = "Confirmar Pedido";
+            this.btnConfirmar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
@@ -772,11 +781,14 @@ namespace RavaSandwich
             this.btnEliminarVenta.BackColor = System.Drawing.Color.Crimson;
             this.btnEliminarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminarVenta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEliminarVenta.Location = new System.Drawing.Point(280, 28);
+            this.btnEliminarVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarVenta.Image")));
+            this.btnEliminarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarVenta.Location = new System.Drawing.Point(313, 28);
             this.btnEliminarVenta.Name = "btnEliminarVenta";
-            this.btnEliminarVenta.Size = new System.Drawing.Size(209, 41);
+            this.btnEliminarVenta.Size = new System.Drawing.Size(156, 41);
             this.btnEliminarVenta.TabIndex = 69;
             this.btnEliminarVenta.Text = "Eliminar Venta";
+            this.btnEliminarVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarVenta.UseVisualStyleBackColor = false;
             this.btnEliminarVenta.Click += new System.EventHandler(this.btnEliminarVenta_Click);
             // 
