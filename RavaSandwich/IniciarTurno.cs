@@ -127,19 +127,9 @@ namespace RavaSandwich
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            if (login.getRol() == "Usuario")
-            {
-                MenuUsuario ump = new MenuUsuario();
-                ump.Show();
-                this.Close();
-            }
-            else if (login.getRol() == "Administrador")
-            {
-                MenuAdmin amp = new MenuAdmin();
-                amp.Show();
-                this.Close();
-            }
+            Gestionar_Turno t = new Gestionar_Turno();
+            t.Show();
+            this.Close();
         }
         //Verifica si inicio el turno por primera vez en el dia para no reestablecer varias veces el stock
         private bool verificarTurnoDia()

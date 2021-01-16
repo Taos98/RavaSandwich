@@ -131,28 +131,33 @@ namespace RavaSandwich
             // 
             // ctnCerrarTurno
             // 
+            this.ctnCerrarTurno.BackColor = System.Drawing.Color.Crimson;
+            this.ctnCerrarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ctnCerrarTurno.Location = new System.Drawing.Point(37, 377);
             this.ctnCerrarTurno.Name = "ctnCerrarTurno";
             this.ctnCerrarTurno.Size = new System.Drawing.Size(157, 45);
             this.ctnCerrarTurno.TabIndex = 10;
             this.ctnCerrarTurno.Text = "Cerrar Turno";
-            this.ctnCerrarTurno.UseVisualStyleBackColor = true;
+            this.ctnCerrarTurno.UseVisualStyleBackColor = false;
             this.ctnCerrarTurno.Click += new System.EventHandler(this.ctnCerrarTurno_Click);
             // 
             // btnAtras
             // 
+            this.btnAtras.BackColor = System.Drawing.Color.Gold;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtras.Location = new System.Drawing.Point(220, 377);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(157, 45);
             this.btnAtras.TabIndex = 11;
             this.btnAtras.Text = "Atras";
-            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // CerrarTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Orange;
             this.ClientSize = new System.Drawing.Size(423, 460);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.ctnCerrarTurno);

@@ -32,7 +32,6 @@ namespace RavaSandwich
             CajaGastos g = new CajaGastos();
             CajaBilletes b = new CajaBilletes();
             CajaSueldos s = new CajaSueldos();
-            Gestionar_Turno gt = new Gestionar_Turno();
 
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
@@ -45,8 +44,8 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Actualiza el producto
-            comm.CommandText = "INSERT into caja(fecha, rut_planchero, nombre_planchero, rut_cajero, nombre_cajero, cuadre_caja, total_ventas, descripcion_gasto, gasto, sueldo_cajero, sueldo_planchero, billetes_monedas )" +
-                            "VALUES('" + fechaHora + "','"+gt.getRutPlanchero()+"', '"+gt.getNombrePlanchero()+"','"+gt.getRutCajero()+"','"+ gt.getNombreCajero()+"'," + aux + "," + c.getTotalVenta() + ",'" + g.getDescripcionGastos() + "'," + g.getTotalGastos() + ","+s.getSueldoCajero()+", "+s.getSueldoPlanchero()+"," + b.getTotal() + ")";            //Leer BD
+            comm.CommandText = "INSERT into caja(fecha, rut_planchero, nombre_planchero, rut_cajero, nombre_cajero, cuadre_caja, total_ventas, descripcion_gastos, gastos, sueldo_cajero, sueldo_planchero, billetes_monedas )" +
+                            "VALUES('" + fechaHora + "','"+s.getRutPlanchero()+"', '"+s.getNombrePlanchero()+"','"+s.getRutCajero()+"','"+ s.getNombreCajero()+"'," + aux + "," + c.getTotalVenta() + ",'" + g.getDescripcionGastos() + "'," + g.getTotalGastos() + ","+s.getSueldoCajero()+", "+s.getSueldoPlanchero()+"," + b.getTotal() + ")";            //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             MessageBox.Show("Se ha cerrado la caja", "Caja cerrada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             //Cerrar comandos

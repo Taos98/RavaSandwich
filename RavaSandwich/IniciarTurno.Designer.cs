@@ -131,28 +131,34 @@ namespace RavaSandwich
             // 
             // btnIniciar
             // 
+            this.btnIniciar.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIniciar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnIniciar.Location = new System.Drawing.Point(46, 405);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(157, 42);
             this.btnIniciar.TabIndex = 10;
             this.btnIniciar.Text = "Iniciar turno";
-            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.UseVisualStyleBackColor = false;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // btnVolver
             // 
+            this.btnVolver.BackColor = System.Drawing.Color.Gold;
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVolver.Location = new System.Drawing.Point(283, 405);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(157, 42);
             this.btnVolver.TabIndex = 11;
             this.btnVolver.Text = "Atrás";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // IniciarTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Orange;
             this.ClientSize = new System.Drawing.Size(476, 488);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnIniciar);

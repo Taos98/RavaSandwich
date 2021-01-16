@@ -68,8 +68,8 @@ namespace RavaSandwich
                 conn.Close();
 
                 MessageBox.Show(
-                    txtNombre.Text + "\nha iniciado su turno con: \nfecha: " + dateTimeFecha.Value.ToString("d") + "\nhora: " + txtHoraS.Text,
-                    "Iniciar Turno", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1); ;
+                    txtNombre.Text + "\nha cerrado su turno con: \nfecha: " + dateTimeFecha.Value.ToString("d") + "\nhora: " + txtHoraS.Text,
+                    "Cerrar Turno", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1); ;
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -79,7 +79,7 @@ namespace RavaSandwich
                 conn.Close();
                 MessageBox.Show(
                     "Operación cancelada",
-                    "Iniciar Turno", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    "Cerrar Turno", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -142,8 +142,10 @@ namespace RavaSandwich
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-
+            Gestionar_Turno t = new Gestionar_Turno();
+            t.Show();
             this.Close();
+            
         }
 
         private void dateTimeFecha_ValueChanged(object sender, EventArgs e)
