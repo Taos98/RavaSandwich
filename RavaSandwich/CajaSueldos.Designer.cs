@@ -266,18 +266,18 @@ namespace RavaSandwich
             this.labelNombreCajero.AutoSize = true;
             this.labelNombreCajero.Location = new System.Drawing.Point(165, 57);
             this.labelNombreCajero.Name = "labelNombreCajero";
-            this.labelNombreCajero.Size = new System.Drawing.Size(88, 15);
+            this.labelNombreCajero.Size = new System.Drawing.Size(152, 15);
             this.labelNombreCajero.TabIndex = 43;
-            this.labelNombreCajero.Text = "Nombre Cajero";
+            this.labelNombreCajero.Text = "No hay cajero seleccionado";
             // 
             // labelNombrePlanchero
             // 
             this.labelNombrePlanchero.AutoSize = true;
             this.labelNombrePlanchero.Location = new System.Drawing.Point(165, 205);
             this.labelNombrePlanchero.Name = "labelNombrePlanchero";
-            this.labelNombrePlanchero.Size = new System.Drawing.Size(107, 15);
+            this.labelNombrePlanchero.Size = new System.Drawing.Size(173, 15);
             this.labelNombrePlanchero.TabIndex = 45;
-            this.labelNombrePlanchero.Text = "Nombre Planchero";
+            this.labelNombrePlanchero.Text = "No hay planchero seleccionado";
             // 
             // cBoxRutPlanchero
             // 
