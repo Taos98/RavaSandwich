@@ -38,7 +38,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT metodo_pago, subtotal, fecha_venta, descuentos, pedido from ventas";
+            comm.CommandText = "SELECT tipo_pago, subtotal, fecha, descuento, pedido from ventas";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             while (dr.Read())//Si la tabla tiene 1 o más filas...

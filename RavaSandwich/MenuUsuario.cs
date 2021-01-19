@@ -43,5 +43,11 @@ namespace RavaSandwich
             ca.Show();
             this.Close();
         }
+
+        private void btnGestionarTurno_Click(object sender, EventArgs e)
+        {
+            Gestionar_Turno t = new Gestionar_Turno();
+            t.Show();
+        }
     }
 }

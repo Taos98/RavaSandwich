@@ -26,7 +26,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT nombre_cliente, fecha_venta from ventas";
+            comm.CommandText = "SELECT nombre_cliente, fecha from ventas";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             while (dr.Read())//Si la tabla tiene 1 o más filas...
@@ -99,7 +99,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT pedido, fecha_venta from ventas WHERE nombre_cliente ='"+cbNombreCliente.SelectedItem.ToString()+"'";
+            comm.CommandText = "SELECT pedido, fecha from ventas WHERE nombre_cliente ='"+cbNombreCliente.SelectedItem.ToString()+"'";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             while (dr.Read())//Si la tabla tiene 1 o más filas...

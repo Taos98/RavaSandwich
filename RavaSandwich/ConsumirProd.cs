@@ -66,7 +66,7 @@ namespace RavaSandwich
                 //No se que hace xd
                 comm.CommandType = CommandType.Text;
                 //Actualiza el producto
-                comm.CommandText = "UPDATE productos SET consumo_turno = consumo_turno+ " + numericCantidad.Value.ToString() + ", stock_fin_turno=stock_fin_turno-" + numericCantidad.Value.ToString() + ",rut = '" + l.getRut() + "', fecha = '" + fecha + "'  WHERE nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
+                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod+ " + numericCantidad.Value.ToString() + ", stock_final_prod=stock_final_prod-" + numericCantidad.Value.ToString() + ",rut = '" + l.getRut() + "', fecha = '" + fecha + "'  WHERE nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
                 //Leer BD
                 NpgsqlDataReader dr = comm.ExecuteReader();
                 MessageBox.Show("Se ha consumido " + numericCantidad.Value.ToString() + " del producto " + comboProductos.SelectedItem.ToString(), "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -95,7 +95,7 @@ namespace RavaSandwich
         private bool verificarStock()
         {
  
-            int stockDB, stock;
+            double stockDB, stock;
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
             //Abrir BD
@@ -107,14 +107,14 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT stock_fin_turno from productos where nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
+            comm.CommandText = "SELECT stock_final_prod from productos where nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
 
             //lee una fila
             dr.Read();
             //extrae el valor de la fila y lo asigna a una variable
-            stockDB = dr.GetInt16(0);
+            stockDB = dr.GetDouble(0);
             //Cerrar comandos
             comm.Dispose();
             //Desconectar BD

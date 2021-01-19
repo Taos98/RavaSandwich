@@ -72,7 +72,7 @@ namespace RavaSandwich
                 //No se que hace xd
                 comm.CommandType = CommandType.Text;
                 //Actualiza el producto
-                comm.CommandText = "UPDATE productos SET ingreso_producto = ingreso_producto +" + numericCantidad.Value.ToString() + ", stock_fin_turno=stock_inicio_turno+" + numericCantidad.Value.ToString() + ", rut = '" + l.getRut() + "', fecha ='" + fecha + "'  WHERE nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";                //Leer BD
+                comm.CommandText = "UPDATE productos SET ingreso_produc = ingreso_produc +" + numericCantidad.Value.ToString() + ", stock_final_prod=stock_inicio_prod+" + numericCantidad.Value.ToString() + ", rut = '" + l.getRut() + "', fecha ='" + fecha + "'  WHERE nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";                //Leer BD
                 NpgsqlDataReader dr = comm.ExecuteReader();
                 MessageBox.Show("Se ha agregado " + numericCantidad.Value.ToString() + " al producto " + comboProductos.SelectedItem.ToString(), "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 //Cerrar comandos

@@ -113,7 +113,7 @@ namespace RavaSandwich
             comm.CommandType = CommandType.Text;
             //Consulta
             comm.CommandText =
-                "SELECT nombre FROM Usuarios " +
+                "SELECT nombre FROM usuarios " +
                 "WHERE rut = '" + comboRut.SelectedItem.ToString() + "'";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
@@ -176,7 +176,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Actualiza el producto
-            comm.CommandText = "UPDATE productos SET stock_inicio_turno = stock_fin_turno , stock_fin_turno=0";
+            comm.CommandText = "UPDATE productos SET stock_inicio_prod = stock_final_prod , stock_final_prod=0";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             //Cerrar comandos

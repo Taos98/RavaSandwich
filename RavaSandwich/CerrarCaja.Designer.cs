@@ -118,12 +118,14 @@ namespace RavaSandwich
             // 
             // btnVolver
             // 
+            this.btnVolver.BackColor = System.Drawing.Color.Yellow;
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVolver.Location = new System.Drawing.Point(163, 380);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(101, 38);
             this.btnVolver.TabIndex = 8;
             this.btnVolver.Text = "Volver a Caja";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // CerrarCaja

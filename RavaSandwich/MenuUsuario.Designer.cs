@@ -35,6 +35,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelBienvenido = new System.Windows.Forms.Label();
+            this.btnGestionarTurno = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnInventario
@@ -86,9 +87,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(578, 361);
+            this.button1.Location = new System.Drawing.Point(432, 297);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 52);
+            this.button1.Size = new System.Drawing.Size(342, 91);
             this.button1.TabIndex = 3;
             this.button1.Text = "Cerrar Sesión";
             this.button1.UseVisualStyleBackColor = false;
@@ -116,12 +117,27 @@
             this.labelBienvenido.TabIndex = 8;
             this.labelBienvenido.Text = "Hola!";
             // 
+            // btnGestionarTurno
+            // 
+            this.btnGestionarTurno.BackColor = System.Drawing.Color.Yellow;
+            this.btnGestionarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGestionarTurno.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGestionarTurno.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnGestionarTurno.Location = new System.Drawing.Point(21, 297);
+            this.btnGestionarTurno.Name = "btnGestionarTurno";
+            this.btnGestionarTurno.Size = new System.Drawing.Size(346, 91);
+            this.btnGestionarTurno.TabIndex = 10;
+            this.btnGestionarTurno.Text = "Gestionar turno";
+            this.btnGestionarTurno.UseVisualStyleBackColor = false;
+            this.btnGestionarTurno.Click += new System.EventHandler(this.btnGestionarTurno_Click);
+            // 
             // MenuUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Blue;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(804, 519);
+            this.Controls.Add(this.btnGestionarTurno);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelBienvenido);
             this.Controls.Add(this.button1);
@@ -144,5 +160,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Label labelBienvenido;
+        private System.Windows.Forms.Button btnGestionarTurno;
     }
 }

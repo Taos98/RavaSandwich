@@ -77,6 +77,7 @@ namespace RavaSandwich
             // 
             this.txtTotalHorasC.Location = new System.Drawing.Point(216, 116);
             this.txtTotalHorasC.Name = "txtTotalHorasC";
+            this.txtTotalHorasC.PlaceholderText = "Ej: 1,5";
             this.txtTotalHorasC.Size = new System.Drawing.Size(77, 23);
             this.txtTotalHorasC.TabIndex = 21;
             // 
@@ -112,6 +113,7 @@ namespace RavaSandwich
             // 
             this.txtTotalHorasP.Location = new System.Drawing.Point(215, 258);
             this.txtTotalHorasP.Name = "txtTotalHorasP";
+            this.txtTotalHorasP.PlaceholderText = "Ej: 1,7";
             this.txtTotalHorasP.Size = new System.Drawing.Size(77, 23);
             this.txtTotalHorasP.TabIndex = 26;
             // 
