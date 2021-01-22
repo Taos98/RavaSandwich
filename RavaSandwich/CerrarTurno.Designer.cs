@@ -29,6 +29,7 @@ namespace RavaSandwich
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CerrarTurno));
             this.comboRut = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtPuesto = new System.Windows.Forms.TextBox();
@@ -133,11 +134,15 @@ namespace RavaSandwich
             // 
             this.ctnCerrarTurno.BackColor = System.Drawing.Color.Crimson;
             this.ctnCerrarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ctnCerrarTurno.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ctnCerrarTurno.Image = ((System.Drawing.Image)(resources.GetObject("ctnCerrarTurno.Image")));
+            this.ctnCerrarTurno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ctnCerrarTurno.Location = new System.Drawing.Point(37, 377);
             this.ctnCerrarTurno.Name = "ctnCerrarTurno";
             this.ctnCerrarTurno.Size = new System.Drawing.Size(157, 45);
             this.ctnCerrarTurno.TabIndex = 10;
             this.ctnCerrarTurno.Text = "Cerrar Turno";
+            this.ctnCerrarTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ctnCerrarTurno.UseVisualStyleBackColor = false;
             this.ctnCerrarTurno.Click += new System.EventHandler(this.ctnCerrarTurno_Click);
             // 
@@ -145,11 +150,15 @@ namespace RavaSandwich
             // 
             this.btnAtras.BackColor = System.Drawing.Color.Gold;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtras.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
+            this.btnAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAtras.Location = new System.Drawing.Point(220, 377);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(157, 45);
             this.btnAtras.TabIndex = 11;
             this.btnAtras.Text = "Atras";
+            this.btnAtras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 

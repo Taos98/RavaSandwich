@@ -52,6 +52,7 @@ namespace RavaSandwich
             // btnAgregarGasto
             // 
             this.btnAgregarGasto.BackColor = System.Drawing.Color.Green;
+            this.btnAgregarGasto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarGasto.Location = new System.Drawing.Point(29, 53);
             this.btnAgregarGasto.Name = "btnAgregarGasto";
             this.btnAgregarGasto.Size = new System.Drawing.Size(23, 24);
@@ -175,11 +176,12 @@ namespace RavaSandwich
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.Lime;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(107, 347);
+            this.btnGuardar.Location = new System.Drawing.Point(81, 356);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(142, 43);
+            this.btnGuardar.Size = new System.Drawing.Size(164, 54);
             this.btnGuardar.TabIndex = 16;
             this.btnGuardar.Text = "Guardar y Volver";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

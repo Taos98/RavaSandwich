@@ -29,6 +29,7 @@ namespace RavaSandwich
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialVentas));
             this.tablaVentas = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnVerTodo = new System.Windows.Forms.Button();
@@ -50,6 +51,8 @@ namespace RavaSandwich
             this.btnCerrar.BackColor = System.Drawing.Color.DarkOrange;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrar.Location = new System.Drawing.Point(598, 387);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(164, 48);
@@ -62,9 +65,10 @@ namespace RavaSandwich
             // 
             this.btnVerTodo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnVerTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVerTodo.Location = new System.Drawing.Point(21, 387);
+            this.btnVerTodo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnVerTodo.Location = new System.Drawing.Point(37, 387);
             this.btnVerTodo.Name = "btnVerTodo";
-            this.btnVerTodo.Size = new System.Drawing.Size(137, 48);
+            this.btnVerTodo.Size = new System.Drawing.Size(152, 48);
             this.btnVerTodo.TabIndex = 2;
             this.btnVerTodo.Text = "Ver todas las ventas";
             this.btnVerTodo.UseVisualStyleBackColor = false;
@@ -74,9 +78,10 @@ namespace RavaSandwich
             // 
             this.btnVentasHoy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnVentasHoy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVentasHoy.Location = new System.Drawing.Point(207, 387);
+            this.btnVentasHoy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnVentasHoy.Location = new System.Drawing.Point(223, 387);
             this.btnVentasHoy.Name = "btnVentasHoy";
-            this.btnVentasHoy.Size = new System.Drawing.Size(137, 48);
+            this.btnVentasHoy.Size = new System.Drawing.Size(152, 48);
             this.btnVentasHoy.TabIndex = 3;
             this.btnVentasHoy.Text = "Ver ventas de hoy";
             this.btnVentasHoy.UseVisualStyleBackColor = false;

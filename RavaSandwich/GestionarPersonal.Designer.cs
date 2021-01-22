@@ -29,6 +29,7 @@ namespace RavaSandwich
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarPersonal));
             this.boxPersonal = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@ namespace RavaSandwich
             this.boxPersonal.FormattingEnabled = true;
             this.boxPersonal.Location = new System.Drawing.Point(177, 22);
             this.boxPersonal.Name = "boxPersonal";
-            this.boxPersonal.Size = new System.Drawing.Size(299, 23);
+            this.boxPersonal.Size = new System.Drawing.Size(385, 23);
             this.boxPersonal.TabIndex = 0;
             this.boxPersonal.SelectedIndexChanged += new System.EventHandler(this.boxPersonal_SelectedIndexChanged);
             // 
@@ -82,7 +83,7 @@ namespace RavaSandwich
             this.txtNombre.Location = new System.Drawing.Point(177, 123);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(299, 23);
+            this.txtNombre.Size = new System.Drawing.Size(385, 23);
             this.txtNombre.TabIndex = 3;
             // 
             // txtRut
@@ -90,7 +91,7 @@ namespace RavaSandwich
             this.txtRut.Location = new System.Drawing.Point(177, 176);
             this.txtRut.Name = "txtRut";
             this.txtRut.ReadOnly = true;
-            this.txtRut.Size = new System.Drawing.Size(299, 23);
+            this.txtRut.Size = new System.Drawing.Size(385, 23);
             this.txtRut.TabIndex = 5;
             // 
             // label3
@@ -109,7 +110,7 @@ namespace RavaSandwich
             this.txtTelefono.Location = new System.Drawing.Point(177, 225);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ReadOnly = true;
-            this.txtTelefono.Size = new System.Drawing.Size(299, 23);
+            this.txtTelefono.Size = new System.Drawing.Size(385, 23);
             this.txtTelefono.TabIndex = 7;
             // 
             // label4
@@ -128,7 +129,7 @@ namespace RavaSandwich
             this.txtCorreo.Location = new System.Drawing.Point(177, 275);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.ReadOnly = true;
-            this.txtCorreo.Size = new System.Drawing.Size(299, 23);
+            this.txtCorreo.Size = new System.Drawing.Size(385, 23);
             this.txtCorreo.TabIndex = 9;
             // 
             // label5
@@ -147,7 +148,7 @@ namespace RavaSandwich
             this.txtDireccion.Location = new System.Drawing.Point(177, 319);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ReadOnly = true;
-            this.txtDireccion.Size = new System.Drawing.Size(299, 23);
+            this.txtDireccion.Size = new System.Drawing.Size(385, 23);
             this.txtDireccion.TabIndex = 11;
             // 
             // label6
@@ -165,12 +166,15 @@ namespace RavaSandwich
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.Lime;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAgregar.Location = new System.Drawing.Point(30, 464);
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(23, 464);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(116, 29);
+            this.btnAgregar.Size = new System.Drawing.Size(163, 44);
             this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "Agregar Personal";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -178,12 +182,15 @@ namespace RavaSandwich
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Crimson;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEliminar.Location = new System.Drawing.Point(169, 464);
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(202, 464);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(199, 29);
+            this.btnEliminar.Size = new System.Drawing.Size(264, 44);
             this.btnEliminar.TabIndex = 13;
             this.btnEliminar.Text = "Eliminar Personal Seleccionado";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -191,12 +198,15 @@ namespace RavaSandwich
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.DarkOrange;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrar.Location = new System.Drawing.Point(387, 464);
+            this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrar.Location = new System.Drawing.Point(482, 464);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(102, 29);
+            this.btnCerrar.Size = new System.Drawing.Size(102, 44);
             this.btnCerrar.TabIndex = 14;
             this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
@@ -205,7 +215,7 @@ namespace RavaSandwich
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(519, 560);
+            this.ClientSize = new System.Drawing.Size(612, 626);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);

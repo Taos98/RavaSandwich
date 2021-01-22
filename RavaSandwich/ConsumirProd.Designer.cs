@@ -85,12 +85,16 @@
             this.btnConsumir.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnConsumir.BackColor = System.Drawing.Color.Green;
             this.btnConsumir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnConsumir.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConsumir.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnConsumir.Image = ((System.Drawing.Image)(resources.GetObject("btnConsumir.Image")));
+            this.btnConsumir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsumir.Location = new System.Drawing.Point(30, 305);
             this.btnConsumir.Name = "btnConsumir";
-            this.btnConsumir.Size = new System.Drawing.Size(109, 36);
+            this.btnConsumir.Size = new System.Drawing.Size(109, 44);
             this.btnConsumir.TabIndex = 4;
             this.btnConsumir.Text = "Consumir";
+            this.btnConsumir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConsumir.UseVisualStyleBackColor = false;
             this.btnConsumir.Click += new System.EventHandler(this.btnConsumir_Click);
             // 
@@ -99,12 +103,16 @@
             this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCerrar.BackColor = System.Drawing.Color.Red;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrar.Location = new System.Drawing.Point(173, 305);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(109, 35);
+            this.btnCerrar.Size = new System.Drawing.Size(109, 44);
             this.btnCerrar.TabIndex = 5;
             this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 

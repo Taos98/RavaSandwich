@@ -243,11 +243,12 @@ namespace RavaSandwich
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.Lime;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(176, 333);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(141, 38);
+            this.btnGuardar.Size = new System.Drawing.Size(162, 56);
             this.btnGuardar.TabIndex = 41;
             this.btnGuardar.Text = "Guardar y Volver";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

@@ -55,11 +55,14 @@
             this.btnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIngreso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIngreso.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnIngreso.Image = ((System.Drawing.Image)(resources.GetObject("btnIngreso.Image")));
+            this.btnIngreso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIngreso.Location = new System.Drawing.Point(716, 101);
             this.btnIngreso.Name = "btnIngreso";
             this.btnIngreso.Size = new System.Drawing.Size(163, 70);
             this.btnIngreso.TabIndex = 1;
             this.btnIngreso.Text = "Ingreso";
+            this.btnIngreso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIngreso.UseVisualStyleBackColor = false;
             this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
@@ -69,11 +72,14 @@
             this.btnConsumo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConsumo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConsumo.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnConsumo.Image = ((System.Drawing.Image)(resources.GetObject("btnConsumo.Image")));
+            this.btnConsumo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsumo.Location = new System.Drawing.Point(716, 178);
             this.btnConsumo.Name = "btnConsumo";
             this.btnConsumo.Size = new System.Drawing.Size(162, 70);
             this.btnConsumo.TabIndex = 2;
             this.btnConsumo.Text = "Consumo";
+            this.btnConsumo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConsumo.UseVisualStyleBackColor = false;
             this.btnConsumo.Click += new System.EventHandler(this.btnConsumo_Click);
             // 
@@ -83,11 +89,14 @@
             this.btnAgregarI.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarI.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAgregarI.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAgregarI.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarI.Image")));
+            this.btnAgregarI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregarI.Location = new System.Drawing.Point(715, 255);
             this.btnAgregarI.Name = "btnAgregarI";
             this.btnAgregarI.Size = new System.Drawing.Size(163, 69);
             this.btnAgregarI.TabIndex = 3;
             this.btnAgregarI.Text = "Agregar ingrediente";
+            this.btnAgregarI.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarI.UseVisualStyleBackColor = false;
             this.btnAgregarI.Click += new System.EventHandler(this.btnAgregarI_Click);
             // 
@@ -97,11 +106,14 @@
             this.btnEliminarI.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminarI.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEliminarI.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEliminarI.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarI.Image")));
+            this.btnEliminarI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminarI.Location = new System.Drawing.Point(715, 331);
             this.btnEliminarI.Name = "btnEliminarI";
             this.btnEliminarI.Size = new System.Drawing.Size(163, 70);
             this.btnEliminarI.TabIndex = 4;
             this.btnEliminarI.Text = "Eliminar Ingrediente";
+            this.btnEliminarI.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarI.UseVisualStyleBackColor = false;
             this.btnEliminarI.Click += new System.EventHandler(this.btnEliminarI_Click);
             // 
@@ -111,11 +123,14 @@
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMenu.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnMenu.Location = new System.Drawing.Point(580, 12);
+            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
+            this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenu.Location = new System.Drawing.Point(668, 12);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(298, 66);
+            this.btnMenu.Size = new System.Drawing.Size(210, 66);
             this.btnMenu.TabIndex = 5;
             this.btnMenu.Text = "Volver al menú principal";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
@@ -125,11 +140,14 @@
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(716, 424);
+            this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
+            this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(716, 408);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(162, 39);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(162, 53);
             this.btnCerrarSesion.TabIndex = 6;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
+            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
@@ -139,11 +157,14 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnActualizar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnActualizar.Location = new System.Drawing.Point(406, 12);
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizar.Location = new System.Drawing.Point(489, 13);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(146, 65);
+            this.btnActualizar.Size = new System.Drawing.Size(151, 65);
             this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar Tabla";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 

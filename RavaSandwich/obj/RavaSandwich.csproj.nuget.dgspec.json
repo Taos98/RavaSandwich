@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lucho\\source\\repos\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj": {}
+    "B:\\Proyectos\\VS 2019\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lucho\\source\\repos\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj": {
+    "B:\\Proyectos\\VS 2019\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lucho\\source\\repos\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj",
+        "projectUniqueName": "B:\\Proyectos\\VS 2019\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj",
         "projectName": "RavaSandwich",
-        "projectPath": "C:\\Users\\Lucho\\source\\repos\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj",
+        "projectPath": "B:\\Proyectos\\VS 2019\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj",
         "packagesPath": "C:\\Users\\Lucho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lucho\\source\\repos\\RavaSandwich\\RavaSandwich\\obj\\",
+        "outputPath": "B:\\Proyectos\\VS 2019\\RavaSandwich\\RavaSandwich\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lucho\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

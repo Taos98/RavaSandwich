@@ -51,6 +51,7 @@ namespace RavaSandwich
             // 
             this.btnIniciarTurno.BackColor = System.Drawing.Color.Lime;
             this.btnIniciarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIniciarTurno.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIniciarTurno.Location = new System.Drawing.Point(36, 365);
             this.btnIniciarTurno.Name = "btnIniciarTurno";
             this.btnIniciarTurno.Size = new System.Drawing.Size(155, 46);
@@ -63,6 +64,7 @@ namespace RavaSandwich
             // 
             this.btnCerrarTurno.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnCerrarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrarTurno.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrarTurno.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCerrarTurno.Location = new System.Drawing.Point(343, 365);
             this.btnCerrarTurno.Name = "btnCerrarTurno";

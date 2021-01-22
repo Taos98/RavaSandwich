@@ -29,6 +29,7 @@ namespace RavaSandwich
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CajaBilletes));
             this.txt20K = new System.Windows.Forms.TextBox();
             this.txt10K = new System.Windows.Forms.TextBox();
             this.txt5K = new System.Windows.Forms.TextBox();
@@ -253,11 +254,15 @@ namespace RavaSandwich
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.Green;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGuardar.Location = new System.Drawing.Point(142, 375);
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(113, 365);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(117, 35);
+            this.btnGuardar.Size = new System.Drawing.Size(174, 56);
             this.btnGuardar.TabIndex = 20;
             this.btnGuardar.Text = "Guardar y Volver";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 

@@ -29,6 +29,7 @@ namespace RavaSandwich
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IniciarTurno));
             this.comboRut = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -133,12 +134,16 @@ namespace RavaSandwich
             // 
             this.btnIniciar.BackColor = System.Drawing.Color.DarkGreen;
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIniciar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIniciar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnIniciar.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciar.Image")));
+            this.btnIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIniciar.Location = new System.Drawing.Point(46, 405);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(157, 42);
+            this.btnIniciar.Size = new System.Drawing.Size(135, 42);
             this.btnIniciar.TabIndex = 10;
             this.btnIniciar.Text = "Iniciar turno";
+            this.btnIniciar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIniciar.UseVisualStyleBackColor = false;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
@@ -146,11 +151,15 @@ namespace RavaSandwich
             // 
             this.btnVolver.BackColor = System.Drawing.Color.Gold;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVolver.Location = new System.Drawing.Point(283, 405);
+            this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Location = new System.Drawing.Point(317, 405);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(157, 42);
+            this.btnVolver.Size = new System.Drawing.Size(112, 42);
             this.btnVolver.TabIndex = 11;
             this.btnVolver.Text = "Atrás";
+            this.btnVolver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 

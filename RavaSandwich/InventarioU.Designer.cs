@@ -44,13 +44,16 @@
             this.btnMenu.BackColor = System.Drawing.Color.YellowGreen;
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMenu.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnMenu.Location = new System.Drawing.Point(609, 12);
+            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
+            this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenu.Location = new System.Drawing.Point(647, 12);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(249, 62);
+            this.btnMenu.Size = new System.Drawing.Size(211, 62);
             this.btnMenu.TabIndex = 1;
             this.btnMenu.Text = "Volver a menú principal";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
@@ -59,13 +62,16 @@
             this.btnIngreso.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnIngreso.BackColor = System.Drawing.Color.YellowGreen;
             this.btnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnIngreso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIngreso.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnIngreso.Location = new System.Drawing.Point(723, 104);
+            this.btnIngreso.Image = ((System.Drawing.Image)(resources.GetObject("btnIngreso.Image")));
+            this.btnIngreso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIngreso.Location = new System.Drawing.Point(701, 120);
             this.btnIngreso.Name = "btnIngreso";
-            this.btnIngreso.Size = new System.Drawing.Size(135, 84);
+            this.btnIngreso.Size = new System.Drawing.Size(157, 66);
             this.btnIngreso.TabIndex = 3;
             this.btnIngreso.Text = "Ingreso";
+            this.btnIngreso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIngreso.UseVisualStyleBackColor = false;
             this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
@@ -74,13 +80,16 @@
             this.btnConsumo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnConsumo.BackColor = System.Drawing.Color.YellowGreen;
             this.btnConsumo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConsumo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConsumo.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnConsumo.Location = new System.Drawing.Point(723, 227);
+            this.btnConsumo.Image = ((System.Drawing.Image)(resources.GetObject("btnConsumo.Image")));
+            this.btnConsumo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsumo.Location = new System.Drawing.Point(701, 244);
             this.btnConsumo.Name = "btnConsumo";
-            this.btnConsumo.Size = new System.Drawing.Size(135, 88);
+            this.btnConsumo.Size = new System.Drawing.Size(157, 71);
             this.btnConsumo.TabIndex = 4;
             this.btnConsumo.Text = "Consumo";
+            this.btnConsumo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConsumo.UseVisualStyleBackColor = false;
             this.btnConsumo.Click += new System.EventHandler(this.btnConsumo_Click);
             // 
@@ -88,13 +97,16 @@
             // 
             this.btnCerrarSesion.BackColor = System.Drawing.Color.Crimson;
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(723, 361);
+            this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
+            this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(701, 377);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(135, 83);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(157, 67);
             this.btnCerrarSesion.TabIndex = 5;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
+            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
@@ -113,12 +125,16 @@
             // 
             this.btnActualizar.BackColor = System.Drawing.Color.Green;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnActualizar.Location = new System.Drawing.Point(408, 12);
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizar.Location = new System.Drawing.Point(448, 12);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(175, 61);
             this.btnActualizar.TabIndex = 6;
             this.btnActualizar.Text = "Actualizar Tabla";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 

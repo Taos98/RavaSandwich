@@ -29,6 +29,7 @@ namespace RavaSandwich
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmarPedido));
             this.labelTotalAPAgar = new System.Windows.Forms.Label();
             this.textBoxTotalAPagar = new System.Windows.Forms.TextBox();
             this.labelNombreC = new System.Windows.Forms.Label();
@@ -86,6 +87,7 @@ namespace RavaSandwich
             // 
             this.textBoxNombreCliente.Location = new System.Drawing.Point(125, 144);
             this.textBoxNombreCliente.Name = "textBoxNombreCliente";
+            this.textBoxNombreCliente.PlaceholderText = "Ej: Juan Pérez";
             this.textBoxNombreCliente.Size = new System.Drawing.Size(143, 25);
             this.textBoxNombreCliente.TabIndex = 3;
             // 
@@ -124,11 +126,14 @@ namespace RavaSandwich
             this.btnPagar.BackColor = System.Drawing.Color.Crimson;
             this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPagar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnPagar.Location = new System.Drawing.Point(479, 412);
+            this.btnPagar.Image = ((System.Drawing.Image)(resources.GetObject("btnPagar.Image")));
+            this.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagar.Location = new System.Drawing.Point(507, 412);
             this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(232, 69);
+            this.btnPagar.Size = new System.Drawing.Size(204, 69);
             this.btnPagar.TabIndex = 8;
             this.btnPagar.Text = "Finalizar Pedido";
+            this.btnPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPagar.UseVisualStyleBackColor = false;
             this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
@@ -230,6 +235,7 @@ namespace RavaSandwich
             // 
             this.textBoxDescuento.Location = new System.Drawing.Point(266, 337);
             this.textBoxDescuento.Name = "textBoxDescuento";
+            this.textBoxDescuento.PlaceholderText = "Ej: 2000";
             this.textBoxDescuento.Size = new System.Drawing.Size(143, 25);
             this.textBoxDescuento.TabIndex = 17;
             // 
@@ -257,11 +263,14 @@ namespace RavaSandwich
             this.buttonAtras.BackColor = System.Drawing.Color.Green;
             this.buttonAtras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAtras.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAtras.Location = new System.Drawing.Point(28, 423);
+            this.buttonAtras.Image = ((System.Drawing.Image)(resources.GetObject("buttonAtras.Image")));
+            this.buttonAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAtras.Location = new System.Drawing.Point(56, 423);
             this.buttonAtras.Name = "buttonAtras";
-            this.buttonAtras.Size = new System.Drawing.Size(138, 51);
+            this.buttonAtras.Size = new System.Drawing.Size(110, 51);
             this.buttonAtras.TabIndex = 21;
             this.buttonAtras.Text = "Atras";
+            this.buttonAtras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAtras.UseVisualStyleBackColor = false;
             this.buttonAtras.Click += new System.EventHandler(this.buttonAtras_Click);
             // 
