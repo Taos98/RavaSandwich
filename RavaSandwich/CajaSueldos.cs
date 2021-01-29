@@ -23,7 +23,7 @@ namespace RavaSandwich
             InitializeComponent();
 
             //Datos de conexión a BD
-            NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn1.Open();
             //Crear objeto de comandos
@@ -81,7 +81,7 @@ namespace RavaSandwich
         {
 
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -126,7 +126,7 @@ namespace RavaSandwich
         private void cBoxRutPlanchero_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -179,7 +179,7 @@ namespace RavaSandwich
         {
             String nombre = "";
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos

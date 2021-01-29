@@ -10,11 +10,11 @@
         "projectUniqueName": "B:\\Proyectos\\VS 2019\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj",
         "projectName": "RavaSandwich",
         "projectPath": "B:\\Proyectos\\VS 2019\\RavaSandwich\\RavaSandwich\\RavaSandwich.csproj",
-        "packagesPath": "C:\\Users\\Lucho\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\lfuen\\.nuget\\packages\\",
         "outputPath": "B:\\Proyectos\\VS 2019\\RavaSandwich\\RavaSandwich\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lucho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lfuen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

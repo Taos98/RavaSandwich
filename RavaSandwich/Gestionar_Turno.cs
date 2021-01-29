@@ -32,7 +32,7 @@ namespace RavaSandwich
             //llena los datos del turno actual
             
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -45,7 +45,7 @@ namespace RavaSandwich
             //Realiza la consulta si hay personas en turno
             comm.CommandText = ("SELECT rut, puesto, hora_ingreso FROM turno WHERE  hora_salida = ' - '");
             NpgsqlDataReader dr = comm.ExecuteReader();
-            if (dr.Read())
+            while (dr.Read())
             {
                 //si hay planchero
                 if (dr.GetString(1) == "Plancha")
@@ -104,7 +104,7 @@ namespace RavaSandwich
         {
             String nombre = "";
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos

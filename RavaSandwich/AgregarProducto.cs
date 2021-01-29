@@ -26,7 +26,7 @@ namespace RavaSandwich
         private void AgregarProducto_Load(object sender, EventArgs e)
         {
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -56,7 +56,7 @@ namespace RavaSandwich
             if ((comboTipo.SelectedItem != null && txtNombre.Text != null))
             {
                 //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
                 //Abrir BD
                 conn.Open();
                 //Crear objeto de comandos

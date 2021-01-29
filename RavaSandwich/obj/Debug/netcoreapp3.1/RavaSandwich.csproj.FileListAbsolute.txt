@@ -38,3 +38,43 @@ C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\Ra
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Gestionar_Turno.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CerrarTurno.resources
 C:\Users\Lucho\source\repos\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.IniciarTurno.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.exe
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.deps.json
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.runtimeconfig.json
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.runtimeconfig.dev.json
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.dll
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.pdb
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\bin\Debug\netcoreapp3.1\Npgsql.dll
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.csprojAssemblyReference.cache
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.AgregarProducto.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.AgregarUsuario.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Caja.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CajaBilletes.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CajaGastos.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CajaSueldos.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CerrarCaja.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CerrarTurno.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.ConfirmarPedido.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.ConsumirProd.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.EliminarProducto.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Eliminar_venta.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.GestionarPersonal.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Gestionar_Turno.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.HistorialVentas.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.IngresoIngredi.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.IniciarTurno.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.InventarioA.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.InventarioU.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Login.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.MenuAdmin.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.MenuUsuario.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Properties.Resources.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Ventas.resources
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.csproj.GenerateResource.cache
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.AssemblyInfoInputs.cache
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.AssemblyInfo.cs
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.csproj.CoreCompileInputs.cache
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.csproj.CopyComplete
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.dll
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.pdb
+B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.genruntimeconfig.cache

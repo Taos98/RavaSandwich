@@ -25,7 +25,7 @@ namespace RavaSandwich
             if ((comboRol.SelectedItem != null && txtNombre.Text != null && txtRut.Text != null && txtContrasenia.Text != null && txtTelefono.Text !=null && txtCorreo.Text != null && txtDireccion.Text!= null))
             {
                 //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
                 //Abrir BD
                 conn.Open();
                 //Crear objeto de comandos

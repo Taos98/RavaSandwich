@@ -44,7 +44,7 @@ namespace RavaSandwich
             InitializeComponent();
             txtPrecio.Text = "$ 0";
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -92,7 +92,7 @@ namespace RavaSandwich
             //-- LLENAR LAS BEBIDAS --
 
             //Datos de conexión a BD
-            NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn1.Open();
             //Crear objeto de comandos
@@ -176,7 +176,7 @@ namespace RavaSandwich
         {
             numericCantPromo.Value = 1;
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -322,7 +322,7 @@ namespace RavaSandwich
         {
             numericCantBebida.Value = 1;
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -391,7 +391,7 @@ namespace RavaSandwich
         {
             numericCantBebidas2.Value = 1;
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -445,7 +445,7 @@ namespace RavaSandwich
         {
             numericCantBebidas3.Value = 1;
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -995,10 +995,6 @@ namespace RavaSandwich
 
             ConfirmarPedido cp = new ConfirmarPedido();
             cp.Show();
-            foreach (Promo aPromo in promos)
-            {
-                MessageBox.Show(aPromo.impresion(), "Comprobante", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);//Para comprobar si se guardaron los datos
-            }
             this.Close();
         }
 
@@ -1142,6 +1138,22 @@ namespace RavaSandwich
         public int getCantVienesas()
         {
             return cantVienesas;
+        }
+
+        public String getComboboxbeb1()
+        {
+            String variable1 = comboBebidas1.Text;
+            return variable1;
+        }
+        public String getComboboxbeb2()
+        {
+            String variable1 = comboBebidas2.Text;
+            return variable1;
+        }
+        public String getComboboxbeb3()
+        {
+            String variable1 = comboBebidas3.Text;
+            return variable1;
         }
         void DescuentoEnBD()
         {
@@ -1326,4 +1338,3 @@ namespace RavaSandwich
         }
     }
 }
-

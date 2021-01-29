@@ -17,7 +17,7 @@ namespace RavaSandwich
             comboPuesto.Items.Add("Caja");
             comboPuesto.Items.Add("Plancha");
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -53,7 +53,7 @@ namespace RavaSandwich
                     actualizarStockInventario();
                 }
                 //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
                 //Abrir BD
                 conn.Open();
                 //Crear objeto de comandos
@@ -102,7 +102,7 @@ namespace RavaSandwich
         private void comboRut_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -137,7 +137,7 @@ namespace RavaSandwich
             String fecha = DateTime.Now.ToString("d");
             int contador = 0;
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos
@@ -166,7 +166,7 @@ namespace RavaSandwich
         private void actualizarStockInventario()
         {
             //Datos de conexión a BD
-            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = censurado; Database = Rava_Sandwich");
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
             conn.Open();
             //Crear objeto de comandos

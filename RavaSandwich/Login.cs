@@ -25,7 +25,7 @@ namespace RavaSandwich
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             bool blnfound = false;//Booleano que indica la existencia de datos, por default es falso
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;User Id=postgres;Password=censurado;Database=Rava_Sandwich");//Datos de conexion a la BD
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;User Id=postgres;Password=TomiMati2005;Database=Rava");//Datos de conexion a la BD
             conn.Open();// Abre la BD
             //Realiza la consulta si los datos ingresados por el textbox son iguales a las que están en la BD
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM usuarios WHERE rut='" + txtRut.Text + "' and pass = '" + txtPass.Text + "' and rol = 'administrador'", conn);
@@ -53,7 +53,7 @@ namespace RavaSandwich
             }
 
             bool blnfound1 = false;//Booleano que indica la existencia de datos, por default es falso
-            NpgsqlConnection conn1 = new NpgsqlConnection("Server=localhost;Port=5432;User Id=postgres;Password=censurado;Database=Rava_Sandwich");//Datos de conexion a la BD
+            NpgsqlConnection conn1 = new NpgsqlConnection("Server=localhost;Port=5432;User Id=postgres;Password=TomiMati2005;Database=Rava");//Datos de conexion a la BD
             conn1.Open();// Abre la BD
             //Realiza la consulta si los datos ingresados por el textbox son iguales a las que están en la BD
             NpgsqlCommand cmd1 = new NpgsqlCommand("SELECT * FROM usuarios WHERE rut='" + txtRut.Text + "' and pass = '" + txtPass.Text + "' and rol = 'usuario'", conn1);
