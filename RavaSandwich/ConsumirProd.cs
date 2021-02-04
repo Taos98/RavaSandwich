@@ -15,6 +15,8 @@ namespace RavaSandwich
         public ConsumirProd()
         {
             InitializeComponent();
+            //Carga la lista de productos que hay en el inventario
+
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -48,7 +50,8 @@ namespace RavaSandwich
 
         private void btnConsumir_Click(object sender, EventArgs e)
         {
-            Login l = new Login();
+
+            Login l = new Login();//Para obtener el rut de la persona que hizo el consumo
             //Pregunta si no se seleccionó un valor nulo en el comboBox (Lista de productos)
             if ((comboProductos.SelectedItem != null))
             {

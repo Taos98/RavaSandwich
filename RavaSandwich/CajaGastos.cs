@@ -27,6 +27,7 @@ namespace RavaSandwich
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            //Guarda la descripción del gasto con el monto
             if (txtDescripcion1.Text != "" && txtMonto1.Text != "")
             {
                 if (txtDescripcion1.Text != "" && txtMonto1.Text != "")
@@ -60,9 +61,10 @@ namespace RavaSandwich
                     totalG = totalG + int.Parse(txtMonto6.Text);
                 }
                 MessageBox.Show("Se ha agregado los siguientes gastos: \n" + detalleG + " \nTotal: $" + totalG, "Gastos agregados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-
+                //Vuelve a la caja
                 Caja ca = new Caja();
                 ca.Show();
+                //Se restablece el numero de casilleros extra a mostrar para que después se puedan volver a mostrar con el boton (+) Agregar gasto
                 numCasilleros = 0;
                 this.Close();
             }
@@ -71,10 +73,12 @@ namespace RavaSandwich
                 MessageBox.Show("Por favor, ingrese los datos solicitados", "Casillero vacío", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }
+        //Obtiene el total (suma) de los gastos ingresados para que puedan ser utilizados en otra clase
         public int getTotalGastos()
         {
             return totalG;
         }
+        //Obtiene las descripciones de los gastos ingresados para que puedan ser utilizados en otra clase
         public String getDescripcionGastos()
         {
             return detalleG;
@@ -82,6 +86,7 @@ namespace RavaSandwich
 
         private void btnAgregarGasto_Click(object sender, EventArgs e)
         {
+            //Muestra más casilleros adicionales
             numCasilleros++;
             if (numCasilleros == 1)
             {

@@ -14,6 +14,7 @@ namespace RavaSandwich
 {
     public partial class Login : Form
     {
+        //Atributos globales
         public static String nombre = "";
         public static String rol = "";
         public static String rut = "";

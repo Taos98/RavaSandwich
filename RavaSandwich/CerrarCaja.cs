@@ -15,11 +15,11 @@ namespace RavaSandwich
         public CerrarCaja()
         {
             InitializeComponent();
-            //Carga los valores guardados de los otros form
+            //Carga los valores guardados de los otros form como el dinero fisico y el dinero en caja
             Caja c = new Caja();
             txtDineroCaja.Text = c.getDineroEnCaja() + "";
             txtDineroFisico.Text = c.getDineroFisico() + "";
-
+            //Calcula la diferencia entre el dinero fisico y el dinero en caja para hacer el cuadre y muestra el resultado en el textbox.
             aux = c.getDineroFisico() - c.getDineroEnCaja();
             txtCuadre.Text = aux + "";
 
@@ -27,6 +27,7 @@ namespace RavaSandwich
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            //Envía los datos de la caja hacia la base de datos
             String fechaHora = DateTime.Now.ToString("d");
             Caja c = new Caja();
             CajaGastos g = new CajaGastos();

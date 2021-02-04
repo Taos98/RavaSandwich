@@ -14,13 +14,14 @@ namespace RavaSandwich
         public HistorialVentas()
         {
             InitializeComponent();
-            llenarTabla();
+            llenarTabla();//Llena la tabla con las ventas de hoy
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        //Método que llena la tabla con las ventas de hoy
         private void llenarTabla()
         {
             String fecha = DateTime.Now.ToString("d");
@@ -54,6 +55,7 @@ namespace RavaSandwich
            
         }
 
+        //Metodo que muestra todas las ventas que se han hecho desde los inicios
         private void btnVerTodo_Click(object sender, EventArgs e)
         {
             
@@ -85,7 +87,7 @@ namespace RavaSandwich
             //Desconectar BD
             conn.Close();
         }
-
+        //Muestra la tabla con las ventas de hoy
         private void btnVentasHoy_Click(object sender, EventArgs e)
         {
             llenarTabla();

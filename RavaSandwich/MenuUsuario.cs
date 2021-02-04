@@ -14,7 +14,7 @@ namespace RavaSandwich
         {
             InitializeComponent();
             Login l = new Login();
-            labelNombre.Text = l.getNombre();
+            labelNombre.Text = l.getNombre();//Carga el nombre de la persona que inició sesión
         }
 
         private void btnInventario_Click(object sender, EventArgs e)

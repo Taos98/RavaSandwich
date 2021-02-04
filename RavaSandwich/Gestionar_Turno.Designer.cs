@@ -52,11 +52,14 @@ namespace RavaSandwich
             this.btnIniciarTurno.BackColor = System.Drawing.Color.Lime;
             this.btnIniciarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIniciarTurno.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnIniciarTurno.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciarTurno.Image")));
+            this.btnIniciarTurno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIniciarTurno.Location = new System.Drawing.Point(36, 365);
             this.btnIniciarTurno.Name = "btnIniciarTurno";
             this.btnIniciarTurno.Size = new System.Drawing.Size(155, 46);
             this.btnIniciarTurno.TabIndex = 0;
             this.btnIniciarTurno.Text = "Iniciar un Turno";
+            this.btnIniciarTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIniciarTurno.UseVisualStyleBackColor = false;
             this.btnIniciarTurno.Click += new System.EventHandler(this.btnIniciarTurno_Click);
             // 
@@ -66,11 +69,14 @@ namespace RavaSandwich
             this.btnCerrarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCerrarTurno.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrarTurno.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCerrarTurno.Location = new System.Drawing.Point(343, 365);
+            this.btnCerrarTurno.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarTurno.Image")));
+            this.btnCerrarTurno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarTurno.Location = new System.Drawing.Point(333, 365);
             this.btnCerrarTurno.Name = "btnCerrarTurno";
-            this.btnCerrarTurno.Size = new System.Drawing.Size(154, 46);
+            this.btnCerrarTurno.Size = new System.Drawing.Size(164, 46);
             this.btnCerrarTurno.TabIndex = 1;
             this.btnCerrarTurno.Text = "Terminar un turno";
+            this.btnCerrarTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrarTurno.UseVisualStyleBackColor = false;
             this.btnCerrarTurno.Click += new System.EventHandler(this.btnCerrarTurno_Click);
             // 

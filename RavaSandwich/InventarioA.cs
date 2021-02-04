@@ -14,7 +14,7 @@ namespace RavaSandwich
         public InventarioA()
         {
             InitializeComponent();
-            llenarTabla();
+            llenarTabla();//Carga de inmediato la tabla de inventario
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -33,6 +33,7 @@ namespace RavaSandwich
 
         private void btnIngreso_Click(object sender, EventArgs e)
         {
+            //Abre un formulario de ingreso, ademas evita que se abran varios form del mismo
             IngresoIngredi ing = new IngresoIngredi();
             if(Application.OpenForms[ing.Name] == null)
             {
@@ -46,6 +47,7 @@ namespace RavaSandwich
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            //Actualiza la tabla de inventario con los valores actuales
             llenarTabla();
         }
 
@@ -99,6 +101,7 @@ namespace RavaSandwich
         private void btnAgregarI_Click(object sender, EventArgs e)
         {
             AgregarProducto ag = new AgregarProducto();
+            //verifica si ya hay una ventana existente
             if (Application.OpenForms[ag.Name] == null)
             {
                 ag.Show();
@@ -112,6 +115,7 @@ namespace RavaSandwich
         private void btnEliminarI_Click(object sender, EventArgs e)
         {
             EliminarProducto el = new EliminarProducto();
+            //verifica si ya hay una ventana existente
             if (Application.OpenForms[el.Name] == null)
             {
                 el.Show();

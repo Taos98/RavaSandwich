@@ -14,11 +14,32 @@ namespace RavaSandwich
     {
         static String metodosPago = "";
         String cliente = "";
+
+        // los sgtes datos son para almacenar las cantidades a descontar
+        static int cantPromoS = 0;
+        static int cantMini = 0;
+        static float cantManso = 0;
+        static int cantCompP = 0;
+        static int cantCompM = 0;
+        static int[] cantBebida1 = new int[10];
+        static int[] cantBebida2 = new int[10];
+        static int[] cantBebida3 = new int[10];
+        static String[] nombBebidas1 = new string[10];
+        static String[] nombBebidas2 = new string[10];
+        static String[] nombBebidas3 = new string[10];
+        static int cantVasos = 0;
+        static double cantCarne1 = 0;
+        static double cantCarne2 = 0;
+        static int cantVienesas = 0;
+        static int cantPro = 0;//La cantidad de promociones (del mismo)
         public ConfirmarPedido()
         {
             InitializeComponent();
             Login lo = new Login();
             Ventas ve = new Ventas();
+            //
+            String verP = ve.getPedidoCliente();
+            contabilizarDescuentoInventario(verP);//Función nueva que contabiliza los productos a descontar en inventario, no borrar
             labelNombreCajero.Text = lo.getNombre();
             textBoxTotalAPagar.Text = ve.getTotal() + "";
             checkBoxPYEfectivo.Visible = false;
@@ -32,6 +53,10 @@ namespace RavaSandwich
                 listBoxPedido.Items.Add(pedido[i]);
             }
             textBoxDescuento.Text = "0";
+            //Creo que hay que borrar lo que está comentado abajo
+            //Envia la informacion de impresion a la funcion para contabilizar las cosas que se van a descontar del inventario
+            /*String verP = ve.getPedidoCliente();
+            contabilizarDescuentoInventario(verP);*/
         }
 
         private void checkBoxPedidosYa_CheckedChanged(object sender, EventArgs e)
@@ -116,6 +141,8 @@ namespace RavaSandwich
                             comm.Dispose();
                             //Desconectar BD
                             conn.Close();
+                            //Mensaje de prueba, despues hay que borrar, si el error está acá no hay problema.
+                            MessageBox.Show("Se descontaran lo siguientes elementos del inventario: \n cantPromos: "+cantPromoS+"\ncantMini: "+cantMini+"\ncantManso: "+cantManso+"\ncantCompP: "+cantCompP+"\ncantCompM: "+cantCompM+"\ncantBebida1: "+cantBebida1+"\ncantBebida2: "+cantBebida2+"\ncantBebida3: "+cantBebida3+"\ncantVasos: "+cantVasos+"\ncantCarne1: "+cantCarne1+"\ncantCarne2: "+cantCarne2+"\ncantVienesas: "+cantVienesas, "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             ve.Show();
                             this.Close();
 
@@ -125,8 +152,25 @@ namespace RavaSandwich
                             printDocument1.PrinterSettings = ps;
                             printDocument1.PrintPage += Imprimir;
                             printDocument1.Print();
-                            descuentosEnInventario(ve.getPedidoCliente());
+                            //descuentosEnInventario(ve.getPedidoCliente()); //COLOCAR LA NUEVA FUNCION DESCUENTOS
                             ve.vaciarLista();
+                            //Restablece los contadores
+                            cantPromoS = 0;
+                            cantMini = 0;
+                            cantManso = 0;
+                            cantCompP = 0;
+                            cantCompM = 0;
+                            cantBebida1 = null;
+                            cantBebida2 = null;
+                            cantBebida3 = null;
+                            nombBebidas1 = null;
+                            nombBebidas2 = null;
+                            nombBebidas3 = null;
+                            cantVasos = 0;
+                            cantCarne1 = 0;
+                            cantCarne2 = 0;
+                            cantVienesas = 0;
+                            cantPro = 0;
                         }
 
                     }
@@ -151,6 +195,8 @@ namespace RavaSandwich
                         comm.Dispose();
                         //Desconectar BD
                         conn.Close();
+                        //Mensaje de prueba, despues hay que borrar, si el error está acá no hay problema.
+                        MessageBox.Show("Se descontaran lo siguientes elementos del inventario: \n cantPromos: " + cantPromoS + "\ncantMini: " + cantMini + "\ncantManso: " + cantManso + "\ncantCompP: " + cantCompP + "\ncantCompM: " + cantCompM + "\ncantBebida1: " + cantBebida1 + "\ncantBebida2: " + cantBebida2 + "\ncantBebida3: " + cantBebida3 + "\ncantVasos: " + cantVasos + "\ncantCarne1: " + cantCarne1 + "\ncantCarne2: " + cantCarne2 + "\ncantVienesas: " + cantVienesas, "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         ve.Show();
                         this.Close();
 
@@ -160,8 +206,25 @@ namespace RavaSandwich
                         printDocument1.PrinterSettings = ps;
                         printDocument1.PrintPage += Imprimir;
                         printDocument1.Print();
-                        descuentosEnInventario(ve.getPedidoCliente());
+                        //descuentosEnInventario(ve.getPedidoCliente()); //COLOCAR LA NUEVA FUNCION DE DESCUENTOS
                         ve.vaciarLista();
+                        //Restablece los contadores
+                        cantPromoS = 0;
+                        cantMini = 0;
+                        cantManso = 0;
+                        cantCompP = 0;
+                        cantCompM = 0;
+                        cantBebida1 = null;
+                        cantBebida2 = null;
+                        cantBebida3 = null;
+                        nombBebidas1 = null;
+                        nombBebidas2 = null;
+                        nombBebidas3 = null;
+                        cantVasos = 0;
+                        cantCarne1 = 0;
+                        cantCarne2 = 0;
+                        cantVienesas = 0;
+                        cantPro = 0;
                     }
                 }
                 else
@@ -180,11 +243,13 @@ namespace RavaSandwich
                     comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_pago, tipo_pago, fecha, subtotal, descuento) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "', " + ve.getTotal() + "," + textBoxDescuento.Text + ")";
                     //Leer BD
                     NpgsqlDataReader dr = comm.ExecuteReader();
-                    MessageBox.Show("Se ha registrado la venta de manera Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Se ha registrado la venta de forma Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     //Cerrar comandos
                     comm.Dispose();
                     //Desconectar BD
                     conn.Close();
+                    //Mensaje de prueba, despues hay que borrar, si el error está acá no hay problema.
+                    MessageBox.Show("Se descontaran lo siguientes elementos del inventario: \n cantPromos: " + cantPromoS + "\ncantMini: " + cantMini + "\ncantManso: " + cantManso + "\ncantCompP: " + cantCompP + "\ncantCompM: " + cantCompM +"\nBebidas1: "+nombBebidas1[0]+", "+ nombBebidas1[1] + ", "+ nombBebidas1[2] + "\ncantBebida1: " + cantBebida1[0] + ", " + cantBebida1[1] + ", " + cantBebida1[2] + "\nBebidas2: " + nombBebidas2[0] + ", " + nombBebidas2[1] + ", " + nombBebidas2[2] + "\ncantBebida2: " + cantBebida2[0] + ", " + cantBebida2[1] + ", " + cantBebida2[2] + "\nBebidas3: " + nombBebidas3[0] + ", " + nombBebidas3[1] + ", " + nombBebidas3[2] + "\ncantBebida3: " + cantBebida3[0] + ", " + cantBebida3[1] + ", " + cantBebida3[2] + "\ncantVasos: " + cantVasos + "\ncantCarne1: " + cantCarne1 + "\ncantCarne2: " + cantCarne2 + "\ncantVienesas: " + cantVienesas, "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     ve.Show();
                     this.Close();
 
@@ -194,8 +259,25 @@ namespace RavaSandwich
                     printDocument1.PrinterSettings = ps;
                     printDocument1.PrintPage += Imprimir;
                     printDocument1.Print();
-                    descuentosEnInventario(ve.getPedidoCliente());
+                    //descuentosEnInventario(ve.getPedidoCliente()); //COLOCAR LA NUEVA FUNCION DE DESCUENTOS ACÁ
                     ve.vaciarLista();
+                    //Restablece los contadores
+                    cantPromoS = 0;
+                    cantMini = 0;
+                    cantManso = 0;
+                    cantCompP = 0;
+                    cantCompM = 0;
+                    cantBebida1 = null;
+                    cantBebida2 = null;
+                    cantBebida3 = null;
+                    nombBebidas1 = null;
+                    nombBebidas2 = null;
+                    nombBebidas3 = null;
+                    cantVasos = 0;
+                    cantCarne1 = 0;
+                    cantCarne2 = 0;
+                    cantVienesas = 0;
+                    cantPro = 0;
                 }
 
 
@@ -214,6 +296,23 @@ namespace RavaSandwich
             this.Close();
             Ventas ve = new Ventas();
             ve.vaciarLista();
+            //Restablece los contadores
+            cantPromoS = 0;
+            cantMini = 0;
+            cantManso = 0;
+            cantCompP = 0;
+            cantCompM = 0;
+            cantBebida1 = null;
+            cantBebida2 = null;
+            cantBebida3 = null;
+            nombBebidas1 = null;
+            nombBebidas2 = null;
+            nombBebidas3 = null;
+            cantVasos = 0;
+            cantCarne1 = 0;
+            cantCarne2 = 0;
+            cantVienesas = 0;
+            cantPro = 0;
             ve.Show();
         }
 
@@ -303,6 +402,8 @@ namespace RavaSandwich
             return total;
         }
 
+        //A partir de acá hay que colocar el nuevo código de descuentos (Tommy) y fusionar con el contador
+        /*
         public void descuentosEnInventario(String pedido)
         {
             Ventas v = new Ventas();
@@ -1901,6 +2002,7 @@ namespace RavaSandwich
                 {
                     if (pedido.Contains("As"))
                     {
+                        /*
                         //Datos de conexión a BD
                         NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
                         //Abrir BD
@@ -1920,6 +2022,8 @@ namespace RavaSandwich
                         comm.Dispose();
                         //Desconectar BD
                         conn.Close();
+                        
+                        descontarProducto("As");
                     }
                     else
                     {
@@ -1947,5 +2051,447 @@ namespace RavaSandwich
                 }
             }
         }
+       */
+        private void contabilizarDescuentoInventario(String pedidoA)
+        {
+
+            //Divide la cantidad de pedidos (Pedidos diferentes)
+            String[] divPedido = pedidoA.Split("Pedido");
+            int contP = 0;
+            
+            for (int i = 1; i < divPedido.Length; i++)
+            {
+                //Division del pedido para obtener la cantidad de promos (misma promo)
+                String[] cantPromo = divPedido[i].Split("Cantidad promos:");
+                String[] cantPromoPrecis = cantPromo[1].Split(": ");
+                String[] cPromoPrec = cantPromoPrecis[0].Split(" ");
+                cantPro = int.Parse(cPromoPrec[1]);
+
+                String[] divPromo = divPedido[i].Split("Promo:");
+                for (int j = 1; j < divPromo.Length; j++)
+                {
+                    //Division de los ingredientes del pedido
+                    String[] divIng = divPromo[j].Split("Ingredientes: ");
+                    String[] extIng = divIng[1].Split(", "); //con el extIng[0] podemos extraer el primer ingrediente que 
+                    //siempre es la carne 1 y para la segunda carne se tendrá que recorrer el resto del arreglo
+                    if (divPromo[j].Contains("Mini"))
+                    {
+                        cantMini = cantMini + cantPro;
+                        if (divPromo[j].Contains("Min48"))
+                        {
+                         
+                        }
+                        else
+                        {
+                            if (extIng[0].Contains("Lomo"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+
+                            }
+                            if (extIng[0].Contains("Ave"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+
+                            }
+                            if (extIng[0].Contains("Churrasco"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+
+                            }
+                            if (extIng[0].Contains("Mechada"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+                            }
+                        }
+                    }
+                    if (divPromo[j].Contains("Mansos"))
+                    {
+                        if (divPromo[j].Contains("MT"))
+                        {
+                            cantManso = cantManso + (float)(cantPro);
+                            if (extIng[0].Contains("Lomo"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+                                //Hace el recorrido del resto de los ingredientes para averiguar si hay una segunda carne
+                                for(int k = 1; k < extIng.Length; k++) {
+                                    if (extIng[k].Contains("Ave"))
+                                    {
+                                        cantCarne2 = cantCarne2 + 1;
+                                    }
+                                    else
+                                    {
+                                        if (extIng[k].Contains("Churrasco"))
+                                        {
+                                            cantCarne2 = cantCarne2 + 1;
+                                        }
+                                        else
+                                        {
+                                            if (extIng[k].Contains("Mechada"))
+                                            {
+                                                cantCarne2 = cantCarne2 + 1;
+                                            }
+                                        }
+                                    }
+                                }
+
+
+
+                            }
+                            if (extIng[0].Contains("Ave"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+                                //A partir de que encuentre lomo, busca la segunda carne para contabilizar
+                                for (int k = 1; k < extIng.Length; k++)
+                                {
+                                    if (extIng[k].Contains("Lomo"))
+                                    {
+                                        cantCarne2 = cantCarne2 + 1;
+                                    }
+                                    else
+                                    {
+                                        if (extIng[k].Contains("Churrasco"))
+                                        {
+                                            cantCarne2 = cantCarne2 + 1;
+                                        }
+                                        else
+                                        {
+                                            if (extIng[k].Contains("Mechada"))
+                                            {
+                                                cantCarne2 = cantCarne2 + 1;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if (extIng[0].Contains("Churrasco"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+                                //A partir de que encuentre lomo, busca la segunda carne para contabilizar
+                                for (int k = 1; k < extIng.Length; k++)
+                                {
+                                    if (extIng[k].Contains("Ave"))
+                                    {
+                                        cantCarne2 = cantCarne2 + 1;
+                                    }
+                                    else
+                                    {
+                                        if (extIng[k].Contains("Lomo"))
+                                        {
+                                            cantCarne2 = cantCarne2 + 1;
+                                        }
+                                        else
+                                        {
+                                            if (extIng[k].Contains("Mechada"))
+                                            {
+                                                cantCarne2 = cantCarne2 + 1;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if (extIng[0].Contains("Mechada"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+                                //A partir de que encuentre lomo, busca la segunda carne para contabilizar
+                                for (int k = 1; k < extIng.Length; k++)
+                                {
+                                    if (extIng[k].Contains("Ave"))
+                                    {
+                                        cantCarne2 = cantCarne2 + 1;
+                                    }
+                                    else
+                                    {
+                                        if (extIng[k].Contains("Churrasco"))
+                                        {
+                                            cantCarne2 = cantCarne2 + 1;
+                                        }
+                                        else
+                                        {
+                                            if (extIng[k].Contains("Lomo"))
+                                            {
+                                                cantCarne2 = cantCarne2 + 1;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            cantManso = cantManso + (int)cantPro;
+                            // aqui las carnes de los mansos
+                            if (divPromo[j].Contains("M48") || divPromo[j].Contains("MH"))
+                            {
+                                cantCarne1 = cantCarne1 + 0;
+                            }
+                            else
+                            {
+                                if (extIng[0].Contains("Lomo"))
+                                {
+                                    cantCarne1 = cantCarne1 + 1;
+                                    //A partir de que encuentre lomo, busca la segunda carne para contabilizar
+                                    for (int k = 1; k < extIng.Length; k++)
+                                    {
+                                        if (extIng[k].Contains("Ave"))
+                                        {
+                                            cantCarne2 = cantCarne2 + 1;
+                                        }
+                                        else
+                                        {
+                                            if (extIng[k].Contains("Churrasco"))
+                                            {
+                                                cantCarne2 = cantCarne2 + 1;
+                                            }
+                                            else
+                                            {
+                                                if (extIng[k].Contains("Mechada"))
+                                                {
+                                                    cantCarne2 = cantCarne2 + 1;
+                                                }
+                                            }
+                                        }
+                                    }
+
+
+                                }
+                                if (extIng[0].Contains("Ave"))
+                                {
+                                    cantCarne1 = cantCarne1 + 1;
+                                    //A partir de que encuentre lomo, busca la segunda carne para contabilizar
+                                    for (int k = 1; k < extIng.Length; k++)
+                                    {
+                                        if (extIng[k].Contains("Lomo"))
+                                        {
+                                            cantCarne2 = cantCarne2 + 1;
+                                        }
+                                        else
+                                        {
+                                            if (extIng[k].Contains("Churrasco"))
+                                            {
+                                                cantCarne2 = cantCarne2 + 1;
+                                            }
+                                            else
+                                            {
+                                                if (extIng[k].Contains("Mechada"))
+                                                {
+                                                    cantCarne2 = cantCarne2 + 1;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (extIng[0].Contains("Churrasco"))
+                                {
+                                    cantCarne1 = cantCarne1 + 1;
+                                    //A partir de que encuentre lomo, busca la segunda carne para contabilizar
+                                    for (int k = 1; k < extIng.Length; k++)
+                                    {
+                                        if (extIng[k].Contains("Ave"))
+                                        {
+                                            cantCarne2 = cantCarne2 + 1;
+                                        }
+                                        else
+                                        {
+                                            if (extIng[k].Contains("Lomo"))
+                                            {
+                                                cantCarne2 = cantCarne2 + 1;
+                                            }
+                                            else
+                                            {
+                                                if (extIng[k].Contains("Mechada"))
+                                                {
+                                                    cantCarne2 = cantCarne2 + 1;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (extIng[0].Contains("Mechada"))
+                                {
+                                    cantCarne1 = cantCarne1 + 1;
+                                    //A partir de que encuentre lomo, busca la segunda carne para contabilizar
+                                    for (int k = 1; k < extIng.Length; k++)
+                                    {
+                                        if (extIng[k].Contains("Ave"))
+                                        {
+                                            cantCarne2 = cantCarne2 + 1;
+                                        }
+                                        else
+                                        {
+                                            if (extIng[k].Contains("Churrasco"))
+                                            {
+                                                cantCarne2 = cantCarne2 + 1;
+                                            }
+                                            else
+                                            {
+                                                if (extIng[k].Contains("Lomo"))
+                                                {
+                                                    cantCarne2 = cantCarne2 + 1;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (divPromo[j].Contains("Promo Sandwich"))
+                    {
+                        cantPromoS = cantPromoS + ((cantPro) * 2);
+                        // aqui las carnes de las promos
+                        if (divPromo[j].Contains("P48"))
+                        {
+                            cantCarne1 = cantCarne1 + 0;
+                        }
+                        else
+                        {
+                            String[] ing = divPromo[j].Split("Ingredientes: ");//Separa el apartado de los ingredientes
+                            String[] ca1 = ing[1].Split(", ");//Separa los ingredientes  y el ca1[0] siempre muestra la primera carne
+
+                            if (ca1[0].Contains("Lomo"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+                            }
+                            if (ca1[0].Contains("Ave"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+                            }
+                            if (ca1[0].Contains("Churrasco"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+                            }
+                            if (ca1[0].Contains("Mechada"))
+                            {
+                                cantCarne1 = cantCarne1 + 1;
+                            }
+                        }
+                    }
+                    //Acá hay que arreglar porque me confundí por el tema de conteo, sé que acá cambia algo con las carnes
+                    if (divPromo[j].Contains("Completo"))
+                    {
+                        if (divPromo[j].Contains("Minic"))
+                        {
+                            if (divPromo[j].Contains("Vienesa")) //WTF aiudaa
+                            {
+                                cantVienesas = cantVienesas + 1;
+                                cantCompM = cantCompM + (int)(cantPro);
+                            }
+                        }
+                        if (divPromo[j].Contains("Vienesa"))// WTF? esto triplica las vienesas
+                        {
+                            cantVienesas = cantVienesas + 2;
+                            cantCompP = cantCompP + ((int)(cantPro) * 2);
+                        }
+                        if (divPromo[j].Contains("As"))//I can't understand
+                        {
+                            cantCarne1 = cantCarne1 + 1;
+                            cantCompM = cantCompM + (int)(cantPro);
+                        }
+                    }
+                    String[] divB = divPromo[j].Split("Bebidas:");//Separa el pedido en el apartado de las bebidas
+                    String[] masB = divB[1].Split("\n");//Con esto podemos verificar si hay mas bebidas
+                    String[] beb1 = masB[0].Split(" "); //Aca tenemos la cantidad de bebida mas la primera bebida
+                    String[] beb2 = masB[1].Split(" ");//Bebida 2
+                    String[] beb3 = masB[2].Split(" ");//Bebida 3
+                    
+                    if (beb1[1].Contains("1") || beb1[1].Contains("2") || beb1[1].Contains("3") || beb1[1].Contains("4") || beb1[1].Contains("5") || beb1[1].Contains("6") || beb1[1].Contains("7") || beb1[1].Contains("8") || beb1[1].Contains("9") || beb1[1].Contains("0"))
+                    {
+                        cantBebida1[contP] = int.Parse(beb1[1]);
+                        nombBebidas1[contP] = beb1[2] + " " + beb1[3];
+
+                    }
+                    {
+
+                    }
+                    if ((beb2[0].Contains("1") || beb2[0].Contains("2") || beb2[0].Contains("3") || beb2[0].Contains("4") || beb2[0].Contains("5") || beb2[0].Contains("6") || beb2[0].Contains("7") || beb2[0].Contains("8") || beb2[0].Contains("9") || beb2[0].Contains("0")) && (!beb2[0].Contains("Vasos:")))
+                    {
+                        cantBebida2[contP] = int.Parse(beb2[0]);
+                        nombBebidas2[contP] = beb2[1] + " " + beb2[2];
+                    }
+                    if ((beb3[0].Contains("1") || beb3[0].Contains("2") || beb3[0].Contains("3") || beb3[0].Contains("4") || beb3[0].Contains("5") || beb3[0].Contains("6") || beb3[0].Contains("7") || beb3[0].Contains("8") || beb3[0].Contains("9") || beb3[0].Contains("0")) && (!beb3[0].Contains("Vasos:")))
+                    {
+                        cantBebida3[contP] = int.Parse(beb3[0]);
+                        nombBebidas3[contP] = beb3[1] + " " + beb3[2];
+                    }
+                    contP++;
+                    String[] divV = divPromo[j].Split("Vasos: ");//Separa el pedido en el apartado de los vasos
+                    String[] numV = divV[1].Split('\n');
+                    if ((numV[0].Contains("1") || numV[0].Contains("2") || numV[0].Contains("3") || numV[0].Contains("4") || numV[0].Contains("5") || numV[0].Contains("6") || numV[0].Contains("7") || numV[0].Contains("8") || numV[0].Contains("9") || numV[0].Contains("0")))
+                    {
+                        cantVasos = cantVasos + int.Parse(numV[0]);
+                    }
+                }
+            }
+        }
+        //Estas son las funciones que estaban en ventas y que se usan acá, ahora se pueden llamar
+        //de forma local :) (sin el v.llamarFuncion())
+        //lo mismo que estaba en ventas
+        public int getPanMini()
+        {
+            return cantMini;
+        }
+        public float getPanManso()
+        {
+            return cantManso;
+        }
+        public int getPanSandwich()
+        {
+            return cantPromoS;
+        }
+        public int getPanCompleto()
+        {
+            return cantCompM;
+        }
+        public int getPanPromoCompleto()
+        {
+            return cantCompP;
+        }
+        //Acá hay que jugar con el numero de pedido que es recibido como parametro 
+        //ya que se está manipulando un arreglo
+        public int getCantB1(int pos)
+        {
+            return cantBebida1[pos];
+        }
+        public int getCantB2(int pos)
+        {
+            return cantBebida2[pos];
+        }
+        public int getCantB3(int pos)
+        {
+            return cantBebida3[pos];
+        }
+        //Aca antes usabas un combobox para obtener el nombre de las bebidas
+        //ahora están almacenados en un arreglo de String, misma recomendacion de arriba
+        public String getNombreB1(int pos)
+        {
+            return nombBebidas1[pos];
+        }
+        public String getNombreB2(int pos)
+        {
+            return nombBebidas2[pos];
+        }
+        public String getNombreB3(int pos)
+        {
+            return nombBebidas3[pos];
+        }
+        //lo mismo que estaba en ventas
+        public int getCantVasos()
+        {
+            return cantVasos;
+        }
+        public double getCantCarne1()
+        {
+            return cantCarne1;
+        }
+        public double getCantCarne2()
+        {
+            return cantCarne2;
+        }
+        public int getCantVienesas()
+        {
+            return cantVienesas;
+        }
     }
+
+
 }

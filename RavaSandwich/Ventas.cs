@@ -83,7 +83,7 @@ namespace RavaSandwich
                 comboExtraS2.Items.Add(agregados[i]);
             }
             //Llenar las carnes
-            String[] carnes = new String[] { "Ave", "Churrasco", "Lomo", "Mechada", " " };
+            String[] carnes = new String[] { "Ave", "Churrasco", "Lomo", "Mechada", "Vienesa","As", " " };
             for (int i = 0; i < carnes.Length; i++)
             {
                 comboCarne1.Items.Add(carnes[i]);
@@ -719,7 +719,7 @@ namespace RavaSandwich
                 if (subTotal != 0)
                 {
                     promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: " + extras1 + " \nExtras S2: " + extras2, textBoxComentarios.Text, salsas, subTotal));
-                    DescuentoEnBD();
+                    //DescuentoEnBD();
                 }
 
                 foreach (Promo aPromo in promos)
@@ -858,7 +858,7 @@ namespace RavaSandwich
             foreach (Promo aPromo in promos)
             {
                 i++;//Para contar la cantidad de pedidos
-                pedidoFinal = pedidoFinal + "\nPedido " + i + ": \n" + aPromo.toString() + "\n"; //Concatena el contenido de los pedidos y los separa segun la cantidad de promos distintos que ha pedido
+                pedidoFinal = pedidoFinal + "Pedido " + i + ": \n" + aPromo.toString() + "\n"; //Concatena el contenido de los pedidos y los separa segun la cantidad de promos distintos que ha pedido
             }
             return pedidoFinal;
         }
@@ -943,7 +943,7 @@ namespace RavaSandwich
             if (subTotal != 0)
             {
                 promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: " + extras1 + " \nExtras S2: " + extras2, textBoxComentarios.Text, salsas, subTotal));
-                DescuentoEnBD();
+                //DescuentoEnBD();
             }
 
             //Después de agregar una promo, se deben vaciar los casilleros
@@ -1090,6 +1090,7 @@ namespace RavaSandwich
             }
 
         }
+        /*  Esto hay que borrarlo, no creo que se use, ya que se trasladó a ConfirmarPedido y se optimizó
 
         public int getPanMini()
         {
@@ -1335,6 +1336,7 @@ namespace RavaSandwich
             {
                 cantVasos = cantVasos + (int)numericCantVasos.Value;
             }
-        }
+        }*/
     }
+        
 }

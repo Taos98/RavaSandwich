@@ -157,11 +157,11 @@ namespace RavaSandwich
             this.btnAgregarPromo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarPromo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAgregarPromo.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnAgregarPromo.Location = new System.Drawing.Point(25, 77);
+            this.btnAgregarPromo.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarPromo.Image")));
+            this.btnAgregarPromo.Location = new System.Drawing.Point(26, 84);
             this.btnAgregarPromo.Name = "btnAgregarPromo";
-            this.btnAgregarPromo.Size = new System.Drawing.Size(35, 32);
+            this.btnAgregarPromo.Size = new System.Drawing.Size(27, 25);
             this.btnAgregarPromo.TabIndex = 4;
-            this.btnAgregarPromo.Text = "+";
             this.btnAgregarPromo.UseVisualStyleBackColor = false;
             this.btnAgregarPromo.Click += new System.EventHandler(this.btnAgregarPromo_Click);
             // 
@@ -400,11 +400,11 @@ namespace RavaSandwich
             this.btnAgregarE1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarE1.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAgregarE1.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnAgregarE1.Location = new System.Drawing.Point(362, 259);
+            this.btnAgregarE1.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarE1.Image")));
+            this.btnAgregarE1.Location = new System.Drawing.Point(367, 260);
             this.btnAgregarE1.Name = "btnAgregarE1";
-            this.btnAgregarE1.Size = new System.Drawing.Size(26, 24);
+            this.btnAgregarE1.Size = new System.Drawing.Size(21, 23);
             this.btnAgregarE1.TabIndex = 32;
-            this.btnAgregarE1.Text = "+";
             this.btnAgregarE1.UseVisualStyleBackColor = false;
             this.btnAgregarE1.Click += new System.EventHandler(this.btnAgregarE1_Click);
             // 
@@ -659,11 +659,11 @@ namespace RavaSandwich
             this.btnAgregarE2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarE2.Font = new System.Drawing.Font("Segoe UI Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAgregarE2.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnAgregarE2.Location = new System.Drawing.Point(516, 259);
+            this.btnAgregarE2.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarE2.Image")));
+            this.btnAgregarE2.Location = new System.Drawing.Point(520, 260);
             this.btnAgregarE2.Name = "btnAgregarE2";
-            this.btnAgregarE2.Size = new System.Drawing.Size(27, 24);
+            this.btnAgregarE2.Size = new System.Drawing.Size(23, 23);
             this.btnAgregarE2.TabIndex = 57;
-            this.btnAgregarE2.Text = "+";
             this.btnAgregarE2.UseVisualStyleBackColor = false;
             this.btnAgregarE2.Click += new System.EventHandler(this.btnAgregarE2_Click);
             // 
@@ -692,11 +692,11 @@ namespace RavaSandwich
             this.btnAgregarBebida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarBebida.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.btnAgregarBebida.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnAgregarBebida.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarBebida.Image")));
             this.btnAgregarBebida.Location = new System.Drawing.Point(25, 256);
             this.btnAgregarBebida.Name = "btnAgregarBebida";
             this.btnAgregarBebida.Size = new System.Drawing.Size(27, 24);
             this.btnAgregarBebida.TabIndex = 60;
-            this.btnAgregarBebida.Text = "+";
             this.btnAgregarBebida.UseVisualStyleBackColor = false;
             this.btnAgregarBebida.Click += new System.EventHandler(this.btnAgregarBebida_Click);
             // 
