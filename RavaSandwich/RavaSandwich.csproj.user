@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="AgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CajaBilletes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CajaGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CajaSueldos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CerrarCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CerrarTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConfirmarPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConsumirProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="EliminarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Eliminar_venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GestionarPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Gestionar_Turno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="HistorialVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="IngresoIngrediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="IniciarTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InventarioA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MenuUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InventarioU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MenuAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
