@@ -158,6 +158,8 @@ namespace RavaSandwich
         {
             CajaBilletes cb = new CajaBilletes();
             cb.Show();
+            this.Close();
+
             
         }
 
@@ -165,6 +167,7 @@ namespace RavaSandwich
         {
             CajaSueldos cs = new CajaSueldos();
             cs.Show();
+            this.Close();
             
         }
 

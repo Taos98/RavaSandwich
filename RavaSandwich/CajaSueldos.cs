@@ -11,7 +11,6 @@ namespace RavaSandwich
 {
     public partial class CajaSueldos : Form
     {
-        String fecha = DateTime.Now.ToString("d");
         public static int sueldoCajere = 0;
         public static int sueldoPlanchere = 0;
         static String nombreC = "";
@@ -32,7 +31,7 @@ namespace RavaSandwich
             comm1.Connection = conn1;
             comm1.CommandType = CommandType.Text;
             //Consulta 
-            comm1.CommandText="SELECT rut, puesto FROM turno WHERE fecha = '"+fecha+"'";
+            comm1.CommandText="SELECT rut, puesto FROM turno WHERE fecha = '"+DTP_CajaSueldos.Value.ToString("d")+"'";
             NpgsqlDataReader dr1 = comm1.ExecuteReader();
             while (dr1.Read())
             {
@@ -51,10 +50,13 @@ namespace RavaSandwich
             conn1.Close();
             txtValorHoraC.Text = "1500";
             txtValorHoraP.Text = "1700";
+            //MessageBox.Show("Esta persona no ha cerrado su turno!!!\nPor favor, cierre su turno ", "No se sabe la hora de salida", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            Caja c = new Caja();
             try
             {
                 sueldoPlanchere = (int)(float.Parse(txtTotalHorasP.Text) * int.Parse(txtValorHoraP.Text));
@@ -70,6 +72,8 @@ namespace RavaSandwich
                 }
                 nombreC = labelNombreCajero.Text;
                 nombreP = labelNombrePlanchero.Text;
+                c.Show();
+                this.Close();
             }
             catch (FormatException)
             {
@@ -96,8 +100,9 @@ namespace RavaSandwich
             NpgsqlDataReader dr = comm.ExecuteReader();
             if (dr.Read())
             {
-                if (dr.GetString(4) ==fecha)
+                if (dr.GetString(4) == DTP_CajaSueldos.Value.ToString("d"))
                 {
+                    
                     txtHoraIngresoC.Text = dr.GetString(0);
                     txtHoraSalidaC.Text = dr.GetString(1);
                     labelNombreCajero.Text = getNombrePersona(dr.GetString(3));
@@ -108,8 +113,8 @@ namespace RavaSandwich
             //Desconectar BD
             conn.Close();
 
-            String fechaH1 = fecha + ' ' + txtHoraIngresoC.Text;
-            String fechaH2 = fecha + ' ' + txtHoraSalidaC.Text;
+            String fechaH1 = DTP_CajaSueldos.Value.ToString("d") + ' ' + txtHoraIngresoC.Text;
+            String fechaH2 = DTP_CajaSueldos.Value.ToString("d") + ' ' + txtHoraSalidaC.Text;
             try
             {
                 DateTime horaInicioCaja = DateTime.Parse(fechaH1);
@@ -140,7 +145,7 @@ namespace RavaSandwich
             NpgsqlDataReader dr = comm.ExecuteReader();
             if (dr.Read())
             {
-                if (dr.GetString(4) == fecha)
+                if (dr.GetString(4) == DTP_CajaSueldos.Value.ToString("d"))
                 {
                     txtHoraIngresoP.Text = dr.GetString(0);
                     txtHoraSalidaP.Text = dr.GetString(1);
@@ -152,8 +157,8 @@ namespace RavaSandwich
             //Desconectar BD
             conn.Close();
 
-            String fechaH1 = fecha + ' ' + txtHoraIngresoP.Text;
-            String fechaH2 = fecha + ' ' + txtHoraSalidaP.Text;
+            String fechaH1 = DTP_CajaSueldos.Value.ToString("d") + ' ' + txtHoraIngresoP.Text;
+            String fechaH2 = DTP_CajaSueldos.Value.ToString("d") + ' ' + txtHoraSalidaP.Text;
             try
             {
                 DateTime horaInicioPlancha = DateTime.Parse(fechaH1);
@@ -220,6 +225,39 @@ namespace RavaSandwich
         public String getNombreCajero()
         {
             return nombreC;
+        }
+
+        private void DTP_CajaSueldos_ValueChanged(object sender, EventArgs e)
+        {
+            cBoxRutCajero.Items.Clear();
+            cBoxRutPlanchero.Items.Clear();
+            //Datos de conexión a BD
+            NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
+            //Abrir BD
+            conn1.Open();
+            //Crear objeto de comandos
+            NpgsqlCommand comm1 = new NpgsqlCommand();
+            //Crear objeto conexión
+            comm1.Connection = conn1;
+            comm1.CommandType = CommandType.Text;
+            //Consulta 
+            comm1.CommandText = "SELECT rut, puesto FROM turno WHERE fecha = '" + DTP_CajaSueldos.Value.ToString("d") + "'";
+            NpgsqlDataReader dr1 = comm1.ExecuteReader();
+            while (dr1.Read())
+            {
+                if (dr1.GetString(1).Equals("Caja"))//Equals equivale a == 
+                {
+                    cBoxRutCajero.Items.Add(dr1.GetString(0));
+                }
+                if (dr1.GetString(1) == "Plancha")
+                {
+                    cBoxRutPlanchero.Items.Add(dr1.GetString(0));
+                }
+            }
+            //Cerrar comandos
+            comm1.Dispose();
+            //Desconectar BD
+            conn1.Close();
         }
     }
 }

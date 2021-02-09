@@ -39,6 +39,7 @@ namespace RavaSandwich
             this.label4 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.DTP_CerrarTurno = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -87,7 +88,7 @@ namespace RavaSandwich
             // 
             // txtCuadre
             // 
-            this.txtCuadre.Location = new System.Drawing.Point(175, 235);
+            this.txtCuadre.Location = new System.Drawing.Point(93, 215);
             this.txtCuadre.Name = "txtCuadre";
             this.txtCuadre.ReadOnly = true;
             this.txtCuadre.Size = new System.Drawing.Size(101, 23);
@@ -96,7 +97,7 @@ namespace RavaSandwich
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(113, 238);
+            this.label4.Location = new System.Drawing.Point(31, 218);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 15);
             this.label4.TabIndex = 6;
@@ -134,12 +135,21 @@ namespace RavaSandwich
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // DTP_CerrarTurno
+            // 
+            this.DTP_CerrarTurno.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTP_CerrarTurno.Location = new System.Drawing.Point(227, 215);
+            this.DTP_CerrarTurno.Name = "DTP_CerrarTurno";
+            this.DTP_CerrarTurno.Size = new System.Drawing.Size(97, 23);
+            this.DTP_CerrarTurno.TabIndex = 9;
+            // 
             // CerrarCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(430, 463);
+            this.Controls.Add(this.DTP_CerrarTurno);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.label4);
@@ -168,5 +178,6 @@ namespace RavaSandwich
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.DateTimePicker DTP_CerrarTurno;
     }
 }
