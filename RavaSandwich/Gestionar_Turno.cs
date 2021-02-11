@@ -11,7 +11,8 @@ namespace RavaSandwich
 {
     public partial class Gestionar_Turno : Form
     {
-        
+        static int contC = 0;//para contar los cajeros en turno
+        static int contP = 0;//para contar los plancheros en turno
         public Gestionar_Turno()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            //Realiza la consulta si hay personas en turno del día de hoy
+            //Realiza la consulta si hay personas en turno
             comm.CommandText = ("SELECT rut, puesto, hora_ingreso FROM turno WHERE  hora_salida = ' - '");
             NpgsqlDataReader dr = comm.ExecuteReader();
             while (dr.Read())
@@ -49,7 +50,7 @@ namespace RavaSandwich
                 //si hay planchero
                 if (dr.GetString(1) == "Plancha")
                 {
-                    //Carga los datos del planchero actual
+                    contP++;
                     labelDisponible.Visible = false;
                     labelPlanchero.Visible = true;
                     labelPuesto.Visible = true;
@@ -63,7 +64,7 @@ namespace RavaSandwich
                 }
                 if (dr.GetString(1) == "Caja")
                 {
-                    //Carga los datos del cajero actual
+                    contC++;
                     labelNombre.Visible = true;
                     labelHora.Visible = true;
                     labelDisponible.Visible = false;
@@ -98,7 +99,7 @@ namespace RavaSandwich
             this.Close();
             
         }
-        //Método que obtiene el nombre de una persona a través del rut
+        
         private String getNombrePersona(String rut)
         {
             String nombre = "";

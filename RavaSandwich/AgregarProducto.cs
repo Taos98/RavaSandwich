@@ -11,9 +11,8 @@ namespace RavaSandwich
 {
     public partial class AgregarProducto : Form
     {
-        //Atributos globales
-        String fecha = DateTime.Now.ToString("d");//Fecha en formato DD-MM-AAAA
-        Login l = new Login(); // para obtener el rut de la persona que hizo la modificacion
+        String fecha = DateTime.Now.ToString("d");
+        Login l = new Login();
         public AgregarProducto()
         {
             InitializeComponent();

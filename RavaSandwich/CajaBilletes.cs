@@ -10,7 +10,6 @@ namespace RavaSandwich
 {
     public partial class CajaBilletes : Form
     {
-        //variable global para guardar el total
         static int total;
         public CajaBilletes()
         {
@@ -20,7 +19,7 @@ namespace RavaSandwich
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //Almacena estos valores para calcular el total y guardarlo en la variable global
+            Caja c = new Caja();
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -32,6 +31,8 @@ namespace RavaSandwich
             int diez = (int)(numeric10.Value * 10);
             total = veintemil + diezmil + cincomil + dosmil + mil + quiniento + cien + cincuenta + diez;
             this.Close();
+            
+            c.Show();
 
         }
 
@@ -82,7 +83,6 @@ namespace RavaSandwich
 
         private void numeric20K_ValueChanged(object sender, EventArgs e)
         {
-            //Calcula el total del dinero por el momento y muestra el total al instante
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -108,7 +108,6 @@ namespace RavaSandwich
 
         private void numeric10K_ValueChanged(object sender, EventArgs e)
         {
-            //Calcula el total del dinero por el momento y muestra el total al instante
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -133,7 +132,6 @@ namespace RavaSandwich
 
         private void numeric5K_ValueChanged(object sender, EventArgs e)
         {
-            //Calcula el total del dinero por el momento y muestra el total al instante
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -158,7 +156,6 @@ namespace RavaSandwich
 
         private void numeric2K_ValueChanged(object sender, EventArgs e)
         {
-            //Calcula el total del dinero por el momento y muestra el total al instante
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -183,7 +180,6 @@ namespace RavaSandwich
 
         private void numeric1K_ValueChanged(object sender, EventArgs e)
         {
-            //Calcula el total del dinero por el momento y muestra el total al instante
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -208,7 +204,6 @@ namespace RavaSandwich
 
         private void numeric500_ValueChanged(object sender, EventArgs e)
         {
-            //Calcula el total del dinero por el momento y muestra el total al instante
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -233,7 +228,6 @@ namespace RavaSandwich
 
         private void numeric100_ValueChanged(object sender, EventArgs e)
         {
-            //Calcula el total del dinero por el momento y muestra el total al instante
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -258,7 +252,6 @@ namespace RavaSandwich
 
         private void numeric50_ValueChanged(object sender, EventArgs e)
         {
-            //Calcula el total del dinero por el momento y muestra el total al instante
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -283,7 +276,6 @@ namespace RavaSandwich
 
         private void numeric10_ValueChanged(object sender, EventArgs e)
         {
-            //Calcula el total del dinero por el momento y muestra el total al instante
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -305,10 +297,16 @@ namespace RavaSandwich
             total = veintemil + diezmil + cincomil + dosmil + mil + quiniento + cien + cincuenta + diez;
             txtTotal.Text = total + "";
         }
-        //Obtiene el total del dinero para que pueda ser usado en las otras clases
         public int getTotal()
         {
             return total;
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Caja c = new Caja();
+            c.Show();
+            this.Close();
         }
     }
 }

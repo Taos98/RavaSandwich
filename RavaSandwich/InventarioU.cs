@@ -14,7 +14,7 @@ namespace RavaSandwich
         public InventarioU()
         {
             InitializeComponent();
-            llenarTabla();//Carga la tabla de inventario al iniciar la ventana
+            llenarTabla();
             
         }
 
@@ -81,7 +81,6 @@ namespace RavaSandwich
         private void btnIngreso_Click(object sender, EventArgs e)
         {
             IngresoIngredi ing = new IngresoIngredi();
-            //verifica si ya hay una ventana existente
             if (Application.OpenForms[ing.Name] == null)
             {
                 ing.Show();
@@ -95,8 +94,7 @@ namespace RavaSandwich
         private void btnConsumo_Click(object sender, EventArgs e)
         {
             ConsumirProd con = new ConsumirProd();
-            //verifica si ya hay una ventana existente
-            if (Application.OpenForms[con.Name] == null)
+            if(Application.OpenForms[con.Name] == null)
             {
                 con.Show();
             }

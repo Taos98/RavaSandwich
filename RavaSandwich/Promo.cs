@@ -4,7 +4,6 @@ using System.Text;
 
 namespace RavaSandwich
 {
-    //Clase que sirve para ordenar los datos de un pedido
     class Promo
     {
         private int cantPromos;
@@ -120,18 +119,15 @@ namespace RavaSandwich
             this.total = total;
         }
         
-        //Método que devuelve el pedido que se ha hecho
         public String toString()
         {
             return "Cantidad promos: " + cantPromos + "  Promo: " + promo + "\nIngredientes: " + ingredientes + "\nBebidas: " + bebidas + "\nVasos: " + vasos + "\nExtras: " + extras + "\nComentarios: " + comentario + "\nSalsas Agregadas: " + salsas + "\n\nTOTAL: " + total;
         }
-        //Método que configura la impresión de un pedido para uso interno del local
         public String impresion()
         {
             String agregados = "";
             int contCarnes = 0;
             int contAgreg = 0;
-            //separa los ingredientes
             String[] ingred = ingredientes.Split(", ");
             for(int i=0; i<ingred.Length-1; i++)
             {
@@ -147,7 +143,6 @@ namespace RavaSandwich
                 }
                 
             }
-            //Separa las salsas
             String sals1 = "";
             String sals2 = "";
             String[] sa = salsas.Split(", ");

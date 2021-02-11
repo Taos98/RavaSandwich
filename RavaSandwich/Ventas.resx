@@ -57,11 +57,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
   <data name="btnMenu.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAEpYAABKWAHlrGlDAAAAB3RJ
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAEpZAABKWQE364unAAAAB3RJ
         TUUH5QENEycZ5ZnWcAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIDSURBVFhH
         xddLSFRRHMfxiQxMa5EhYhlCGxfiCwxcuNJNuyiiVZAbd20DBd34SHwSBC1FEFFcVQRFEJkbiVpUUm1S
         jMhNDxc+IB/p94dXmTlz7j1zRq/+4AMycz3//9x7zpkzCY+cCBxLctGGTpzRC0cZFb+PTfzHA+TjSLJX
@@ -77,7 +77,7 @@
   <data name="btnHistorial.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7CAAAOwgEVKEqAAAAAB3RJ
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAB3RJ
         TUUH5QENEycXAiH7dwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAKsSURBVFhH
         1dfbi01RHMDxwxB5QErSSDRJrsmkCU3KrTygRCEh8iBR8+QS5UWKeZnceZHxMA/z4Fpyv0YphAf/gOTR
         f+D7Za3aLfuczpm95sGvPrXPXuv3W7/Z5+y199SGGGvwET8Cjz03bDEaEzAeHXiJk5gTePwKjjnHuea0
@@ -132,7 +132,7 @@
   <data name="btnConfirmar.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAvOAAALzgGarCi7AAAAB3RJ
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAvPAAALzwFI68pfAAAAB3RJ
         TUUH5QENEycUmyiqzQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAQLSURBVFhH
         5ZdHqFRnGIavYkNMdGGsiQXRJBob2EmMiqILSywQCzHWlQUVG7ZoRANiEDuu7MGKvYu9a6JiCxKIYExU
         JBuJKxd5npnzX47HmTszF3e+8HDPmTvzn+//2v+dIvQansMT+BtewURoA+vhMfh5Nv6Co9AFSiUf3gc+
@@ -193,7 +193,7 @@
   <data name="btnEliminarVenta.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7CAAAOwgEVKEqAAAAAB3RJ
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAB3RJ
         TUUH5QENEycV7C+aWwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAK+SURBVFhH
         1ZZJqE5xGIcPGUOGiIWwwUpKlI1iI0kWkoVpY8OGDCHlkmKhFAlZKsqwkWGvrFBEkQWRmbCwsjA9z9d5
         9b9fh+9Mm/urp873v+fcd37PydAo2A+f4FdDfsAjWAGlpfEPcBw2wPqarINNcBOewzwoJSPXeFuaAg/h

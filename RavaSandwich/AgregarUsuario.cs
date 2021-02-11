@@ -14,10 +14,9 @@ namespace RavaSandwich
         public AgregarUsuario()
         {
             InitializeComponent();
-            //Carga el combobox con los roles de usuario
             comboRol.Items.Add("administrador");
             comboRol.Items.Add("usuario");
-            
+            //txtRut.PlaceholderText = "11222333-k";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,7 +61,6 @@ namespace RavaSandwich
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            //Al cancelar, se cierra la ventana y vuelve a la ventana de gestión de usuarios
             GestionarPersonal gp = new GestionarPersonal();
             gp.Show();
             this.Close();

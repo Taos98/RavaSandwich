@@ -29,8 +29,6 @@ namespace RavaSandwich
 
         private void IngresoIngrediente_Load(object sender, EventArgs e)
         {
-            //Carga el combobox de los productos de inventario
-
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -73,7 +71,7 @@ namespace RavaSandwich
                 comm.Connection = conn;
                 //No se que hace xd
                 comm.CommandType = CommandType.Text;
-                //Actualiza el producto con la cantidad a ingresar
+                //Actualiza el producto
                 comm.CommandText = "UPDATE productos SET ingreso_produc = ingreso_produc +" + numericCantidad.Value.ToString() + ", stock_final_prod=stock_inicio_prod+" + numericCantidad.Value.ToString() + ", rut = '" + l.getRut() + "', fecha ='" + fecha + "'  WHERE nombre_prod = '" + comboProductos.SelectedItem.ToString() + "'";                //Leer BD
                 NpgsqlDataReader dr = comm.ExecuteReader();
                 MessageBox.Show("Se ha agregado " + numericCantidad.Value.ToString() + " al producto " + comboProductos.SelectedItem.ToString(), "Datos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);

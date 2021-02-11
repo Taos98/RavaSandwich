@@ -100,7 +100,6 @@ namespace RavaSandwich
             // 
             this.txtHoraS.Location = new System.Drawing.Point(202, 166);
             this.txtHoraS.Name = "txtHoraS";
-            this.txtHoraS.PlaceholderText = "Ej: 23:59";
             this.txtHoraS.Size = new System.Drawing.Size(174, 23);
             this.txtHoraS.TabIndex = 6;
             // 

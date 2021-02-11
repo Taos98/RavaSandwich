@@ -78,3 +78,43 @@ B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandw
 B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.dll
 B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.pdb
 B:\Proyectos\VS 2019\RavaSandwich\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.genruntimeconfig.cache
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.exe
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.deps.json
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.runtimeconfig.json
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.runtimeconfig.dev.json
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.dll
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\bin\Debug\netcoreapp3.1\RavaSandwich.pdb
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\bin\Debug\netcoreapp3.1\Npgsql.dll
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.csprojAssemblyReference.cache
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.AgregarProducto.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.AgregarUsuario.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Caja.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CajaBilletes.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CajaGastos.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CajaSueldos.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CerrarCaja.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.CerrarTurno.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.ConfirmarPedido.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.ConsumirProd.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.EliminarProducto.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Eliminar_venta.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.GestionarPersonal.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Gestionar_Turno.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.HistorialVentas.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.IngresoIngredi.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.IniciarTurno.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.InventarioA.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.InventarioU.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Login.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.MenuAdmin.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.MenuUsuario.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Properties.Resources.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.Ventas.resources
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.csproj.GenerateResource.cache
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.AssemblyInfoInputs.cache
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.AssemblyInfo.cs
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.csproj.CoreCompileInputs.cache
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.csproj.CopyComplete
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.dll
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.pdb
+C:\Users\labes\Desktop\RavaSandwich-Luchito\RavaSandwich\obj\Debug\netcoreapp3.1\RavaSandwich.genruntimeconfig.cache

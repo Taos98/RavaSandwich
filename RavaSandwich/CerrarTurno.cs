@@ -14,8 +14,6 @@ namespace RavaSandwich
         public CerrarTurno()
         {
             InitializeComponent();
-            //Carga los rut de los trabajadores que están en turno de hoy
-
             // Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -43,7 +41,6 @@ namespace RavaSandwich
 
         private void ctnCerrarTurno_Click(object sender, EventArgs e)
         {
-            //Actualiza los datos de turno de la persona, colocandole la hora en donde terminó el turno
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -59,7 +56,7 @@ namespace RavaSandwich
                 "UPDATE Turno SET hora_salida = '" + txtHoraS.Text + "' WHERE fecha = '" + dateTimeFecha.Value.ToString("d") + "' AND rut = '" + comboRut.SelectedItem.ToString() + "' AND hora_salida = ' - ' ";
 
 
-            //Pregunta si desea que la persona seleccionada finalice el turno
+
             DialogResult dialogResult = MessageBox.Show("¿Desea finaliar turno para '" + txtNombre.Text + "'?", "Cerrar turno", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             if (dialogResult == DialogResult.Yes)
             {
@@ -88,7 +85,6 @@ namespace RavaSandwich
 
         private void comboRut_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Carga el nombre de la persona del rut seleccionado
             // Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -114,7 +110,6 @@ namespace RavaSandwich
             //Desconectar BD
             conn.Close();
         }
-        //Metodo que ayuda a obtener el rol de la persona seleccionada
         private String obtenerPuestoActual(String rut)
         {
             String puesto = "";
@@ -155,7 +150,6 @@ namespace RavaSandwich
 
         private void dateTimeFecha_ValueChanged(object sender, EventArgs e)
         {
-            //Carga el combobox de las personas que hicieron turno en el día que se seleccionó del dateTime
             comboRut.Items.Clear();
             // Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");

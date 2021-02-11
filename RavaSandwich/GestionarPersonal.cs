@@ -14,8 +14,6 @@ namespace RavaSandwich
         public GestionarPersonal()
         {
             InitializeComponent();
-            //Carga el combobox con los nombre de todos los usuarios
-
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -53,8 +51,6 @@ namespace RavaSandwich
 
         private void boxPersonal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Al seleccionar un nombre del combobox se carga los detalles de sus datos personales.
-
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -112,7 +108,7 @@ namespace RavaSandwich
                 comm.Connection = conn;
                 //No se que hace xd
                 comm.CommandType = CommandType.Text;
-                //Elimina el usuario seleccionado de la base de datos
+                //Actualiza el producto
                 comm.CommandText = "DELETE FROM usuarios where nombre = '" + boxPersonal.SelectedItem.ToString() + "'";
                 DialogResult dia = MessageBox.Show("Desea eliminar el usuario " + boxPersonal.SelectedItem.ToString() + "?", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 if (dia == DialogResult.Yes)
@@ -144,7 +140,6 @@ namespace RavaSandwich
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //Invoca un formulario que agrega un nuevo usuario
             AgregarUsuario au = new AgregarUsuario();
             if (Application.OpenForms[au.Name] == null)
             {
@@ -156,6 +151,31 @@ namespace RavaSandwich
                 Application.OpenForms[au.Name].Activate();
             }
         }
-        
+        /*private void actualizarBox()
+{
+   //Datos de conexión a BD
+   NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava_Sandwich");
+   //Abrir BD
+   conn.Open();
+   //Crear objeto de comandos
+   NpgsqlCommand comm = new NpgsqlCommand();
+   //Crear objeto conexión
+   comm.Connection = conn;
+   //No se que hace xd
+   comm.CommandType = CommandType.Text;
+   //Consulta
+   comm.CommandText = "SELECT nombre from usuarios ORDER BY nombre ASC";
+   //Leer BD
+   NpgsqlDataReader dr = comm.ExecuteReader();
+   while (dr.Read())//Si la tabla tiene 1 o más filas...
+   {
+       //Rellena la lista desplegable
+       boxPersonal.Items.Add(dr.GetString(0));
+   }
+   //Cerrar comandos
+   comm.Dispose();
+   //Desconectar BD
+   conn.Close();
+}*/
     }
 }

@@ -57,6 +57,8 @@ namespace RavaSandwich
             this.labelNombreCajero = new System.Windows.Forms.Label();
             this.labelNombrePlanchero = new System.Windows.Forms.Label();
             this.cBoxRutPlanchero = new System.Windows.Forms.ComboBox();
+            this.DTP_CajaSueldos = new System.Windows.Forms.DateTimePicker();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtHoraIngresoC
@@ -246,11 +248,11 @@ namespace RavaSandwich
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(176, 333);
+            this.btnGuardar.Location = new System.Drawing.Point(116, 340);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(162, 56);
+            this.btnGuardar.Size = new System.Drawing.Size(125, 56);
             this.btnGuardar.TabIndex = 41;
-            this.btnGuardar.Text = "Guardar y Volver";
+            this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -267,7 +269,7 @@ namespace RavaSandwich
             // labelNombreCajero
             // 
             this.labelNombreCajero.AutoSize = true;
-            this.labelNombreCajero.Location = new System.Drawing.Point(165, 57);
+            this.labelNombreCajero.Location = new System.Drawing.Point(176, 57);
             this.labelNombreCajero.Name = "labelNombreCajero";
             this.labelNombreCajero.Size = new System.Drawing.Size(152, 15);
             this.labelNombreCajero.TabIndex = 43;
@@ -291,12 +293,39 @@ namespace RavaSandwich
             this.cBoxRutPlanchero.TabIndex = 44;
             this.cBoxRutPlanchero.SelectedIndexChanged += new System.EventHandler(this.cBoxRutPlanchero_SelectedIndexChanged);
             // 
+            // DTP_CajaSueldos
+            // 
+            this.DTP_CajaSueldos.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTP_CajaSueldos.Location = new System.Drawing.Point(397, 54);
+            this.DTP_CajaSueldos.Name = "DTP_CajaSueldos";
+            this.DTP_CajaSueldos.Size = new System.Drawing.Size(99, 23);
+            this.DTP_CajaSueldos.TabIndex = 46;
+            this.DTP_CajaSueldos.ValueChanged += new System.EventHandler(this.DTP_CajaSueldos_ValueChanged);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.Gold;
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Location = new System.Drawing.Point(282, 340);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(113, 56);
+            this.btnVolver.TabIndex = 47;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // CajaSueldos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(517, 438);
+            this.Controls.Add(this.btnVolver);
+            this.Controls.Add(this.DTP_CajaSueldos);
             this.Controls.Add(this.labelNombrePlanchero);
             this.Controls.Add(this.cBoxRutPlanchero);
             this.Controls.Add(this.labelNombreCajero);
@@ -361,5 +390,7 @@ namespace RavaSandwich
         private System.Windows.Forms.Label labelNombreCajero;
         private System.Windows.Forms.Label labelNombrePlanchero;
         private System.Windows.Forms.ComboBox cBoxRutPlanchero;
+        private System.Windows.Forms.DateTimePicker DTP_CajaSueldos;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

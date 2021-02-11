@@ -14,7 +14,7 @@ namespace RavaSandwich
     {
         static String metodosPago = "";
         String cliente = "";
-
+        String fecha = DateTime.Now.ToString("d");
         // los sgtes datos son para almacenar las cantidades a descontar
         static int cantPromoS = 0;
         static int cantMini = 0;
@@ -32,14 +32,13 @@ namespace RavaSandwich
         static double cantCarne2 = 0;
         static int cantVienesas = 0;
         static int cantPro = 0;//La cantidad de promociones (del mismo)
+        static int contP = 0;
         public ConfirmarPedido()
         {
             InitializeComponent();
             Login lo = new Login();
             Ventas ve = new Ventas();
-            //
-            String verP = ve.getPedidoCliente();
-            contabilizarDescuentoInventario(verP);//Función nueva que contabiliza los productos a descontar en inventario, no borrar
+            
             labelNombreCajero.Text = lo.getNombre();
             textBoxTotalAPagar.Text = ve.getTotal() + "";
             checkBoxPYEfectivo.Visible = false;
@@ -53,10 +52,7 @@ namespace RavaSandwich
                 listBoxPedido.Items.Add(pedido[i]);
             }
             textBoxDescuento.Text = "0";
-            //Creo que hay que borrar lo que está comentado abajo
-            //Envia la informacion de impresion a la funcion para contabilizar las cosas que se van a descontar del inventario
-            /*String verP = ve.getPedidoCliente();
-            contabilizarDescuentoInventario(verP);*/
+            contabilizarDescuentoInventario(ve.getPedidoCliente());
         }
 
         private void checkBoxPedidosYa_CheckedChanged(object sender, EventArgs e)
@@ -141,8 +137,7 @@ namespace RavaSandwich
                             comm.Dispose();
                             //Desconectar BD
                             conn.Close();
-                            //Mensaje de prueba, despues hay que borrar, si el error está acá no hay problema.
-                            MessageBox.Show("Se descontaran lo siguientes elementos del inventario: \n cantPromos: "+cantPromoS+"\ncantMini: "+cantMini+"\ncantManso: "+cantManso+"\ncantCompP: "+cantCompP+"\ncantCompM: "+cantCompM+"\ncantBebida1: "+cantBebida1+"\ncantBebida2: "+cantBebida2+"\ncantBebida3: "+cantBebida3+"\ncantVasos: "+cantVasos+"\ncantCarne1: "+cantCarne1+"\ncantCarne2: "+cantCarne2+"\ncantVienesas: "+cantVienesas, "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                            MessageBox.Show("Se descontaran lo siguientes elementos del inventario: \n cantPromos: " + cantPromoS + "\ncantMini: " + cantMini + "\ncantManso: " + cantManso + "\ncantCompP: " + cantCompP + "\ncantCompM: " + cantCompM + "\nBebidas1: " + nombBebidas1[0] + ", " + nombBebidas1[1] + ", " + nombBebidas1[2] + "\ncantBebida1: " + cantBebida1[0] + ", " + cantBebida1[1] + ", " + cantBebida1[2] + "\nBebidas2: " + nombBebidas2[0] + ", " + nombBebidas2[1] + ", " + nombBebidas2[2] + "\ncantBebida2: " + cantBebida2[0] + ", " + cantBebida2[1] + ", " + cantBebida2[2] + "\nBebidas3: " + nombBebidas3[0] + ", " + nombBebidas3[1] + ", " + nombBebidas3[2] + "\ncantBebida3: " + cantBebida3[0] + ", " + cantBebida3[1] + ", " + cantBebida3[2] + "\ncantVasos: " + cantVasos + "\ncantCarne1: " + cantCarne1 + "\ncantCarne2: " + cantCarne2 + "\ncantVienesas: " + cantVienesas, "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             ve.Show();
                             this.Close();
 
@@ -152,7 +147,8 @@ namespace RavaSandwich
                             printDocument1.PrinterSettings = ps;
                             printDocument1.PrintPage += Imprimir;
                             printDocument1.Print();
-                            //descuentosEnInventario(ve.getPedidoCliente()); //COLOCAR LA NUEVA FUNCION DESCUENTOS
+                            descuentosEnInventario(ve.getPedidoCliente());
+                            DctoCarneBD();
                             ve.vaciarLista();
                             //Restablece los contadores
                             cantPromoS = 0;
@@ -195,8 +191,7 @@ namespace RavaSandwich
                         comm.Dispose();
                         //Desconectar BD
                         conn.Close();
-                        //Mensaje de prueba, despues hay que borrar, si el error está acá no hay problema.
-                        MessageBox.Show("Se descontaran lo siguientes elementos del inventario: \n cantPromos: " + cantPromoS + "\ncantMini: " + cantMini + "\ncantManso: " + cantManso + "\ncantCompP: " + cantCompP + "\ncantCompM: " + cantCompM + "\ncantBebida1: " + cantBebida1 + "\ncantBebida2: " + cantBebida2 + "\ncantBebida3: " + cantBebida3 + "\ncantVasos: " + cantVasos + "\ncantCarne1: " + cantCarne1 + "\ncantCarne2: " + cantCarne2 + "\ncantVienesas: " + cantVienesas, "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("Se descontaran lo siguientes elementos del inventario: \n cantPromos: " + cantPromoS + "\ncantMini: " + cantMini + "\ncantManso: " + cantManso + "\ncantCompP: " + cantCompP + "\ncantCompM: " + cantCompM + "\nBebidas1: " + nombBebidas1[0] + ", " + nombBebidas1[1] + ", " + nombBebidas1[2] + "\ncantBebida1: " + cantBebida1[0] + ", " + cantBebida1[1] + ", " + cantBebida1[2] + "\nBebidas2: " + nombBebidas2[0] + ", " + nombBebidas2[1] + ", " + nombBebidas2[2] + "\ncantBebida2: " + cantBebida2[0] + ", " + cantBebida2[1] + ", " + cantBebida2[2] + "\nBebidas3: " + nombBebidas3[0] + ", " + nombBebidas3[1] + ", " + nombBebidas3[2] + "\ncantBebida3: " + cantBebida3[0] + ", " + cantBebida3[1] + ", " + cantBebida3[2] + "\ncantVasos: " + cantVasos + "\ncantCarne1: " + cantCarne1 + "\ncantCarne2: " + cantCarne2 + "\ncantVienesas: " + cantVienesas, "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         ve.Show();
                         this.Close();
 
@@ -206,7 +201,8 @@ namespace RavaSandwich
                         printDocument1.PrinterSettings = ps;
                         printDocument1.PrintPage += Imprimir;
                         printDocument1.Print();
-                        //descuentosEnInventario(ve.getPedidoCliente()); //COLOCAR LA NUEVA FUNCION DE DESCUENTOS
+                        descuentosEnInventario(ve.getPedidoCliente());
+                        DctoCarneBD();
                         ve.vaciarLista();
                         //Restablece los contadores
                         cantPromoS = 0;
@@ -243,13 +239,13 @@ namespace RavaSandwich
                     comm.CommandText = "INSERT into ventas(nombre_cliente, nombre_cajero, pedido, total_pago, tipo_pago, fecha, subtotal, descuento) VALUES ('" + textBoxNombreCliente.Text + "','" + lo.getNombre() + "', '" + ve.getPedidoCliente() + "'," + totalVenta() + ",'" + metodosPago + "', '" + fechaHora + "', " + ve.getTotal() + "," + textBoxDescuento.Text + ")";
                     //Leer BD
                     NpgsqlDataReader dr = comm.ExecuteReader();
-                    MessageBox.Show("Se ha registrado la venta de forma Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Se ha registrado la venta de manera Exitosa", "Venta Hecha", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     //Cerrar comandos
                     comm.Dispose();
                     //Desconectar BD
                     conn.Close();
                     //Mensaje de prueba, despues hay que borrar, si el error está acá no hay problema.
-                    MessageBox.Show("Se descontaran lo siguientes elementos del inventario: \n cantPromos: " + cantPromoS + "\ncantMini: " + cantMini + "\ncantManso: " + cantManso + "\ncantCompP: " + cantCompP + "\ncantCompM: " + cantCompM +"\nBebidas1: "+nombBebidas1[0]+", "+ nombBebidas1[1] + ", "+ nombBebidas1[2] + "\ncantBebida1: " + cantBebida1[0] + ", " + cantBebida1[1] + ", " + cantBebida1[2] + "\nBebidas2: " + nombBebidas2[0] + ", " + nombBebidas2[1] + ", " + nombBebidas2[2] + "\ncantBebida2: " + cantBebida2[0] + ", " + cantBebida2[1] + ", " + cantBebida2[2] + "\nBebidas3: " + nombBebidas3[0] + ", " + nombBebidas3[1] + ", " + nombBebidas3[2] + "\ncantBebida3: " + cantBebida3[0] + ", " + cantBebida3[1] + ", " + cantBebida3[2] + "\ncantVasos: " + cantVasos + "\ncantCarne1: " + cantCarne1 + "\ncantCarne2: " + cantCarne2 + "\ncantVienesas: " + cantVienesas, "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                   // MessageBox.Show("Se descontaran lo siguientes elementos del inventario: \n cantPromos: " + cantPromoS + "\ncantMini: " + cantMini + "\ncantManso: " + cantManso + "\ncantCompP: " + cantCompP + "\ncantCompM: " + cantCompM + "\nBebidas1: " + nombBebidas1[0] + ", " + nombBebidas1[1] + ", " + nombBebidas1[2] + "\ncantBebida1: " + cantBebida1[0] + ", " + cantBebida1[1] + ", " + cantBebida1[2] + "\nBebidas2: " + nombBebidas2[0] + ", " + nombBebidas2[1] + ", " + nombBebidas2[2] + "\ncantBebida2: " + cantBebida2[0] + ", " + cantBebida2[1] + ", " + cantBebida2[2] + "\nBebidas3: " + nombBebidas3[0] + ", " + nombBebidas3[1] + ", " + nombBebidas3[2] + "\ncantBebida3: " + cantBebida3[0] + ", " + cantBebida3[1] + ", " + cantBebida3[2] + "\ncantVasos: " + cantVasos + "\ncantCarne1: " + cantCarne1 + "\ncantCarne2: " + cantCarne2 + "\ncantVienesas: " + cantVienesas, "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1); 
                     ve.Show();
                     this.Close();
 
@@ -259,7 +255,8 @@ namespace RavaSandwich
                     printDocument1.PrinterSettings = ps;
                     printDocument1.PrintPage += Imprimir;
                     printDocument1.Print();
-                    //descuentosEnInventario(ve.getPedidoCliente()); //COLOCAR LA NUEVA FUNCION DE DESCUENTOS ACÁ
+                    descuentosEnInventario(ve.getPedidoCliente());
+                    DctoCarneBD();
                     ve.vaciarLista();
                     //Restablece los contadores
                     cantPromoS = 0;
@@ -296,6 +293,7 @@ namespace RavaSandwich
             this.Close();
             Ventas ve = new Ventas();
             ve.vaciarLista();
+            ve.Show();
             //Restablece los contadores
             cantPromoS = 0;
             cantMini = 0;
@@ -313,7 +311,6 @@ namespace RavaSandwich
             cantCarne2 = 0;
             cantVienesas = 0;
             cantPro = 0;
-            ve.Show();
         }
 
         private void checkBoxEfectivo_CheckedChanged(object sender, EventArgs e)
@@ -402,1663 +399,13 @@ namespace RavaSandwich
             return total;
         }
 
-        //A partir de acá hay que colocar el nuevo código de descuentos (Tommy) y fusionar con el contador
-        /*
-        public void descuentosEnInventario(String pedido)
-        {
-            Ventas v = new Ventas();
-            String fecha = DateTime.Now.ToString("d");
-
-            if (pedido.Contains("Promo Sandwich"))
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getPanSandwich() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Mini'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Mini'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-                DctoCarneBD();
-            }
-
-            if (pedido.Contains("Mini"))
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getPanMini() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Mini'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Mini'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-                DctoCarneBD();
-            }
-
-            if (pedido.Contains("Mansos"))
-            {
-                if (pedido.Contains("MT"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + (" + v.getPanManso() + " * 1.5 ), fecha = '" + fecha + "' WHERE nombre_prod ='Manso'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Manso'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                    DctoCarneBD();
-                }
-                else
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getPanManso() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Manso'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Manso'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                    DctoCarneBD();
-                }
-            }
-
-            if (pedido.Contains("Completo"))
-            {
-                if (pedido.Contains("Minic"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getPanCompleto() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Completo'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Completo'";
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                    DctoCarneBD();
-                }
-                else
-                {
-                    if (pedido.Contains("AS"))
-                    {
-                        //Datos de conexión a BD
-                        NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                        //Abrir BD
-                        conn.Open();
-                        //Crear objeto de comandos
-                        NpgsqlCommand comm = new NpgsqlCommand();
-                        //Crear objeto conexión
-                        comm.Connection = conn;
-                        //No se que hace xd
-                        comm.CommandType = CommandType.Text;
-                        //Consulta
-                        comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getPanCompleto() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Completo'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Completo'";
-                        //Leer BD
-                        NpgsqlDataReader dr = comm.ExecuteReader();
-                        //Cerrar comandos
-                        comm.Dispose();
-                        //Desconectar BD
-                        conn.Close();
-                        DctoCarneBD();
-                    }
-                    else
-                    {
-                        //Datos de conexión a BD
-                        NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                        //Abrir BD
-                        conn.Open();
-                        //Crear objeto de comandos
-                        NpgsqlCommand comm = new NpgsqlCommand();
-                        //Crear objeto conexión
-                        comm.Connection = conn;
-                        //No se que hace xd
-                        comm.CommandType = CommandType.Text;
-                        //Consulta
-                        comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getPanPromoCompleto() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Completo'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Completo'";
-                        //Leer BD
-                        NpgsqlDataReader dr = comm.ExecuteReader();
-                        //Cerrar comandos
-                        comm.Dispose();
-                        //Desconectar BD
-                        conn.Close();
-                        DctoCarneBD();
-                    }
-                }
-            }
-
-            //*****************************************************************************************************************************************************************************************************************************+
-            // Bebidas con getcant1()
-            if (pedido.Contains("Bebida 0.5L") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 0.5L'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 0.5L'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-
-            }
-            if (pedido.Contains("Bebida 1.5L") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 1.5L'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 1.5L'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Nectar 1.5L") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Nectar 1.5L'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Nectar 1.5L'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Bebida Express") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Express'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Express'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Nectar Express") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Express'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Express'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Nectar Boca Ancha") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Boca Ancha'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Boca Ancha'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Cafe") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Cafe'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Cafe'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Te") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Te'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Te'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Milo") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Milo'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Milo'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Monster") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod = 'Monster'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Monster'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Bebida Lata") && v.getComboboxbeb1() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Lata'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Lata'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            //***************************************************************************************************************************************************************************************************************************************************
-
-            //*****************************************************************************************************************************************************************************************************************************
-            // Bebidas con getcant2()
-            if (pedido.Contains("Bebida 0.5L") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 0.5L'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 0.5L'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-
-            }
-            if (pedido.Contains("Bebida 1.5L") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 1.5L'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 1.5L'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Nectar 1.5L") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Nectar 1.5L'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Nectar 1.5L'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Bebida Express") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Express'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Express'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Nectar Express") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Express'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Express'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Nectar Boca Ancha") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Boca Ancha'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Boca Ancha'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Cafe") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Cafe'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Cafe'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Te") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Te'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Te'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Milo") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Milo'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Milo'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Monster") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod = 'Monster'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Monster'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Bebida Lata") && v.getComboboxbeb2() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Lata'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Lata'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            //***************************************************************************************************************************************************************************************************************************************************
-
-            //*****************************************************************************************************************************************************************************************************************************
-            // Bebidas con getcant3()
-            if (pedido.Contains("Bebida 0.5L") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 0.5L'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 0.5L'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-
-            }
-            if (pedido.Contains("Bebida 1.5L") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 1.5L'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida 1.5L'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Nectar 1.5L") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Nectar 1.5L'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Nectar 1.5L'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Bebida Express") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Express'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Express'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Nectar Express") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Express'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Express'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Nectar Boca Ancha") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Boca Ancha'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Nectar Boca Ancha'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Cafe") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Cafe'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Cafe'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Te") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Te'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Te'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Milo") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Milo'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Milo'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Monster") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod = 'Monster'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Monster'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            if (pedido.Contains("Bebida Lata") && v.getComboboxbeb3() != null)
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantB3() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Lata'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Bebida Lata'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-            //***************************************************************************************************************************************************************************************************************************************************
-
-
-            // descuento de vasos
-            if (pedido.Contains("Vaso"))
-            {
-                //Datos de conexión a BD
-                NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                //Abrir BD
-                conn.Open();
-                //Crear objeto de comandos
-                NpgsqlCommand comm = new NpgsqlCommand();
-                //Crear objeto conexión
-                comm.Connection = conn;
-                //No se que hace xd
-                comm.CommandType = CommandType.Text;
-                //Consulta
-                comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod +  " + v.getCantVasos() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Vaso'; " +
-                    "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Vaso'";
-                //Leer BD
-                NpgsqlDataReader dr = comm.ExecuteReader();
-                //Cerrar comandos
-                comm.Dispose();
-                //Desconectar BD
-                conn.Close();
-            }
-        }
-
-        private void DctoCarneBD()
-        {
-            Ventas v = new Ventas();
-            String fecha = DateTime.Now.ToString("d");
-            String pedido = "" + v.getPedidoCliente();
-            if (pedido.Contains("MT"))
-            {
-                if (pedido.Contains("1"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-
-                    // para la segunda carne de la torre
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn1.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm1 = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm1.Connection = conn1;
-                    //No se que hace xd
-                    comm1.CommandType = CommandType.Text;
-                    //Consulta
-                    comm1.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Ave'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Ave'";
-                    //Leer BD
-                    NpgsqlDataReader dr1 = comm1.ExecuteReader();
-                    //Cerrar comandos
-                    comm1.Dispose();
-                    //Desconectar BD
-                    conn1.Close();
-                }
-                if (pedido.Contains("2"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-
-                    // para la segunda carne de la torre
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn1.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm1 = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm1.Connection = conn1;
-                    //No se que hace xd
-                    comm1.CommandType = CommandType.Text;
-                    //Consulta
-                    comm1.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'";
-                    //Leer BD
-                    NpgsqlDataReader dr1 = comm1.ExecuteReader();
-                    //Cerrar comandos
-                    comm1.Dispose();
-                    //Desconectar BD
-                    conn1.Close();
-                }
-                if (pedido.Contains("3"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-
-                    // para la segunda carne de la torre
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn1.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm1 = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm1.Connection = conn1;
-                    //No se que hace xd
-                    comm1.CommandType = CommandType.Text;
-                    //Consulta
-                    comm1.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'";
-                    //Leer BD
-                    NpgsqlDataReader dr1 = comm1.ExecuteReader();
-                    //Cerrar comandos
-                    comm1.Dispose();
-                    //Desconectar BD
-                    conn1.Close();
-                }
-                if (pedido.Contains("5"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-
-                    // para la segunda carne de la torre
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn1.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm1 = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm1.Connection = conn1;
-                    //No se que hace xd
-                    comm1.CommandType = CommandType.Text;
-                    //Consulta
-                    comm1.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'";
-                    //Leer BD
-                    NpgsqlDataReader dr1 = comm1.ExecuteReader();
-                    //Cerrar comandos
-                    comm1.Dispose();
-                    //Desconectar BD
-                    conn1.Close();
-                }
-                if (pedido.Contains("MV"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-
-                    // para la segunda carne de la torre
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn1.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm1 = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm1.Connection = conn1;
-                    //No se que hace xd
-                    comm1.CommandType = CommandType.Text;
-                    //Consulta
-                    comm1.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'";
-                    //Leer BD
-                    NpgsqlDataReader dr1 = comm1.ExecuteReader();
-                    //Cerrar comandos
-                    comm1.Dispose();
-                    //Desconectar BD
-                    conn1.Close();
-                }
-                if (pedido.Contains("MG"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Ave'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Ave'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-
-                    // para la segunda carne de la torre
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn1.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm1 = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm1.Connection = conn1;
-                    //No se que hace xd
-                    comm1.CommandType = CommandType.Text;
-                    //Consulta
-                    comm1.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Ave'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Ave'";
-                    //Leer BD
-                    NpgsqlDataReader dr1 = comm1.ExecuteReader();
-                    //Cerrar comandos
-                    comm1.Dispose();
-                    //Desconectar BD
-                    conn1.Close();
-                }
-                if (pedido.Contains("MN"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-
-                    // para la segunda carne de la torre
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn1.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm1 = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm1.Connection = conn1;
-                    //No se que hace xd
-                    comm1.CommandType = CommandType.Text;
-                    //Consulta
-                    comm1.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'";
-                    //Leer BD
-                    NpgsqlDataReader dr1 = comm1.ExecuteReader();
-                    //Cerrar comandos
-                    comm1.Dispose();
-                    //Desconectar BD
-                    conn1.Close();
-                }
-                if (pedido.Contains("MC"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-
-                    // para la segunda carne de la torre
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn1 = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn1.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm1 = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm1.Connection = conn1;
-                    //No se que hace xd
-                    comm1.CommandType = CommandType.Text;
-                    //Consulta
-                    comm1.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne2() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'";
-                    //Leer BD
-                    NpgsqlDataReader dr1 = comm1.ExecuteReader();
-                    //Cerrar comandos
-                    comm1.Dispose();
-                    //Desconectar BD
-                    conn1.Close();
-                }
-                else
-                {
-                    if (pedido.Contains("Lomo"))
-                    {
-                        //Datos de conexión a BD
-                        NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                        //Abrir BD
-                        conn.Open();
-                        //Crear objeto de comandos
-                        NpgsqlCommand comm = new NpgsqlCommand();
-                        //Crear objeto conexión
-                        comm.Connection = conn;
-                        //No se que hace xd
-                        comm.CommandType = CommandType.Text;
-                        //Consulta
-                        comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'";
-                        //Leer BD
-                        NpgsqlDataReader dr = comm.ExecuteReader();
-                        //Cerrar comandos
-                        comm.Dispose();
-                        //Desconectar BD
-                        conn.Close();
-                    }
-                    if (pedido.Contains("Ave"))
-                    {
-                        //Datos de conexión a BD
-                        NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                        //Abrir BD
-                        conn.Open();
-                        //Crear objeto de comandos
-                        NpgsqlCommand comm = new NpgsqlCommand();
-                        //Crear objeto conexión
-                        comm.Connection = conn;
-                        //No se que hace xd
-                        comm.CommandType = CommandType.Text;
-                        //Consulta
-                        comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Ave'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Ave'";
-                        //Leer BD
-                        NpgsqlDataReader dr = comm.ExecuteReader();
-                        //Cerrar comandos
-                        comm.Dispose();
-                        //Desconectar BD
-                        conn.Close();
-                    }
-                    if (pedido.Contains("Churrasco"))
-                    {
-                        //Datos de conexión a BD
-                        NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                        //Abrir BD
-                        conn.Open();
-                        //Crear objeto de comandos
-                        NpgsqlCommand comm = new NpgsqlCommand();
-                        //Crear objeto conexión
-                        comm.Connection = conn;
-                        //No se que hace xd
-                        comm.CommandType = CommandType.Text;
-                        //Consulta
-                        comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'";
-                        //Leer BD
-                        NpgsqlDataReader dr = comm.ExecuteReader();
-                        //Cerrar comandos
-                        comm.Dispose();
-                        //Desconectar BD
-                        conn.Close();
-                    }
-                    if (pedido.Contains("Mechada"))
-                    {
-                        //Datos de conexión a BD
-                        NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                        //Abrir BD
-                        conn.Open();
-                        //Crear objeto de comandos
-                        NpgsqlCommand comm = new NpgsqlCommand();
-                        //Crear objeto conexión
-                        comm.Connection = conn;
-                        //No se que hace xd
-                        comm.CommandType = CommandType.Text;
-                        //Consulta
-                        comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'; " +
-                            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'";
-                        //Leer BD
-                        NpgsqlDataReader dr = comm.ExecuteReader();
-                        //Cerrar comandos
-                        comm.Dispose();
-                        //Desconectar BD
-                        conn.Close();
-                    }
-                }
-            }
-            if (pedido.Contains("Promo Sandwich"))
-            {
-                if (pedido.Contains("Lomo"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                }
-                if (pedido.Contains("Ave"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Ave'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Ave'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                }
-                if (pedido.Contains("Churrasco"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                }
-                if (pedido.Contains("Mechada"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                }
-            }
-            if (pedido.Contains("Mini"))
-            {
-                if (pedido.Contains("Lomo"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + (" + v.getCantCarne1() + " * 0.5), fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Lomo'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                }
-                if (pedido.Contains("Ave"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + (" + v.getCantCarne1() + " * 0.5), fecha = '" + fecha + "' WHERE nombre_prod ='Ave'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Ave'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                }
-                if (pedido.Contains("Churrasco"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + (" + v.getCantCarne1() + " * 0.5), fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Churrasco'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                }
-                if (pedido.Contains("Mechada"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + (" + v.getCantCarne1() + " * 0.5), fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Mechada'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                }
-            }
-            if (pedido.Contains("Completo"))
-            {
-                if (pedido.Contains("Minic"))
-                {
-                    //Datos de conexión a BD
-                    NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                    //Abrir BD
-                    conn.Open();
-                    //Crear objeto de comandos
-                    NpgsqlCommand comm = new NpgsqlCommand();
-                    //Crear objeto conexión
-                    comm.Connection = conn;
-                    //No se que hace xd
-                    comm.CommandType = CommandType.Text;
-                    //Consulta
-                    comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantVienesas() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Vienesa'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Vienesa'";
-                    //Leer BD
-                    NpgsqlDataReader dr = comm.ExecuteReader();
-                    //Cerrar comandos
-                    comm.Dispose();
-                    //Desconectar BD
-                    conn.Close();
-                }
-                else
-                {
-                    if (pedido.Contains("As"))
-                    {
-                        /*
-                        //Datos de conexión a BD
-                        NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                        //Abrir BD
-                        conn.Open();
-                        //Crear objeto de comandos
-                        NpgsqlCommand comm = new NpgsqlCommand();
-                        //Crear objeto conexión
-                        comm.Connection = conn;
-                        //No se que hace xd
-                        comm.CommandType = CommandType.Text;
-                        //Consulta
-                        comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantCarne1() + ", fecha = '" + fecha + "' WHERE nombre_prod ='As'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='As'";
-                        //Leer BD
-                        NpgsqlDataReader dr = comm.ExecuteReader();
-                        //Cerrar comandos
-                        comm.Dispose();
-                        //Desconectar BD
-                        conn.Close();
-                        
-                        descontarProducto("As");
-                    }
-                    else
-                    {
-                        //aqui el dcto de las vienesas de una promo
-                        //Datos de conexión a BD
-                        NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
-                        //Abrir BD
-                        conn.Open();
-                        //Crear objeto de comandos
-                        NpgsqlCommand comm = new NpgsqlCommand();
-                        //Crear objeto conexión
-                        comm.Connection = conn;
-                        //No se que hace xd
-                        comm.CommandType = CommandType.Text;
-                        //Consulta
-                        comm.CommandText = "UPDATE productos SET consumo_prod = consumo_prod + " + v.getCantVienesas() + ", fecha = '" + fecha + "' WHERE nombre_prod ='Vienesa'; " +
-                        "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='Vienesa'";
-                        //Leer BD
-                        NpgsqlDataReader dr = comm.ExecuteReader();
-                        //Cerrar comandos
-                        comm.Dispose();
-                        //Desconectar BD
-                        conn.Close();
-                    }
-                }
-            }
-        }
-       */
         private void contabilizarDescuentoInventario(String pedidoA)
         {
 
             //Divide la cantidad de pedidos (Pedidos diferentes)
             String[] divPedido = pedidoA.Split("Pedido");
-            int contP = 0;
             
+
             for (int i = 1; i < divPedido.Length; i++)
             {
                 //Division del pedido para obtener la cantidad de promos (misma promo)
@@ -2074,12 +421,12 @@ namespace RavaSandwich
                     String[] divIng = divPromo[j].Split("Ingredientes: ");
                     String[] extIng = divIng[1].Split(", "); //con el extIng[0] podemos extraer el primer ingrediente que 
                     //siempre es la carne 1 y para la segunda carne se tendrá que recorrer el resto del arreglo
-                    if (divPromo[j].Contains("Mini"))
+                    if (divPromo[j].Contains("Mini") && !divPromo[j].Contains("Minic"))
                     {
                         cantMini = cantMini + cantPro;
                         if (divPromo[j].Contains("Min48"))
                         {
-                         
+
                         }
                         else
                         {
@@ -2113,7 +460,8 @@ namespace RavaSandwich
                             {
                                 cantCarne1 = cantCarne1 + 1;
                                 //Hace el recorrido del resto de los ingredientes para averiguar si hay una segunda carne
-                                for(int k = 1; k < extIng.Length; k++) {
+                                for (int k = 1; k < extIng.Length; k++)
+                                {
                                     if (extIng[k].Contains("Ave"))
                                     {
                                         cantCarne2 = cantCarne2 + 1;
@@ -2222,7 +570,7 @@ namespace RavaSandwich
                             // aqui las carnes de los mansos
                             if (divPromo[j].Contains("M48") || divPromo[j].Contains("MH"))
                             {
-                                cantCarne1 = cantCarne1 + 0;
+                                
                             }
                             else
                             {
@@ -2337,7 +685,7 @@ namespace RavaSandwich
                     }
                     if (divPromo[j].Contains("Promo Sandwich"))
                     {
-                        cantPromoS = cantPromoS + ((cantPro) * 2);
+                        cantPromoS = cantPromoS + cantPro;
                         // aqui las carnes de las promos
                         if (divPromo[j].Contains("P48"))
                         {
@@ -2367,40 +715,40 @@ namespace RavaSandwich
                         }
                     }
                     //Acá hay que arreglar porque me confundí por el tema de conteo, sé que acá cambia algo con las carnes
-                    if (divPromo[j].Contains("Completo"))
+                    if (divPromo[j].Contains("Comp"))
                     {
                         if (divPromo[j].Contains("Minic"))
                         {
-                            if (divPromo[j].Contains("Vienesa")) //WTF aiudaa
+                            if (divPromo[j].Contains("Vienesa"))
                             {
                                 cantVienesas = cantVienesas + 1;
                                 cantCompM = cantCompM + (int)(cantPro);
                             }
                         }
-                        if (divPromo[j].Contains("Vienesa"))// WTF? esto triplica las vienesas
+                        else if (!divPromo[j].Contains("Minic"))
                         {
-                            cantVienesas = cantVienesas + 2;
-                            cantCompP = cantCompP + ((int)(cantPro) * 2);
+                            if (divPromo[j].Contains("Vienesa"))
+                            {
+                                cantVienesas = cantVienesas + 1;
+                                cantCompP = cantCompP + (int)(cantPro);
+                            }
                         }
-                        if (divPromo[j].Contains("As"))//I can't understand
-                        {
-                            cantCarne1 = cantCarne1 + 1;
-                            cantCompM = cantCompM + (int)(cantPro);
-                        }
+                    }
+                    if (divPromo[j].Contains("As Italiano"))
+                    {
+                        cantCarne1 = cantCarne1 + 1;
+                        cantCompM = cantCompM + (int)(cantPro);
                     }
                     String[] divB = divPromo[j].Split("Bebidas:");//Separa el pedido en el apartado de las bebidas
                     String[] masB = divB[1].Split("\n");//Con esto podemos verificar si hay mas bebidas
                     String[] beb1 = masB[0].Split(" "); //Aca tenemos la cantidad de bebida mas la primera bebida
                     String[] beb2 = masB[1].Split(" ");//Bebida 2
                     String[] beb3 = masB[2].Split(" ");//Bebida 3
-                    
+
                     if (beb1[1].Contains("1") || beb1[1].Contains("2") || beb1[1].Contains("3") || beb1[1].Contains("4") || beb1[1].Contains("5") || beb1[1].Contains("6") || beb1[1].Contains("7") || beb1[1].Contains("8") || beb1[1].Contains("9") || beb1[1].Contains("0"))
                     {
                         cantBebida1[contP] = int.Parse(beb1[1]);
                         nombBebidas1[contP] = beb1[2] + " " + beb1[3];
-
-                    }
-                    {
 
                     }
                     if ((beb2[0].Contains("1") || beb2[0].Contains("2") || beb2[0].Contains("3") || beb2[0].Contains("4") || beb2[0].Contains("5") || beb2[0].Contains("6") || beb2[0].Contains("7") || beb2[0].Contains("8") || beb2[0].Contains("9") || beb2[0].Contains("0")) && (!beb2[0].Contains("Vasos:")))
@@ -2491,7 +839,580 @@ namespace RavaSandwich
         {
             return cantVienesas;
         }
+
+        public void descuentosEnInventario(String pedido)
+        {
+            Ventas v = new Ventas();
+            String fecha = DateTime.Now.ToString("d");
+
+
+            if (pedido.Contains("Promo Sandwich"))
+            {
+
+                descontarProducto("Promo Sandwich", getPanSandwich());
+            }
+
+            if (pedido.Contains("Mini"))
+            {
+                descontarProducto("Mini", getPanMini());
+            }
+
+            if (pedido.Contains("Mansos"))
+            {
+                if (pedido.Contains("MT"))
+                {
+                    descontarProducto("MT", getPanManso());
+                }
+                else
+                {
+                    descontarProducto("Mansos", getPanManso());
+                }
+            }
+
+            if (pedido.Contains("Comp"))
+            {
+                if (pedido.Contains("Minic"))
+                {
+                    descontarProducto("Minic", getPanCompleto());
+                }
+                else
+                {
+                    descontarProducto("Promo Completo", getPanPromoCompleto());
+                }
+            }
+
+            if (pedido.Contains("As"))
+            {
+                descontarProducto("As", getPanCompleto());
+            }
+
+            //*****************************************************************************************************************************************************************************************************************************+
+            // Bebidas con getcant1()
+            for (int i = 0; i < contP; i++)
+            {
+                if (pedido.Contains("Bebida 0.5L") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Bebida 0.5L", getCantB1(i));
+                }
+                if (pedido.Contains("Bebida 1.5L") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Bebida 1.5L", getCantB1(i));
+                }
+                if (pedido.Contains("Nectar 1.5L") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Nectar 1.5L", getCantB1(i));
+                }
+                if (pedido.Contains("Bebida Express") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Bebida Express", getCantB1(i));
+                }
+                if (pedido.Contains("Nectar Express") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Nectar Express", getCantB1(i));
+                }
+                if (pedido.Contains("Nectar Boca Ancha") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Nectar Boca Ancha", getCantB1(i));
+                }
+                if (pedido.Contains("Cafe") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Cafe", getCantB1(i));
+                }
+                if (pedido.Contains("Te") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Te", getCantB1(i));
+                }
+                if (pedido.Contains("Milo") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Milo", getCantB1(i));
+                }
+                if (pedido.Contains("Monster") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Monster", getCantB1(i));
+                }
+                if (pedido.Contains("Bebida Lata") && getNombreB1(i) != null)
+                {
+                    descontarProducto("Bebida Lata", getCantB1(i));
+                }
+            }
+
+            //***************************************************************************************************************************************************************************************************************************************************
+
+            //*****************************************************************************************************************************************************************************************************************************
+            // Bebidas con getcant2()
+            for (int i = 0; i < contP; i++)
+            {
+                if (pedido.Contains("Bebida 0.5L") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Bebida 0.5L", getCantB2(i));
+                }
+                if (pedido.Contains("Bebida 1.5L") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Bebida 1.5L", getCantB2(i));
+                }
+                if (pedido.Contains("Nectar 1.5L") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Nectar 1.5L", getCantB2(i));
+                }
+                if (pedido.Contains("Bebida Express") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Bebida Express", getCantB2(i));
+                }
+                if (pedido.Contains("Nectar Express") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Nectar Express", getCantB2(i));
+                }
+                if (pedido.Contains("Nectar Boca Ancha") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Nectar Boca Ancha", getCantB2(i));
+                }
+                if (pedido.Contains("Cafe") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Cafe", getCantB2(i));
+                }
+                if (pedido.Contains("Te") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Te", getCantB2(i));
+                }
+                if (pedido.Contains("Milo") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Milo", getCantB2(i));
+                }
+                if (pedido.Contains("Monster") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Monster", getCantB2(i));
+                }
+                if (pedido.Contains("Bebida Lata") && getNombreB2(i) != null)
+                {
+                    descontarProducto("Bebida Lata", getCantB2(i));
+                }
+            }
+
+            //***************************************************************************************************************************************************************************************************************************************************
+
+            //*****************************************************************************************************************************************************************************************************************************
+            // Bebidas con getcant3()
+            for (int i = 0; i < contP; i++)
+            {
+                if (pedido.Contains("Bebida 0.5L") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Bebida 0.5L", getCantB3(i));
+                }
+                if (pedido.Contains("Bebida 1.5L") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Bebida 1.5L", getCantB3(i));
+                }
+                if (pedido.Contains("Nectar 1.5L") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Nectar 1.5L", getCantB3(i));
+                }
+                if (pedido.Contains("Bebida Express") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Bebida Express", getCantB3(i));
+                }
+                if (pedido.Contains("Nectar Express") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Nectar Express", getCantB3(i));
+                }
+                if (pedido.Contains("Nectar Boca Ancha") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Nectar Boca Ancha", getCantB3(i));
+                }
+                if (pedido.Contains("Cafe") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Cafe", getCantB3(i));
+                }
+                if (pedido.Contains("Te") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Te", getCantB3(i));
+                }
+                if (pedido.Contains("Milo") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Milo", getCantB3(i));
+                }
+                if (pedido.Contains("Monster") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Monster", getCantB3(i));
+                }
+                if (pedido.Contains("Bebida Lata") && getNombreB3(i) != null)
+                {
+                    descontarProducto("Bebida Lata", getCantB3(i));
+                }
+            }
+            //***************************************************************************************************************************************************************************************************************************************************
+            // descuento de vasos
+            if (pedido.Contains("Vaso"))
+            {
+                descontarProducto("Vasos", getCantVasos());
+            }
+        }
+
+        private void DctoCarneBD()
+        {
+            Ventas v = new Ventas();
+
+            String pedido = "" + v.getPedidoCliente();
+
+            if (pedido.Contains("Mansos"))
+            {
+                if (pedido.Contains("MT")) // Descuentos de carne es las torres
+                {
+                    if (pedido.Contains("1"))
+                    {
+                        descontarProducto("Churrasco", getCantCarne1());
+                        descontarProducto("Ave", getCantCarne2());
+                    }
+                    if (pedido.Contains("2"))
+                    {
+                        descontarProducto("Mechada", getCantCarne1());
+                        descontarProducto("Lomo", getCantCarne2());
+                    }
+                    if (pedido.Contains("3"))
+                    {
+                        descontarProducto("Churrasco", getCantCarne1());
+                        descontarProducto("Lomo", getCantCarne2());
+                    }
+                    if (pedido.Contains("5"))
+                    {
+                        descontarProducto("Churrasco", getCantCarne1());
+                        descontarProducto("Mechada", getCantCarne2());
+                    }
+                }
+                else
+                {
+                    if (pedido.Contains("MV")) // descuentos en las carnes de mansos dobles
+                    {
+                        if (pedido.Contains("1"))
+                        {
+                            descontarProducto("DobleLomo", getCantCarne1());
+                        }
+                        if (pedido.Contains("2"))
+                        {
+                            descontarProducto("DobleChurrasco", getCantCarne1());
+                        }
+                    }
+                    if (pedido.Contains("MG"))
+                    {
+                        descontarProducto("DobleAve", getCantCarne1());
+                    }
+                    if (pedido.Contains("MN"))
+                    {
+                        descontarProducto("DobleMechada", getCantCarne1());
+                    }
+                    if (pedido.Contains("MC"))
+                    {
+                        descontarProducto("DobleChurrasco", getCantCarne1());
+                    }
+
+                    if (!pedido.Contains("MV") && !pedido.Contains("MC") && !pedido.Contains("MN") && !pedido.Contains("MG") && !pedido.Contains("MT"))
+                    {
+                        if (pedido.Contains("Lomo")) // descuento en carnes de mansos normales
+                        {
+                            descontarProducto("Lomo", getCantCarne1());
+                        }
+                        if (pedido.Contains("Ave"))
+                        {
+                            descontarProducto("Ave", getCantCarne1());
+                        }
+                        if (pedido.Contains("Churrasco"))
+                        {
+                            descontarProducto("Churrasco", getCantCarne1());
+                        }
+                        if (pedido.Contains("Mechada"))
+                        {
+                            descontarProducto("Mechada", getCantCarne1());
+                        }
+                    }
+                    
+                }
+            }
+            if (pedido.Contains("Promo Sandwich")) // descuento de carne de promos
+            {
+                if (pedido.Contains("Lomo"))
+                {
+                    descontarProducto("Lomo", getCantCarne1());
+                }
+                if (pedido.Contains("Ave"))
+                {
+                    descontarProducto("Ave", getCantCarne1());
+                }
+                if (pedido.Contains("Churrasco"))
+                {
+                    descontarProducto("Churrasco", getCantCarne1());
+                }
+                if (pedido.Contains("Mechada"))
+                {
+                    descontarProducto("Mechada", getCantCarne1());
+                }
+            }
+            if (pedido.Contains("Mini")) // descuento en carnes de sandwich minis
+            {
+                if (pedido.Contains("Lomo"))
+                {
+                    descontarProducto("MinLomo", getCantCarne1());
+                }
+                if (pedido.Contains("Ave"))
+                {
+                    descontarProducto("MinAve", getCantCarne1());
+                }
+                if (pedido.Contains("Churrasco"))
+                {
+                    descontarProducto("MinChurrasco", getCantCarne1());
+                }
+                if (pedido.Contains("Mechada"))
+                {
+                    descontarProducto("MinMechada", getCantCarne1());
+                }
+            }
+            if (pedido.Contains("Comp"))
+            {
+                if (pedido.Contains("Minic"))
+                {
+                    descontarProducto("VMinic", getCantVienesas());
+                }
+                else
+                {
+                    descontarProducto("VPromo", getCantVienesas());
+                }
+            }
+            if (pedido.Contains("As"))
+            {
+                descontarProducto("MechAS", getCantCarne1());
+            }
+        }
+        private void descontarProducto(String producto, double cantidad)
+        {
+            String formula = "";
+            String tipoProducto = "";
+
+            // Consumo de pan
+            if (producto == "Promo Sandwich")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 2";
+                tipoProducto = "Mini";
+            }
+
+            if (producto == "Mini")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Mini";
+            }
+
+            if (producto == "Mansos")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Manso";
+            }
+
+            if (producto == "MT")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 1.5";
+                tipoProducto = "Manso";
+            }
+
+            if (producto == "Promo Completo")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 2";
+                tipoProducto = "Completo";
+            }
+
+            if (producto == "Minic")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Completo";
+            }
+
+            if (producto == "As")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Completo";
+            }
+
+            //CONSUMO DE BEBIDAS
+            if (producto == "Bebida 0.5L")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Bebida 0.5L";
+            }
+
+            if (producto == "Bebida 1.5L")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Bebida 1.5L";
+            }
+
+            if (producto == "Nectar 1.5L")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Nectar 1.5L";
+            }
+
+            if (producto == "Nectar Express")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Nectar Express";
+            }
+
+            if (producto == "Bebida Express")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Bebida Express";
+            }
+
+            if (producto == "Monster")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Monster";
+            }
+
+            if (producto == "Nectar Boca Ancha")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Nectar Boca Ancha";
+            }
+
+            if (producto == "Cafe")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Cafe";
+            }
+
+            if (producto == "Te")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Te";
+            }
+
+            if (producto == "Milo")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Milo";
+            }
+
+            if (producto == "Lata")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Bebida Lata";
+            }
+
+            if (producto == "Vasos")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Vaso Plastico";
+            }
+
+
+            //CONSUMO DE CARNES
+            if (producto == "Churrasco")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Churrasco";
+            }
+
+            if (producto == "Mechada")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Mechada";
+            }
+
+            if (producto == "Lomo")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Lomo";
+            }
+
+            if (producto == "Ave")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Ave";
+            }
+            //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            if (producto == "MinChurrasco")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 0.5";
+                tipoProducto = "Churrasco";
+            }
+
+            if (producto == "MinMechada")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 0.5";
+                tipoProducto = "Mechada";
+            }
+
+            if (producto == "MinLomo")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 0.5";
+                tipoProducto = "Lomo";
+            }
+
+            if (producto == "MinAve")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 0.5";
+                tipoProducto = "Ave";
+            }
+
+            //*********************************************************************************
+            if (producto == "DobleChurrasco")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 2";
+                tipoProducto = "Churrasco";
+            }
+
+            if (producto == "DobleMechada")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 2";
+                tipoProducto = "Mechada";
+            }
+
+            if (producto == "DobleLomo")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 2";
+                tipoProducto = "Lomo";
+            }
+
+            if (producto == "DobleAve")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 2";
+                tipoProducto = "Ave";
+            }
+
+            if (producto == "VPromo")
+            {
+                formula = "consumo_prod + (" + cantidad + ") * 2";
+                tipoProducto = "Vienesa";
+            }
+
+            if (producto == "VMinic")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "Vienesa";
+            }
+
+            if (producto == "MechAS")
+            {
+                formula = "consumo_prod + " + cantidad + "";
+                tipoProducto = "As";
+            }
+
+            //Datos de conexión a BD
+            NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
+            //Abrir BD
+            conn.Open();
+            //Crear objeto de comandos
+            NpgsqlCommand comm = new NpgsqlCommand();
+            //Crear objeto conexión
+            comm.Connection = conn;
+            //No se que hace xd
+            comm.CommandType = CommandType.Text;
+            //Consulta
+            comm.CommandText = "UPDATE productos SET consumo_prod =" + formula + ", fecha = '" + fecha + "' WHERE nombre_prod ='" + tipoProducto + "'; " +
+            "UPDATE productos SET stock_final_prod = (stock_inicio_prod + ingreso_produc) - consumo_prod, fecha = '" + fecha + "' WHERE nombre_prod ='" + tipoProducto + "'";
+            //Leer BD
+            NpgsqlDataReader dr = comm.ExecuteReader();
+            //Cerrar comandos
+            comm.Dispose();
+            //Desconectar BD
+            conn.Close();
+        }
     }
-
-
 }

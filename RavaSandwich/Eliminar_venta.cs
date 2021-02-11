@@ -15,7 +15,6 @@ namespace RavaSandwich
         public Eliminar_venta()
         {
             InitializeComponent();
-            //Carga el nombre de los clientes que se les hizo una(s) venta(s)
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -34,7 +33,6 @@ namespace RavaSandwich
             {
                 if (dr.GetString(1).Contains(fecha))
                 {
-                    //Agrega el nombre de los clientes al combobox
                     cbNombreCliente.Items.Add(dr.GetString(0));
                 }
                 
@@ -90,8 +88,6 @@ namespace RavaSandwich
 
         private void cbNombreCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Enlista los pedidos que ha hecho el cliente seleccionado 
-
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD

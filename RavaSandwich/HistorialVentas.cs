@@ -14,14 +14,13 @@ namespace RavaSandwich
         public HistorialVentas()
         {
             InitializeComponent();
-            llenarTabla();//Llena la tabla con las ventas de hoy
+            llenarTabla();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        //Método que llena la tabla con las ventas de hoy
         private void llenarTabla()
         {
             String fecha = DateTime.Now.ToString("d");
@@ -36,7 +35,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT * from vista_ventas where \"Fecha y Hora Venta\" like '"+fecha+"%' ORDER BY \"Fecha y Hora Venta\" ASC";
+            comm.CommandText = "SELECT * from vista_ventas where \"fecha\" like '"+fecha+"%' ORDER BY \"fecha\" ASC";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             if (dr.HasRows)//Si la tabla tiene 1 o más filas...
@@ -55,7 +54,6 @@ namespace RavaSandwich
            
         }
 
-        //Metodo que muestra todas las ventas que se han hecho desde los inicios
         private void btnVerTodo_Click(object sender, EventArgs e)
         {
             
@@ -70,7 +68,7 @@ namespace RavaSandwich
             //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
-            comm.CommandText = "SELECT * from vista_ventas ORDER BY \"Fecha y Hora Venta\" ASC";
+            comm.CommandText = "SELECT * from vista_ventas ORDER BY \"fecha\" ASC";
             //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             if (dr.HasRows)//Si la tabla tiene 1 o más filas...
@@ -87,7 +85,7 @@ namespace RavaSandwich
             //Desconectar BD
             conn.Close();
         }
-        //Muestra la tabla con las ventas de hoy
+
         private void btnVentasHoy_Click(object sender, EventArgs e)
         {
             llenarTabla();

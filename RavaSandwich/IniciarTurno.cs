@@ -14,12 +14,8 @@ namespace RavaSandwich
         public IniciarTurno()
         {
             InitializeComponent();
-            //Llena los combobox con los roles disponibles
             comboPuesto.Items.Add("Caja");
             comboPuesto.Items.Add("Plancha");
-
-            //Llena el combobox con los rut de todo el personal que está registrado en la base de datos
-
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -48,7 +44,6 @@ namespace RavaSandwich
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            //Verifica si están todos los datos
             if ((comboRut.SelectedItem != null && comboPuesto.SelectedItem != null && txtHora.Text != ""))
             {
                 //verifica si es el primer turno del dia
@@ -70,7 +65,6 @@ namespace RavaSandwich
                 //Consulta
                 comm.CommandText =
                     "INSERT INTO Turno (rut, puesto, fecha, hora_ingreso, hora_salida) VALUES ('" + comboRut.SelectedItem.ToString() + "','" + comboPuesto.SelectedItem.ToString() + "','" + dateTimeFecha.Value.ToString("d") + "', '" + txtHora.Text + "', ' - ')";
-                //Pregunta si en realidad desea iniciar turno para la persona seleccionada
                 DialogResult dialogResult = MessageBox.Show("¿Desea agregar turno para '" + txtNombre.Text + "'?", "Agregar turno", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -107,8 +101,6 @@ namespace RavaSandwich
 
         private void comboRut_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Carga el nombre de la persona seleccionada a traves del combobox de rut
-
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -139,7 +131,7 @@ namespace RavaSandwich
             t.Show();
             this.Close();
         }
-        //Verifica si inicio el turno por primera vez en el dia para no reestablecer varias veces el stock del inventario (stock inicio = stock fin; stock fin = 0)
+        //Verifica si inicio el turno por primera vez en el dia para no reestablecer varias veces el stock
         private bool verificarTurnoDia()
         {
             String fecha = DateTime.Now.ToString("d");

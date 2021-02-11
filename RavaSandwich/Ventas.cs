@@ -83,7 +83,7 @@ namespace RavaSandwich
                 comboExtraS2.Items.Add(agregados[i]);
             }
             //Llenar las carnes
-            String[] carnes = new String[] { "Ave", "Churrasco", "Lomo", "Mechada", "Vienesa","As", " " };
+            String[] carnes = new String[] { "Ave", "Churrasco", "Lomo", "Mechada", "Vienesa", "As", " " };
             for (int i = 0; i < carnes.Length; i++)
             {
                 comboCarne1.Items.Add(carnes[i]);
@@ -719,7 +719,7 @@ namespace RavaSandwich
                 if (subTotal != 0)
                 {
                     promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: " + extras1 + " \nExtras S2: " + extras2, textBoxComentarios.Text, salsas, subTotal));
-                    //DescuentoEnBD();
+                   
                 }
 
                 foreach (Promo aPromo in promos)
@@ -770,14 +770,7 @@ namespace RavaSandwich
                 checkBoxKetchup2.Checked = false;
                 checkBoxMostaza2.Checked = false;
                 checkBoxAji2.Checked = false;
-
-                // hacer 0 los contadores de descuento para la bd
-
-
             }
-
-
-
         }
 
         private void numericCantPromo_ValueChanged(object sender, EventArgs e)
@@ -858,7 +851,7 @@ namespace RavaSandwich
             foreach (Promo aPromo in promos)
             {
                 i++;//Para contar la cantidad de pedidos
-                pedidoFinal = pedidoFinal + "Pedido " + i + ": \n" + aPromo.toString() + "\n"; //Concatena el contenido de los pedidos y los separa segun la cantidad de promos distintos que ha pedido
+                pedidoFinal = pedidoFinal + "\nPedido " + i + ": \n" + aPromo.toString() + "\n"; //Concatena el contenido de los pedidos y los separa segun la cantidad de promos distintos que ha pedido
             }
             return pedidoFinal;
         }
@@ -943,7 +936,7 @@ namespace RavaSandwich
             if (subTotal != 0)
             {
                 promos.Add(new Promo(int.Parse(numericCantPromo.Value.ToString()), comboPromos.SelectedItem.ToString(), ingred, beb, int.Parse(numericCantVasos.Value.ToString()), "Extras S1: " + extras1 + " \nExtras S2: " + extras2, textBoxComentarios.Text, salsas, subTotal));
-                //DescuentoEnBD();
+              
             }
 
             //Después de agregar una promo, se deben vaciar los casilleros
@@ -1088,255 +1081,6 @@ namespace RavaSandwich
             {
                 Application.OpenForms[ev.Name].Activate();
             }
-
         }
-        /*  Esto hay que borrarlo, no creo que se use, ya que se trasladó a ConfirmarPedido y se optimizó
-
-        public int getPanMini()
-        {
-            return cantMini;
-        }
-        public float getPanManso()
-        {
-            return cantManso;
-        }
-        public int getPanSandwich()
-        {
-            return cantPromoS;
-        }
-        public int getPanCompleto()
-        {
-            return cantCompM;
-        }
-        public int getPanPromoCompleto()
-        {
-            return cantCompP;
-        }
-        public int getCantB1()
-        {
-            return cantBebida1;
-        }
-        public int getCantB2()
-        {
-            return cantBebida2;
-        }
-        public int getCantB3()
-        {
-            return cantBebida3;
-        }
-        public int getCantVasos()
-        {
-            return cantVasos;
-        }
-        public double getCantCarne1()
-        {
-            return cantCarne1;
-        }
-        public double getCantCarne2()
-        {
-            return cantCarne2;
-        }
-        public int getCantVienesas()
-        {
-            return cantVienesas;
-        }
-
-        public String getComboboxbeb1()
-        {
-            String variable1 = comboBebidas1.Text;
-            return variable1;
-        }
-        public String getComboboxbeb2()
-        {
-            String variable1 = comboBebidas2.Text;
-            return variable1;
-        }
-        public String getComboboxbeb3()
-        {
-            String variable1 = comboBebidas3.Text;
-            return variable1;
-        }
-        void DescuentoEnBD()
-        {
-            if (comboPromos.SelectedItem.ToString().Contains("Mini"))
-            {
-                cantMini = cantMini + (int)(numericCantPromo.Value);
-                if (comboPromos.SelectedItem.ToString().Contains("Min48"))
-                {
-                    cantCarne1 = cantCarne1 + 0;
-                }
-                else
-                {
-                    if (comboCarne1.SelectedItem.ToString().Contains("Lomo"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-
-                    }
-                    if (comboCarne1.SelectedItem.ToString().Contains("Ave"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-
-                    }
-                    if (comboCarne1.SelectedItem.ToString().Contains("Churrasco"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-
-                    }
-                    if (comboCarne1.SelectedItem.ToString().Contains("Mechada"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-                    }
-                }
-            }
-            if (comboPromos.SelectedItem.ToString().Contains("Mansos"))
-            {
-                if (comboPromos.SelectedItem.ToString().Contains("MT"))
-                {
-                    cantManso = cantManso + (float)(numericCantPromo.Value);
-                    if (comboCarne1.SelectedItem.ToString().Contains("Lomo"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-                        if (comboCarne2.SelectedItem != null)
-                        {
-                            cantCarne2 = cantCarne2 + 1;
-                        }
-                    }
-                    if (comboCarne1.SelectedItem.ToString().Contains("Ave"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-                        if (comboCarne2.SelectedItem != null)
-                        {
-                            cantCarne2 = cantCarne2 + 1;
-                        }
-                    }
-                    if (comboCarne1.SelectedItem.ToString().Contains("Churrasco"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-                        if (comboCarne2.SelectedItem != null)
-                        {
-                            cantCarne2 = cantCarne2 + 1;
-                        }
-                    }
-                    if (comboCarne1.SelectedItem.ToString().Contains("Mechada"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-                        if (comboCarne2.SelectedItem != null)
-                        {
-                            cantCarne2 = cantCarne2 + 1;
-                        }
-                    }
-                }
-                else
-                {
-                    cantManso = cantManso + (int)numericCantPromo.Value;
-                    // aqui las carnes de los mansos
-                    if (comboPromos.SelectedItem.ToString().Contains("M48") || comboPromos.SelectedItem.ToString().Contains("MH"))
-                    {
-                        cantCarne1 = cantCarne1 + 0;
-                    }
-                    else
-                    {
-                        if (comboCarne1.SelectedItem.ToString().Contains("Lomo"))
-                        {
-                            cantCarne1 = cantCarne1 + 1;
-                            if (comboCarne2.SelectedItem != null)
-                            {
-                                cantCarne2 = cantCarne2 + 1;
-                            }
-                        }
-                        if (comboCarne1.SelectedItem.ToString().Contains("Ave"))
-                        {
-                            cantCarne1 = cantCarne1 + 1;
-                            if (comboCarne2.SelectedItem != null)
-                            {
-                                cantCarne2 = cantCarne2 + 1;
-                            }
-                        }
-                        if (comboCarne1.SelectedItem.ToString().Contains("Churrasco"))
-                        {
-                            cantCarne1 = cantCarne1 + 1;
-                            if (comboCarne2.SelectedItem != null)
-                            {
-                                cantCarne2 = cantCarne2 + 1;
-                            }
-                        }
-                        if (comboCarne1.SelectedItem.ToString().Contains("Mechada"))
-                        {
-                            cantCarne1 = cantCarne1 + 1;
-                            if (comboCarne2.SelectedItem != null)
-                            {
-                                cantCarne2 = cantCarne2 + 1;
-                            }
-                        }
-                    }
-                }
-            }
-            if (comboPromos.SelectedItem.ToString().Contains("Promo Sandwich"))
-            {
-                cantPromoS = cantPromoS + ((int)(numericCantPromo.Value) * 2);
-                // aqui las carnes de las promos
-                if (comboPromos.SelectedItem.ToString().Contains("P48"))
-                {
-                    cantCarne1 = cantCarne1 + 0;
-                }
-                else
-                {
-                    if (comboCarne1.SelectedItem.ToString().Contains("Lomo"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-                    }
-                    if (comboCarne1.SelectedItem.ToString().Contains("Ave"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-                    }
-                    if (comboCarne1.SelectedItem.ToString().Contains("Churrasco"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-                    }
-                    if (comboCarne1.SelectedItem.ToString().Contains("Mechada"))
-                    {
-                        cantCarne1 = cantCarne1 + 1;
-                    }
-                }
-            }
-            if (comboPromos.SelectedItem.ToString().Contains("Completo"))
-            {
-                if (comboPromos.SelectedItem.ToString().Contains("Minic"))
-                {
-                    if (comboCarne1.SelectedItem.ToString().Contains("Vienesa"))
-                    {
-                        cantVienesas = cantVienesas + 1;
-                        cantCompM = cantCompM + (int)(numericCantPromo.Value);
-                    }
-                }
-                if (comboCarne1.SelectedItem.ToString().Contains("Vienesa"))
-                {
-                    cantVienesas = cantVienesas + 2;
-                    cantCompP = cantCompP + ((int)(numericCantPromo.Value) * 2);
-                }
-                if (comboCarne1.SelectedItem.ToString().Contains("As"))
-                {
-                    cantCarne1 = cantCarne1 + 1;
-                    cantCompM = cantCompM + (int)(numericCantPromo.Value);
-                }
-            }
-            if (comboBebidas1.SelectedItem != null)
-            {
-                cantBebida1 = cantBebida1 + (int)numericCantBebida.Value;
-            }
-            if (comboBebidas3.SelectedItem != null)
-            {
-                cantBebida2 = cantBebida2 + (int)numericCantBebidas2.Value;
-            }
-            if (comboBebidas3.SelectedItem != null)
-            {
-                cantBebida3 = cantBebida3 + (int)numericCantBebidas3.Value;
-            }
-            if (numericCantVasos.Value != 0)
-            {
-                cantVasos = cantVasos + (int)numericCantVasos.Value;
-            }
-        }*/
     }
-        
 }

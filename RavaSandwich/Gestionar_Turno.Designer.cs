@@ -71,9 +71,9 @@ namespace RavaSandwich
             this.btnCerrarTurno.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCerrarTurno.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarTurno.Image")));
             this.btnCerrarTurno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarTurno.Location = new System.Drawing.Point(333, 365);
+            this.btnCerrarTurno.Location = new System.Drawing.Point(331, 365);
             this.btnCerrarTurno.Name = "btnCerrarTurno";
-            this.btnCerrarTurno.Size = new System.Drawing.Size(164, 46);
+            this.btnCerrarTurno.Size = new System.Drawing.Size(171, 46);
             this.btnCerrarTurno.TabIndex = 1;
             this.btnCerrarTurno.Text = "Terminar un turno";
             this.btnCerrarTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

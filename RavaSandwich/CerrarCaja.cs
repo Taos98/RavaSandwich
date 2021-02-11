@@ -15,11 +15,11 @@ namespace RavaSandwich
         public CerrarCaja()
         {
             InitializeComponent();
-            //Carga los valores guardados de los otros form como el dinero fisico y el dinero en caja
+            //Carga los valores guardados de los otros form
             Caja c = new Caja();
             txtDineroCaja.Text = c.getDineroEnCaja() + "";
             txtDineroFisico.Text = c.getDineroFisico() + "";
-            //Calcula la diferencia entre el dinero fisico y el dinero en caja para hacer el cuadre y muestra el resultado en el textbox.
+
             aux = c.getDineroFisico() - c.getDineroEnCaja();
             txtCuadre.Text = aux + "";
 
@@ -27,8 +27,6 @@ namespace RavaSandwich
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            //Envía los datos de la caja hacia la base de datos
-            String fechaHora = DateTime.Now.ToString("d");
             Caja c = new Caja();
             CajaGastos g = new CajaGastos();
             CajaBilletes b = new CajaBilletes();
@@ -46,7 +44,7 @@ namespace RavaSandwich
             comm.CommandType = CommandType.Text;
             //Actualiza el producto
             comm.CommandText = "INSERT into caja(fecha, rut_planchero, nombre_planchero, rut_cajero, nombre_cajero, cuadre_caja, total_ventas, descripcion_gastos, gastos, sueldo_cajero, sueldo_planchero, billetes_monedas )" +
-                            "VALUES('" + fechaHora + "','"+s.getRutPlanchero()+"', '"+s.getNombrePlanchero()+"','"+s.getRutCajero()+"','"+ s.getNombreCajero()+"'," + aux + "," + c.getTotalVenta() + ",'" + g.getDescripcionGastos() + "'," + g.getTotalGastos() + ","+s.getSueldoCajero()+", "+s.getSueldoPlanchero()+"," + b.getTotal() + ")";            //Leer BD
+                            "VALUES('" + DTP_CerrarTurno.Value.ToString("d") + "','"+s.getRutPlanchero()+"', '"+s.getNombrePlanchero()+"','"+s.getRutCajero()+"','"+ s.getNombreCajero()+"'," + aux + "," + c.getTotalVenta() + ",'" + g.getDescripcionGastos() + "'," + g.getTotalGastos() + ","+s.getSueldoCajero()+", "+s.getSueldoPlanchero()+"," + b.getTotal() + ")";            //Leer BD
             NpgsqlDataReader dr = comm.ExecuteReader();
             MessageBox.Show("Se ha cerrado la caja", "Caja cerrada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             //Cerrar comandos

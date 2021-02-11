@@ -14,7 +14,6 @@ namespace RavaSandwich
 {
     public partial class Login : Form
     {
-        //Atributos globales
         public static String nombre = "";
         public static String rol = "";
         public static String rut = "";
@@ -34,9 +33,9 @@ namespace RavaSandwich
 
             if (dr.Read())//Si hay datos
             {
-                nombre = dr.GetString(1);
+                nombre = dr.GetString(3);
                 rut = dr.GetString(0);
-                rol = dr.GetString(3);
+                rol = dr.GetString(2);
                 blnfound = true;//la existencia de datos es verdadera
                 MenuAdmin ma = new MenuAdmin(); //Crea un objeto del menú
                 ma.Show();// invoca la ventana del menú
@@ -62,9 +61,9 @@ namespace RavaSandwich
 
             if (dr1.Read())//Si hay datos
             {
-                nombre = dr.GetString(1);
+                nombre = dr.GetString(3);
                 rut = dr.GetString(0);
-                rol = dr.GetString(3);
+                rol = dr.GetString(2);
                 blnfound1 = true;//la existencia de datos es verdadera
                 MenuUsuario mu = new MenuUsuario(); //Crea un objeto del menú
                 mu.Show();// invoca la ventana del menú

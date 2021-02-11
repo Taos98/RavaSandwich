@@ -11,7 +11,6 @@ namespace RavaSandwich
 {
     public partial class Caja : Form
     {
-        //Variables globales
         int totalEfectivo = 0;
         int totalTransbank = 0;
         int totalCreditos = 0;
@@ -28,8 +27,6 @@ namespace RavaSandwich
             //Fecha actual:
             String fecha = DateTime.Now.ToString("d");
 
-            //Calcula de forma automática los excedentes y totales de ventas
-
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -38,6 +35,7 @@ namespace RavaSandwich
             NpgsqlCommand comm = new NpgsqlCommand();
             //Crear objeto conexión
             comm.Connection = conn;
+            //No se que hace xd
             comm.CommandType = CommandType.Text;
             //Consulta
             comm.CommandText = "SELECT tipo_pago, subtotal, fecha, descuento, pedido from ventas";
@@ -160,6 +158,8 @@ namespace RavaSandwich
         {
             CajaBilletes cb = new CajaBilletes();
             cb.Show();
+            this.Close();
+
             
         }
 
@@ -167,6 +167,7 @@ namespace RavaSandwich
         {
             CajaSueldos cs = new CajaSueldos();
             cs.Show();
+            this.Close();
             
         }
 
@@ -186,7 +187,7 @@ namespace RavaSandwich
         }
         public int getDineroEnCaja()
         {
-            //Sub total de dinero en caja para luego hacer el cuadre (sub total caja = totalventas - ventas transbank - ventas credito - gastos y sueldos - total descuentos)
+            // sub total de dinero en caja para luego hacer el cuadre
             int subtotalDC = tv - int.Parse(txtVtasTransbank.Text) - int.Parse(txtVtasCredito.Text) - int.Parse(txtGastosSueldos.Text) - int.Parse(txtDescuentos.Text);
 
             return subtotalDC;
@@ -194,7 +195,7 @@ namespace RavaSandwich
 
         public int getDineroFisico()
         {
-            //Metodo para tener el dinero fisico (Din Fisico = Total dinero - Sobre)
+            //metodo para tener el dinero fisico
             CajaBilletes b = new CajaBilletes();
             int subtotalDF = b.getTotal() - int.Parse(txtSobre.Text);
             return subtotalDF;

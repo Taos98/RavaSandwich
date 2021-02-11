@@ -15,7 +15,7 @@ namespace RavaSandwich
         {
             InitializeComponent();
             Login l = new Login();
-            labelNombre.Text = l.getNombre();//Carga el nombre de la persona que inicio sesión
+            labelNombre.Text = l.getNombre();
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)

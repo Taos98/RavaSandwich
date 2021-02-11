@@ -23,8 +23,6 @@ namespace RavaSandwich
 
         private void EliminarProducto_Load(object sender, EventArgs e)
         {
-            //Carga los productos que están en el inventario en el combobox
-
             //Datos de conexión a BD
             NpgsqlConnection conn = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = TomiMati2005; Database = Rava");
             //Abrir BD
@@ -65,7 +63,7 @@ namespace RavaSandwich
                 comm.Connection = conn;
                 //No se que hace xd
                 comm.CommandType = CommandType.Text;
-                //Elimina el producto
+                //Actualiza el producto
                 comm.CommandText = "DELETE FROM productos where nombre_prod = '"+comboProductos.SelectedItem.ToString()+"'";
                 DialogResult dia = MessageBox.Show("Desea eliminar el producto " + comboProductos.SelectedItem.ToString() + "?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 if(dia == DialogResult.Yes)

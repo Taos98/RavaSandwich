@@ -44,7 +44,6 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(140, 83);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PlaceholderText = "Ej: Pala";
             this.txtNombre.Size = new System.Drawing.Size(199, 23);
             this.txtNombre.TabIndex = 0;
             // 
