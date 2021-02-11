@@ -19,6 +19,7 @@ namespace RavaSandwich
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            
             int veintemil = (int)(numeric20K.Value * 20000);
             int diezmil = (int)(numeric10K.Value * 10000);
             int cincomil = (int)(numeric5K.Value * 5000);
@@ -29,6 +30,8 @@ namespace RavaSandwich
             int cincuenta = (int)(numeric50.Value * 50);
             int diez = (int)(numeric10.Value * 10);
             total = veintemil + diezmil + cincomil + dosmil + mil + quiniento + cien + cincuenta + diez;
+            Caja c = new Caja();
+            c.Show();
             this.Close();
 
         }
@@ -297,6 +300,13 @@ namespace RavaSandwich
         public int getTotal()
         {
             return total;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Caja c = new Caja();
+            c.Show();
+            this.Close();
         }
     }
 }

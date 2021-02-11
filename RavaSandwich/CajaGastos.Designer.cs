@@ -47,6 +47,7 @@ namespace RavaSandwich
             this.txtMonto6 = new System.Windows.Forms.TextBox();
             this.txtDescripcion6 = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAgregarGasto
@@ -179,7 +180,7 @@ namespace RavaSandwich
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(81, 356);
+            this.btnGuardar.Location = new System.Drawing.Point(34, 355);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(164, 54);
             this.btnGuardar.TabIndex = 16;
@@ -188,12 +189,30 @@ namespace RavaSandwich
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Gold;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(209, 353);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 56);
+            this.button1.TabIndex = 49;
+            this.button1.Text = "Atras";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CajaGastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(338, 498);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtMonto6);
             this.Controls.Add(this.txtDescripcion6);
@@ -238,5 +257,6 @@ namespace RavaSandwich
         private System.Windows.Forms.TextBox txtMonto6;
         private System.Windows.Forms.TextBox txtDescripcion6;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button button1;
     }
 }

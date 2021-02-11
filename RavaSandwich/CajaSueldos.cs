@@ -98,7 +98,7 @@ namespace RavaSandwich
             //Realiza la consulta si los datos ingresados por el textbox son iguales a las que están en la BD
             comm.CommandText = "SELECT hora_ingreso, hora_salida, puesto, rut, fecha FROM turno WHERE rut ='" + cBoxRutCajero.SelectedItem.ToString() + "' and puesto = 'Caja'";
             NpgsqlDataReader dr = comm.ExecuteReader();
-            if (dr.Read())
+            while (dr.Read())
             {
                 if (dr.GetString(4) == DTP_CajaSueldos.Value.ToString("d"))
                 {
@@ -143,7 +143,7 @@ namespace RavaSandwich
             //Consulta
             comm.CommandText=("SELECT hora_ingreso, hora_salida, puesto, rut, fecha FROM turno WHERE rut ='" + cBoxRutPlanchero.SelectedItem.ToString() + "'AND puesto = 'Plancha'");
             NpgsqlDataReader dr = comm.ExecuteReader();
-            if (dr.Read())
+            while (dr.Read())
             {
                 if (dr.GetString(4) == DTP_CajaSueldos.Value.ToString("d"))
                 {
@@ -258,6 +258,13 @@ namespace RavaSandwich
             comm1.Dispose();
             //Desconectar BD
             conn1.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Caja c = new Caja();
+            c.Show();
+            this.Close();
         }
     }
 }

@@ -58,6 +58,7 @@ namespace RavaSandwich
             this.labelNombrePlanchero = new System.Windows.Forms.Label();
             this.cBoxRutPlanchero = new System.Windows.Forms.ComboBox();
             this.DTP_CajaSueldos = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtHoraIngresoC
@@ -247,11 +248,11 @@ namespace RavaSandwich
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(176, 333);
+            this.btnGuardar.Location = new System.Drawing.Point(73, 339);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(162, 56);
+            this.btnGuardar.Size = new System.Drawing.Size(159, 56);
             this.btnGuardar.TabIndex = 41;
-            this.btnGuardar.Text = "Guardar y Volver";
+            this.btnGuardar.Text = "Guardar y volver";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -301,12 +302,30 @@ namespace RavaSandwich
             this.DTP_CajaSueldos.TabIndex = 46;
             this.DTP_CajaSueldos.ValueChanged += new System.EventHandler(this.DTP_CajaSueldos_ValueChanged);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Gold;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(283, 339);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 56);
+            this.button1.TabIndex = 47;
+            this.button1.Text = "Atras";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CajaSueldos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(517, 438);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.DTP_CajaSueldos);
             this.Controls.Add(this.labelNombrePlanchero);
             this.Controls.Add(this.cBoxRutPlanchero);
@@ -373,5 +392,6 @@ namespace RavaSandwich
         private System.Windows.Forms.Label labelNombrePlanchero;
         private System.Windows.Forms.ComboBox cBoxRutPlanchero;
         private System.Windows.Forms.DateTimePicker DTP_CajaSueldos;
+        private System.Windows.Forms.Button button1;
     }
 }

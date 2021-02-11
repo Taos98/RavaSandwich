@@ -101,5 +101,12 @@ namespace RavaSandwich
 
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Caja c = new Caja();
+            c.Show();
+            this.Close();
+        }
     }
 }

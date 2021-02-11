@@ -45,23 +45,23 @@ namespace RavaSandwich
             {
                 if (dr.GetString(2).Contains(fecha))
                 {
-                    listVentas.Items.Add("-" + dr.GetString(0) + "  " + dr.GetInt16(1));
+                    listVentas.Items.Add("-" + dr.GetString(0) + "  " + dr.GetInt32(1));
                     //Clasifica las cuentas para calcular el total de cada una
                     if (dr.GetString(0) == "Efectivo")
                     {
-                        totalEfectivo = totalEfectivo + dr.GetInt16(1);
+                        totalEfectivo = totalEfectivo + dr.GetInt32(1);
                     }
                     if (dr.GetString(0) == "Transbank")
                     {
-                        totalTransbank = totalTransbank + dr.GetInt16(1);
+                        totalTransbank = totalTransbank + dr.GetInt32(1);
                     }
                     if (dr.GetString(0) == "Consumo Local")
                     {
-                        totalCreditos = totalCreditos + dr.GetInt16(1);
+                        totalCreditos = totalCreditos + dr.GetInt32(1);
                     }
                     if (dr.GetString(0).Contains("Pedidos Ya"))
                     {
-                        totalPedidosYa = totalPedidosYa + dr.GetInt16(1);
+                        totalPedidosYa = totalPedidosYa + dr.GetInt32(1);
 
                         if(dr.GetString(4).Contains("Sandwich"))
                         {
